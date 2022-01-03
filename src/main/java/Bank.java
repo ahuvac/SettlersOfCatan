@@ -1,9 +1,8 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Bank {
-    private Map<ResourceCard, Integer> resourceCards;
-    private Map<DevelopmentCard, Integer> developmentCards;
+    private Map<ResourceType, Integer> resourceCards;
+    private List<DevelopmentCard> developmentCards;
 
     public Bank()
     {
@@ -12,9 +11,47 @@ public class Bank {
         ResourceType[] typesOfCards = {ResourceType.BRICK, ResourceType.GRAIN, ResourceType.LUMBER, ResourceType.ORE, ResourceType.ORE};
         for (ResourceType type : typesOfCards)
         {
-            resourceCards.put(new ResourceCard(type), 19);
+            resourceCards.put(type, numberOfCards);
         }
-        developmentCards = new HashMap<>();
+        developmentCards = new ArrayList<DevelopmentCard>();
+        for (int i = 0; i < 14; i++)
+        {
+            developmentCards.add(DevelopmentCard.KNIGHT);
+        }
+        for (int i =0; i < 5; i++)
+        {
+            developmentCards.add(DevelopmentCard.VICTORY_POINTS);
+        }
+        for (int i = 0; i < 2; i++) {
+            developmentCards.add(DevelopmentCard.MONOPOLY);
+            developmentCards.add(DevelopmentCard.YEAR_OF_PLENTY);
+            developmentCards.add(DevelopmentCard.ROAD_BUILDING);
+        }
+        Collections.shuffle(developmentCards);
+    }
+
+    public ResourceCard getResourceCard(ResourceType type)
+    {
+        int old = resourceCards.get(type);
+        resourceCards.put(type, --old);
+        return new ResourceCard(type);
+    }
+
+    public void addResourceCard(ResourceType type)
+    {
+        int old = resourceCards.get(type);
+        resourceCards.put(type, ++old);
+    }
+
+    public DevelopmentCard getDevelopmentCard()
+    {
+        if (developmentCards.size() > 0) {
+            return developmentCards.get(0);
+        }
+        else
+        {
+            return null;
+        }
     }
 
 }
