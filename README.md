@@ -4,8 +4,8 @@ What we need:
 
 Board:
 * Hexes
-* Ships
-* Resource Cards
+* Ports
+* Resource Type (Enum)
 * Developement Cards
 * Settlements
 * Roads
