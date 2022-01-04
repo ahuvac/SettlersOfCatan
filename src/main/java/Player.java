@@ -22,35 +22,41 @@ public class Player {
     }
 
     public void buildRoad(){
-        roads--;
-        wallet.useCard(ResourceType.LUMBER);
-        wallet.useCard(ResourceType.BRICK);
-        numRoads++;
+        List<ResourceType> cardList = new ArrayList<>();
+        cardList.add(ResourceType.LUMBER);
+        cardList.add(ResourceType.BRICK);
+        if(wallet.useCards(cardList)){
+            numRoads++;
+            roads--;
+        }
+        else{
+          // try again
+        }
+
     }
 
     public void buildSettlement(){
-        settlements--;
-        wallet.useCard(ResourceType.LUMBER);
-        wallet.useCard(ResourceType.WOOL);
-        wallet.useCard(ResourceType.GRAIN);
-        wallet.useCard(ResourceType.BRICK);
+        wallet.useCard(ResourceType.LUMBER, 1);
+        wallet.useCard(ResourceType.WOOL, 1);
+        wallet.useCard(ResourceType.GRAIN, 1);
+        wallet.useCard(ResourceType.BRICK, 1);
         score++;
+        settlements--;
     }
 
     public void buildCity(){
+        wallet.useCard(ResourceType.ORE, 3);
+        wallet.useCard(ResourceType.GRAIN, 2);
+
+        score+=2;
         cities--;
         settlements++;
-        wallet.useCard(ResourceType.ORE);
-        wallet.useCard(ResourceType.ORE);
-        wallet.useCard(ResourceType.ORE);
-        wallet.useCard(ResourceType.GRAIN);
-        wallet.useCard(ResourceType.GRAIN);
-        score+=2;
     }
 
     public void buyDevelopmentCard(){
-        wallet.useCard(ResourceType.GRAIN);
-        wallet.useCard(ResourceType.ORE);
-        wallet.useCard(ResourceType.WOOL);
+        wallet.useCard(ResourceType.GRAIN, 1);
+        wallet.useCard(ResourceType.ORE, 1);
+        wallet.useCard(ResourceType.WOOL, 1);
+        developmentCards.add(new DevelopmentCard());
     }
 }

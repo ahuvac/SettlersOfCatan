@@ -15,12 +15,23 @@ public class Wallet {
     }
 
     public void addCard(ResourceType card){
-        int old = cards.get(card);
-        cards.put(card, old++);
+        int amount = cards.get(card);
+        cards.put(card, amount++);
     }
 
-    public void useCard(ResourceType card){
-        int old = cards.get(card);
-        cards.put(card, old--);
+    public boolean useCards(List<ResourceType> cards){
+        // check if has each card
+//        if(cards.containsKey(card) && cards.get(card) == amount) {
+//            int num = cards.get(card);
+//            cards.put(card, num--);
+//            return true;
+//        }
+//        else
+            return false;
     }
+
+//    public boolean contains(ResourceType type, int amount){
+//        if(cards.containsKey(type) && cards.get(type) == amount) return true;
+//        else return false;
+//    }
 }
