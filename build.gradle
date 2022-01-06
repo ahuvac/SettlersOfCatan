@@ -5,7 +5,7 @@ plugins {
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'cheifetz.paint.PaintApplication'
+mainClassName = 'SettlersApplication'
 
 
 repositories {
