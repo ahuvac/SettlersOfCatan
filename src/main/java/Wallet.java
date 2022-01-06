@@ -2,9 +2,10 @@ import java.util.*;
 
 public class Wallet {
 
-    private Map<ResourceType, Integer> cards = new HashMap<>();;
+    private Map<ResourceType, Integer> cards = new HashMap<>();
+    ;
 
-    public Wallet(){
+    public Wallet() {
         cards.put(ResourceType.BRICK, 0);
         cards.put(ResourceType.DESERT, 0);
         cards.put(ResourceType.GRAIN, 0);
@@ -14,20 +15,23 @@ public class Wallet {
         cards.put(ResourceType.WOOL, 0);
     }
 
-    public void addCard(ResourceType card){
+    public void addCard(ResourceType card) {
         int amount = cards.get(card);
         cards.put(card, amount++);
     }
 
-    public boolean useCards(List<ResourceType> cards){
-        // check if has each card
-//        if(cards.containsKey(card) && cards.get(card) == amount) {
-//            int num = cards.get(card);
-//            cards.put(card, num--);
-//            return true;
-//        }
-//        else
-            return false;
+    public boolean useCards(Map<ResourceType, Integer> payment) {
+        for (Map.Entry<ResourceType, Integer> entry : payment.entrySet()) {
+            ResourceType cardType = entry.getKey();
+            if (!cards.containsKey(cardType) || payment.get(cardType) > cards.get(cardType)) {
+                return false;
+            }
+            else{
+                int num = cards.get(cardType);
+                cards.put(cardType, num--);
+            }
+        }
+        return true;
     }
 
 //    public boolean contains(ResourceType type, int amount){
