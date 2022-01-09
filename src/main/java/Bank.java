@@ -37,6 +37,10 @@ public class Bank {
      */
     public boolean getResourceCard(ResourceType type)
     {
+        if (type == ResourceType.DESERT)
+        {
+            return false;
+        }
         int old = resourceCards.get(type);
         if (old == 0)
         {
@@ -53,8 +57,11 @@ public class Bank {
      */
     public void addResourceCard(ResourceType type)
     {
-        int old = resourceCards.get(type);
-        resourceCards.put(type, ++old);
+        if (type != ResourceType.DESERT)
+        {
+            int old = resourceCards.get(type);
+            resourceCards.put(type, ++old);
+        }
     }
 
     /**
