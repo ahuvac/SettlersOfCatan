@@ -64,7 +64,7 @@ public class Bank {
     public DevelopmentCard getDevelopmentCard()
     {
         if (developmentCards.size() > 0) {
-            return developmentCards.get(0);
+            return developmentCards.remove(0);
         }
         else
         {

@@ -16,7 +16,8 @@ public class Wallet {
     // adds a card to the wallet
     public void addCard(ResourceType card) {
         int amount = cards.get(card);
-        cards.put(card, amount++);
+        amount +=1;
+        cards.put(card, amount);
     }
 
     // takes a list of cards the player wants to use and checks if the user has those cards in his wallet

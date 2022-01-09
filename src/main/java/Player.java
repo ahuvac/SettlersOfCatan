@@ -9,7 +9,7 @@ public class Player {
     private int roads;
     private int score;
     private List<DevelopmentCard> developmentCards;
-    private Wallet wallet;
+    protected Wallet wallet;
     int numRoads;
 
     public Player()
@@ -57,8 +57,8 @@ public class Player {
 
     public boolean buildCity(){
         Map<ResourceType, Integer> cardList = new HashMap<>();
-        cardList.put(ResourceType.GRAIN, 1);
-        cardList.put(ResourceType.ORE, 1);
+        cardList.put(ResourceType.GRAIN, 2);
+        cardList.put(ResourceType.ORE, 3);
 
         if(wallet.useCards(cardList)) {
             score+=2;
@@ -77,7 +77,7 @@ public class Player {
         cardList.put(ResourceType.ORE, 1);
         cardList.put(ResourceType.WOOL, 1);
         if(wallet.useCards(cardList)) {
-            developmentCards.add(new DevelopmentCard());
+            //developmentCards.add(new DevelopmentCard());
             return true;
         }
         else {
