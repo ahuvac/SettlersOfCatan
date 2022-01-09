@@ -38,5 +38,5 @@ public class Wallet {
         int amount = cards.get(card);
         cards.put(card, amount++);
     }
-    
+
 }
