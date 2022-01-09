@@ -1,14 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
+
 <?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="SettlersApplication"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.geometry.Insets?>
 
-</AnchorPane>
+
+<?import javafx.scene.image.ImageView?>
+<GridPane fx:controller="SettlersController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <padding>
+        <Insets top="25" right="25" bottom="10" left="25"/>
+    </padding>
+
+    <!-- First row - Player 1 -->
+
+    <ImageView fx:id="Player1Grain" GridPane.rowIndex="0" GridPane.columnIndex="0"></ImageView>
+    <ImageView fx:id="Player1Lumber" GridPane.rowIndex="0" GridPane.columnIndex="1"></ImageView>
+    <ImageView fx:id="Player1Wool" GridPane.rowIndex="0" GridPane.columnIndex="2"></ImageView>
+    <ImageView fx:id="Player1Ore" GridPane.rowIndex="0" GridPane.columnIndex="3"></ImageView>
+    <ImageView fx:id="Player1Brick" GridPane.rowIndex="0" GridPane.columnIndex="4"></ImageView>
+
+    <Label fx:id="score"
+           GridPane.rowIndex="0" GridPane.columnIndex="4" GridPane.columnSpan="3" />
+
+    <!-- Second Row - first row of board -->
+
+    <ImageView fx:id="hex1" GridPane.rowIndex="3" GridPane.columnIndex="2"></ImageView>
+    <ImageView fx:id="hex2" GridPane.rowIndex="3" GridPane.columnIndex="4"></ImageView>
+    <ImageView fx:id="hex3" GridPane.rowIndex="3" GridPane.columnIndex="6"></ImageView>
+
+
+    <!-- Third Row - second row of board -->
+
+    <ImageView fx:id="hex4" GridPane.rowIndex="4" GridPane.columnIndex="1"></ImageView>
+    <ImageView fx:id="hex5" GridPane.rowIndex="4" GridPane.columnIndex="3"></ImageView>
+    <ImageView fx:id="hex6" GridPane.rowIndex="4" GridPane.columnIndex="5"></ImageView>
+    <ImageView fx:id="hex7" GridPane.rowIndex="4" GridPane.columnIndex="7"></ImageView>
+
+
+    <!-- Fourth Row - third row of board -->
+
+    <ImageView fx:id="hex8" GridPane.rowIndex="5" GridPane.columnIndex="0"></ImageView>
+    <ImageView fx:id="hex9" GridPane.rowIndex="5" GridPane.columnIndex="2"></ImageView>
+    <ImageView fx:id="hex10" GridPane.rowIndex="5" GridPane.columnIndex="4"></ImageView>
+    <ImageView fx:id="hex11" GridPane.rowIndex="5" GridPane.columnIndex="6"></ImageView>
+    <ImageView fx:id="hex12" GridPane.rowIndex="5" GridPane.columnIndex="8"></ImageView>
+
+    <!-- Fifth Row - fourth row of board -->
+
+    <ImageView fx:id="hex13" GridPane.rowIndex="6" GridPane.columnIndex="1"></ImageView>
+    <ImageView fx:id="hex14" GridPane.rowIndex="6" GridPane.columnIndex="3"></ImageView>
+    <ImageView fx:id="hex15" GridPane.rowIndex="6" GridPane.columnIndex="5"></ImageView>
+    <ImageView fx:id="hex16" GridPane.rowIndex="6" GridPane.columnIndex="7"></ImageView>
+
+    <!-- Sixth Row - fifth row of board-->
+
+
+    <ImageView fx:id="hex17" GridPane.rowIndex="7" GridPane.columnIndex="2"></ImageView>
+    <ImageView fx:id="hex18" GridPane.rowIndex="7" GridPane.columnIndex="4"></ImageView>
+    <ImageView fx:id="hex19" GridPane.rowIndex="7" GridPane.columnIndex="6"></ImageView>
+
+    <!-- Seventh Row - Player 2 -->
+
+    <ImageView fx:id="Player2Grain" GridPane.rowIndex="8" GridPane.columnIndex="0"></ImageView>
+    <ImageView fx:id="Player2Lumber" GridPane.rowIndex="8" GridPane.columnIndex="1"></ImageView>
+    <ImageView fx:id="Player2Wool" GridPane.rowIndex="8" GridPane.columnIndex="2"></ImageView>
+    <ImageView fx:id="Player2Ore" GridPane.rowIndex="8" GridPane.columnIndex="3"></ImageView>
+    <ImageView fx:id="Player2Brick" GridPane.rowIndex="8" GridPane.columnIndex="4"></ImageView>
+
+
+    <fx:define>
+        <ArrayList fx:id="hexes" >
+            <fx:reference source="hex1"/>
+            <fx:reference source="hex2"/>
+            <fx:reference source="hex3"/>
+            <fx:reference source="hex4"/>
+            <fx:reference source="hex5"/>
+            <fx:reference source="hex6"/>
+            <fx:reference source="hex7"/>
+            <fx:reference source="hex8"/>
+            <fx:reference source="hex9"/>
+            <fx:reference source="hex10"/>
+            <fx:reference source="hex11"/>
+            <fx:reference source="hex12"/>
+            <fx:reference source="hex13"/>
+            <fx:reference source="hex14"/>
+            <fx:reference source="hex15"/>
+            <fx:reference source="hex16"/>
+            <fx:reference source="hex17"/>
+            <fx:reference source="hex18"/>
+            <fx:reference source="hex19"/>
+        </ArrayList>
+    </fx:define>
+
+
+
+</GridPane>
