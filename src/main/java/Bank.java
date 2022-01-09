@@ -30,6 +30,25 @@ public class Bank {
         Collections.shuffle(developmentCards);
     }
 
+    public boolean hasResourceCard(ResourceType type, int number)
+    {
+        int numberOfCards = resourceCards.get(type);
+        resourceCards.put(type, numberOfCards);
+        if (number > numberOfCards)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean hasDevelopmentCard()
+    {
+        return developmentCards.size() > 0;
+    }
+
     /**
      * This method takes a resource type and returns a resource card of that type from the bank
      * if there are no more of that type of resource in the bank, it returns null

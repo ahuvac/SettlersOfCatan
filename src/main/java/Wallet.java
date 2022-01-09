@@ -13,6 +13,26 @@ public class Wallet {
         cards.put(ResourceType.WOOL, 0);
     }
 
+    public boolean hasCard(ResourceType type, int number)
+    {
+        int numberOfCards = cards.get(type);
+        cards.put(type, numberOfCards);
+        if (number > numberOfCards)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void useCard(ResourceType type)
+    {
+        int numberOfCards = cards.get(type);
+        cards.put(type, --numberOfCards);
+    }
+
     // adds a card to the wallet
     public void addCard(ResourceType card) {
         int amount = cards.get(card);

@@ -23,6 +23,16 @@ public class Player {
         numRoads = 0;
     }
 
+    public boolean hasCard(ResourceType type, int number)
+    {
+        return wallet.hasCard(type, number);
+    }
+
+    public void useCard(ResourceType type)
+    {
+        wallet.useCard(type);
+    }
+
     public boolean buildRoad(){
         Map<ResourceType, Integer> cardList = new HashMap<>();
         cardList.put(ResourceType.LUMBER, 1);
@@ -71,17 +81,18 @@ public class Player {
         }
     }
 
-    public boolean buyDevelopmentCard(){
-        Map<ResourceType, Integer> cardList = new HashMap<>();
-        cardList.put(ResourceType.GRAIN, 1);
-        cardList.put(ResourceType.ORE, 1);
-        cardList.put(ResourceType.WOOL, 1);
-        if(wallet.useCards(cardList)) {
-            developmentCards.add(new DevelopmentCard());
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
+
+//    public boolean buyDevelopmentCard(){
+//        Map<ResourceType, Integer> cardList = new HashMap<>();
+//        cardList.put(ResourceType.GRAIN, 1);
+//        cardList.put(ResourceType.ORE, 1);
+//        cardList.put(ResourceType.WOOL, 1);
+//        if(wallet.useCards(cardList)) {
+//            //developmentCards.add(new DevelopmentCard());
+//            return true;
+//        }
+//        else {
+//            return false;
+//        }
+//    }
 }
