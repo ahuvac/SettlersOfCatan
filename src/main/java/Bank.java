@@ -30,19 +30,43 @@ public class Bank {
         Collections.shuffle(developmentCards);
     }
 
-    /**
-     * This method takes a resource type and returns a resource card of that type from the bank
-     * if there are no more of that type of resource in the bank, it returns null
-     */
-    public ResourceCard getResourceCard(ResourceType type)
+    public boolean hasResourceCard(ResourceType type, int number)
     {
+        int numberOfCards = resourceCards.get(type);
+        resourceCards.put(type, numberOfCards);
+        if (number > numberOfCards)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public boolean hasDevelopmentCard()
+    {
+        return developmentCards.size() > 0;
+    }
+
+    /**
+     * This method takes a resource type and returns true if there is that card in the bank and false if there are
+     * none in the bank
+     * it also decrements that amount in the bank if true is returned
+     */
+    public boolean getResourceCard(ResourceType type)
+    {
+        if (type == ResourceType.DESERT)
+        {
+            return false;
+        }
         int old = resourceCards.get(type);
         if (old == 0)
         {
-            return null;
+            return false;
         }
         resourceCards.put(type, --old);
-        return new ResourceCard(type);
+        return true;
     }
 
 
@@ -52,8 +76,11 @@ public class Bank {
      */
     public void addResourceCard(ResourceType type)
     {
-        int old = resourceCards.get(type);
-        resourceCards.put(type, ++old);
+        if (type != ResourceType.DESERT)
+        {
+            int old = resourceCards.get(type);
+            resourceCards.put(type, ++old);
+        }
     }
 
     /**
