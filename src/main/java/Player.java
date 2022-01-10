@@ -23,53 +23,73 @@ public class Player {
         numRoads = 0;
     }
 
-    public boolean buildRoad(){
-        Map<ResourceType, Integer> cardList = new HashMap<>();
-        cardList.put(ResourceType.LUMBER, 1);
-        cardList.put(ResourceType.BRICK, 1);
-        if(wallet.useCards(cardList)){
+    public boolean hasSpareRoads()
+    {
+        return roads != 0;
+    }
+
+    public boolean hasSpareSettlements()
+    {
+        return settlements != 0;
+    }
+
+    public boolean hasBuiltSettlements()
+    {
+        return settlements != 5;
+    }
+
+    public boolean hasSpareCities()
+    {
+        return cities != 0;
+    }
+
+    public boolean hasCard(ResourceType type, int number)
+    {
+        return wallet.hasCard(type, number);
+    }
+
+    public void useCard(ResourceType type)
+    {
+        wallet.useCard(type);
+    }
+
+    public void buyDevelopmentCard(DevelopmentCard card)
+    {
+        useCard(ResourceType.WOOL);
+        useCard(ResourceType.GRAIN);
+        useCard(ResourceType.ORE);
+        developmentCards.add(card);
+    }
+
+    //TODO: Specify location
+    public void buildRoad(){
+        useCard(ResourceType.BRICK);
+        useCard(ResourceType.LUMBER);
             numRoads++;
             roads--;
-            return true;
-        }
-        else{
-           return false;
-        }
-
     }
 
-    public boolean buildSettlement(){
-        Map<ResourceType, Integer> cardList = new HashMap<>();
-        cardList.put(ResourceType.WOOL, 1);
-        cardList.put(ResourceType.GRAIN, 1);
-        cardList.put(ResourceType.BRICK, 1);
-        cardList.put(ResourceType.LUMBER, 1);
-
-        if(wallet.useCards(cardList)) {
+    //TODO: Specify location
+    public void buildSettlement(){
+        useCard(ResourceType.GRAIN);
+        useCard(ResourceType.WOOL);
+        useCard(ResourceType.LUMBER);
+        useCard(ResourceType.BRICK);
             score++;
             settlements--;
-            return true;
-        }
-        else{
-            return false;
-        }
     }
 
-    public boolean buildCity(){
-        Map<ResourceType, Integer> cardList = new HashMap<>();
-        cardList.put(ResourceType.GRAIN, 2);
-        cardList.put(ResourceType.ORE, 3);
-
-        if(wallet.useCards(cardList)) {
+    public void buildCity(){
+        useCard(ResourceType.ORE);
+        useCard(ResourceType.ORE);
+        useCard(ResourceType.ORE);
+        useCard(ResourceType.GRAIN);
+        useCard(ResourceType.GRAIN);
+      
             score+=2;
             cities--;
             settlements++;
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+
 
     public boolean buyDevelopmentCard(){
         Map<ResourceType, Integer> cardList = new HashMap<>();
@@ -84,4 +104,6 @@ public class Player {
             return false;
         }
     }
+
+
 }
