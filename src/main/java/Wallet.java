@@ -36,7 +36,8 @@ public class Wallet {
     // adds a card to the wallet
     public void addCard(ResourceType card) {
         int amount = cards.get(card);
-        cards.put(card, amount++);
+        amount +=1;
+        cards.put(card, amount);
     }
 
 }

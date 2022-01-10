@@ -9,7 +9,7 @@ public class Player {
     private int roads;
     private int score;
     private List<DevelopmentCard> developmentCards;
-    private Wallet wallet;
+    protected Wallet wallet;
     int numRoads;
 
     public Player()
@@ -79,18 +79,30 @@ public class Player {
             settlements--;
     }
 
-    //TODO: Specify location
     public void buildCity(){
         useCard(ResourceType.ORE);
         useCard(ResourceType.ORE);
         useCard(ResourceType.ORE);
         useCard(ResourceType.GRAIN);
         useCard(ResourceType.GRAIN);
-
+      
             score+=2;
             cities--;
             settlements++;
 
+
+    public boolean buyDevelopmentCard(){
+        Map<ResourceType, Integer> cardList = new HashMap<>();
+        cardList.put(ResourceType.GRAIN, 1);
+        cardList.put(ResourceType.ORE, 1);
+        cardList.put(ResourceType.WOOL, 1);
+        if(wallet.useCards(cardList)) {
+            //developmentCards.add(new DevelopmentCard());
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 
