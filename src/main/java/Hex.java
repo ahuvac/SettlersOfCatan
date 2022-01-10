@@ -4,6 +4,7 @@ import java.util.List;
 public class Hex {
     ResourceType type;
     List<Hex> neighbors;
+    boolean hasRobber = false;
     int number;
 
 
