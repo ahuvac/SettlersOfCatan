@@ -9,7 +9,6 @@ public class Wallet {
         cards.put(ResourceType.GRAIN, 0);
         cards.put(ResourceType.ORE, 0);
         cards.put(ResourceType.LUMBER, 0);
-        cards.put(ResourceType.ROBBER, 0);
         cards.put(ResourceType.WOOL, 0);
     }
 
@@ -34,9 +33,9 @@ public class Wallet {
     }
 
     // adds a card to the wallet
-    public void addCard(ResourceType card) {
+    public void addCard(ResourceType card, int number) {
         int amount = cards.get(card);
-        cards.put(card, amount++);
+        cards.put(card, amount+=number);
     }
 
 }
