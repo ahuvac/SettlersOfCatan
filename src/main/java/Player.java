@@ -11,9 +11,11 @@ public class Player {
     private List<DevelopmentCard> developmentCards;
     protected Wallet wallet;
     int numRoads;
+    Color color;
 
-    public Player()
+    public Player(Color color)
     {
+        this.color = color;
         wallet = new Wallet();
         developmentCards = new ArrayList<>();
         cities = 4;
@@ -52,6 +54,8 @@ public class Player {
     {
         wallet.useCard(type);
     }
+
+    public void addCard(ResourceType type, int number) {wallet.addCard(type, number);}
 
     public void buyDevelopmentCard(DevelopmentCard card)
     {

@@ -84,4 +84,48 @@ public class Game {
             return false;
         }
     }
+
+    public int[] rollDiceAndDistributeCards()
+    {
+        int[] rolledNumbers = new int[2];
+        int diceNumber = 0;
+        for (int i = 0; i < dice.length; i++)
+        {
+            int rolled = dice[i].roll();
+            diceNumber += rolled;
+            rolledNumbers[i] = rolled;
+        }
+        List<HexLocation> hexes = board.getHexesWithNumber(diceNumber);
+        for (HexLocation location : hexes) {
+            ResourceType resource = board.getResource(location);
+            List<Vertex> vertices = board.getVertices(location);
+            for (Vertex vertex: vertices) {
+                if (vertex.hasCity())
+                {
+                    Color cityColor = vertex.getCityColor();
+                    for (Player player : players)
+                    {
+                        if (player.color == cityColor)
+                        {
+                            player.addCard(resource, 2);
+                            break;
+                        }
+                    }
+                }
+                else if (vertex.hasSettlement())
+                {
+                    Color settlementColor = vertex.getSettlementColor();
+                    for (Player player : players)
+                    {
+                        if (player.color == settlementColor)
+                        {
+                            player.addCard(resource, 1);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return rolledNumbers;
+    }
 }

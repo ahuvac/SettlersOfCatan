@@ -1,3 +1,5 @@
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
@@ -6,7 +8,7 @@ public class Board {
     ;
     Hex[][] hexes = new Hex[5][9];
     Vertex[][] vertices;
-    Edge[][] edges = new Edge[20][10];
+    Edge[][] edges = new Edge[21][10];
 
 
     public Board(){
@@ -305,6 +307,30 @@ public class Board {
         borderingHexes.add(hexes[4][6]);
         edges[10][13] = new Edge(borderingHexes);
         edges[10][15] = new Edge(borderingHexes);
+    }
+
+    public List<HexLocation> getHexesWithNumber(int number)
+    {
+        ArrayList<HexLocation> hexesWithNumber = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (hexes[i][j].number == number)
+                {
+                    hexesWithNumber.add(new HexLocation(i, j));
+                }
+            }
+        }
+        return hexesWithNumber;
+    }
+
+    public List<Vertex> getVertices(HexLocation location)
+    {
+        throw new NotImplementedException();
+    }
+
+    public ResourceType getResource(HexLocation location)
+    {
+        return hexes[location.row][location.col].type;
     }
 
 }

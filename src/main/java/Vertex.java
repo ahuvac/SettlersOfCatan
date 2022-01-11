@@ -38,4 +38,27 @@ public class Vertex {
         return settlement != null;
     }
 
+
+    public Color getCityColor()
+    {
+        if (hasCity()) {
+            return city.getColor();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public Color getSettlementColor()
+    {
+        if (hasSettlement()) {
+            return settlement.getColor();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }
