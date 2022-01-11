@@ -95,8 +95,8 @@ public class Player {
     public void buildRoad(){
         useCard(ResourceType.BRICK);
         useCard(ResourceType.LUMBER);
-            numRoads++;
-            roads--;
+        consecutiveRoads++;
+        roads--;
     }
 
     //TODO: Specify location
