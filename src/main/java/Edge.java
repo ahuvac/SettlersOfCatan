@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Edge {
     private List<Hex> hexes;
-    //private Vertex[] vertices;
+    private List<Vertex> vertices;
     private Road road = null;
 
     public Edge(List<Hex> hexes)
@@ -22,5 +22,14 @@ public class Edge {
             this.road = road;
         }
     }
+
+    public void setVertices(Vertex vertex){
+        this.vertices.add(vertex);
+    }
+
+    public List<Vertex> getVertices(){
+        return this.vertices;
+    }
+
 
 }

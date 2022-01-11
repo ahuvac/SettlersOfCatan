@@ -5,6 +5,8 @@ public class Game {
     private Die[] dice;
     private Board board;
     private Bank bank;
+    private int largestArmy;
+
 
     public DevelopmentCard buyDevelopmentCard(Player player)
     {
@@ -19,6 +21,15 @@ public class Game {
             bank.addResourceCard(ResourceType.ORE);
             DevelopmentCard card = bank.getDevelopmentCard();
             player.buyDevelopmentCard(card);
+            if(card.equals(DevelopmentCard.KNIGHT)) player.addSoldier();
+            if(player.getSoldiers() >= 3 && player.getSoldiers() > largestArmy){
+                    largestArmy = player.getSoldiers();
+                    for(Player p : players) p.largestArmy(false);
+                    player.largestArmy(true);
+
+                }
+            if(card.equals(DevelopmentCard.VICTORY_POINTS)) player.incrementScore();
+
             return card;
         }
         else
@@ -97,37 +108,64 @@ public class Game {
             diceNumber += rolled;
             rolledNumbers[i] = rolled;
         }
-        List<HexLocation> hexes = board.getHexesWithNumber(diceNumber);
-        for (HexLocation location : hexes) {
-            ResourceType resource = board.getResource(location);
-            List<Vertex> vertices = board.getVertices(location);
-            for (Vertex vertex: vertices) {
-                if (vertex.hasCity())
-                {
-                    Color cityColor = vertex.getCityColor();
-                    for (Player player : players)
-                    {
-                        if (player.color == cityColor)
-                        {
-                            player.addCard(resource, 2);
-                            break;
+
+        if(diceNumber == 7){
+            playRobber();
+        }
+        else {
+            List<HexLocation> hexes = board.getHexesWithNumber(diceNumber);
+            for (HexLocation location : hexes) {
+                ResourceType resource = board.getResource(location);
+                List<Vertex> vertices = board.getVertices(location);
+                for (Vertex vertex : vertices) {
+                    if (vertex.hasCity()) {
+                        Color cityColor = vertex.getCityColor();
+                        for (Player player : players) {
+                            if (player.color == cityColor) {
+                                player.addCard(resource, 2);
+                                break;
+                            }
                         }
-                    }
-                }
-                else if (vertex.hasSettlement())
-                {
-                    Color settlementColor = vertex.getSettlementColor();
-                    for (Player player : players)
-                    {
-                        if (player.color == settlementColor)
-                        {
-                            player.addCard(resource, 1);
-                            break;
+                    } else if (vertex.hasSettlement()) {
+                        Color settlementColor = vertex.getSettlementColor();
+                        for (Player player : players) {
+                            if (player.color == settlementColor) {
+                                player.addCard(resource, 1);
+                                break;
+                            }
                         }
                     }
                 }
             }
         }
         return rolledNumbers;
+    }
+
+    public boolean over() {
+        return winningPlayer() != null;
+    }
+
+    // if game is over, returns the winning player, otherwise returns null
+    public Player winningPlayer() {
+        Player winner = players.get(0);
+        for (Player p : players) {
+            if (p.getScore() > winner.getScore()) {
+                winner = p;
+            }
+        }
+        if (winner.getScore() >= 10) {
+            return winner;
+        }
+        else
+            return null;
+    }
+
+    public void playRobber(){
+        // TODO add functionality for moving the robber when a seven is rolled
+        // TODO includes:
+        //              - halving anyones' cards over 7
+        //              - moving the robber and blocking that hex
+        //              - roller picks a card from someone
+
     }
 }

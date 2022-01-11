@@ -2,7 +2,7 @@ import java.util.List;
 
 public class Vertex {
     private List<Hex> hexes;
-    //private List<Edge> edges;
+    private List<Edge> edges;
     private Settlement settlement = null;
     private City city = null;
 
@@ -59,6 +59,18 @@ public class Vertex {
         {
             return null;
         }
+    }
+
+    public void setEdges(List<Edge> edgeList){
+        this.edges = edgeList;
+        for(Edge edge : edgeList){
+            edge.setVertices(this);
+        }
+
+    }
+
+    public List<Edge> getEdges(){
+        return this.edges;
     }
 
 }
