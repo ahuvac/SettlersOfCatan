@@ -16,7 +16,7 @@ public class Game {
         for(int i = 0; i < players.size(); i++){
             players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
         }
-        dice = new Die[];
+        dice = new Die[2];
         board = new Board();
         bank = new Bank();
         largestArmy = 0;
