@@ -543,7 +543,23 @@ public class Board {
 
     public List<Vertex> getVertices(HexLocation location)
     {
-        throw new NotImplementedException();
+        List<Vertex> vertexList = new ArrayList<>();
+        int index = location.row * 2;
+
+        vertexList.add(vertices[index] [location.col + 1]);
+        vertexList.add(vertices[index + 1] [location.col]);
+        vertexList.add(vertices[index + 2] [location.col]);
+        vertexList.add(vertices[index + 3] [location.col + 1]);
+        vertexList.add(vertices[index + 1] [location.col + 2]);
+        vertexList.add(vertices[index + 2] [location.col + 2]);
+
+        return vertexList;
+    }
+
+    public List<Vertex> getVertices(Edge edge)
+    {
+        List<Vertex> vertices = new ArrayList<>();
+        return vertices;
     }
 
     public ResourceType getResource(HexLocation location)
