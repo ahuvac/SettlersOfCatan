@@ -310,66 +310,156 @@ public class Board {
         edges[10][15] = new Edge(borderingHexes);
     }
 
+    //TODO replace methid with the formula
     private void placeVertices()
     {
         //first row
         List<Hex> borderingHexes = new ArrayList<Hex>();
+        List<Edge> edgeList = new ArrayList<>();
+
         borderingHexes.add(hexes[0][2]);
         vertices[0][3] = new Vertex(borderingHexes);
+        edgeList.add(edges[0][5]);
+        edgeList.add(edges[0][7]);
+        vertices[0][3].setEdges(edgeList);
+        edgeList.clear();
+
         borderingHexes.remove(0);
         borderingHexes.add(hexes[0][4]);
         vertices[0][5] = new Vertex(borderingHexes);
+        edgeList.add(edges[0][9]);
+        edgeList.add(edges[0][11]);
+        vertices[0][5].setEdges(edgeList);
         borderingHexes.remove(0);
+        edgeList.clear();
+
         borderingHexes.add(hexes[0][6]);
         vertices[0][7] = new Vertex(borderingHexes);
+        edgeList.add(edges[0][13]);
+        edgeList.add(edges[0][15]);
+        vertices[0][7].setEdges(edgeList);
+        edgeList.clear();
+
         //second row
         borderingHexes.clear();
         borderingHexes.add(hexes[0][2]);
         vertices[1][2] = new Vertex(borderingHexes);
+        edgeList.add(edges[1][4]);
+        edgeList.add(edges[0][5]);
+        vertices[1][2].setEdges(edgeList);
+        edgeList.clear();
+
         borderingHexes.add(hexes[0][4]);
         vertices[1][4] = new Vertex(borderingHexes);
+        edgeList.add(edges[0][7]);
+        edgeList.add(edges[1][8]);
+        vertices[1][4].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.add(hexes[0][6]);
+
         vertices[1][6] = new Vertex(borderingHexes);
+        edgeList.add(edges[0][11]);
+        edgeList.add(edges[1][12]);
+        vertices[1][6].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
+
         vertices[1][8] = new Vertex(borderingHexes);
+        edgeList.add(edges[1][15]);
+        edgeList.add(edges[1][16]);
+        vertices[1][8].setEdges(edgeList);
+        edgeList.clear();
+
         //third row
         borderingHexes.clear();
         borderingHexes.add(hexes[1][1]);
         borderingHexes.add(hexes[0][2]);
         vertices[2][2] = new Vertex(borderingHexes);
+        edgeList.add(edges[1][4]);
+        edgeList.add(edges[2][3]);
+        edgeList.add(edges[2][5]);
+        vertices[2][2].setEdges(edgeList);
+        edgeList.clear();
+
         borderingHexes.remove(0);
         borderingHexes.add(hexes[1][3]);
         borderingHexes.add(hexes[0][4]);
         vertices[2][4] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][7]);
+        edgeList.add(edges[1][8]);
+        edgeList.add(edges[2][9]);
+        vertices[2][4].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[1][5]);
         borderingHexes.add(hexes[0][6]);
+
         vertices[2][6] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][11]);
+        edgeList.add(edges[1][12]);
+        edgeList.add(edges[2][13]);
+        vertices[2][6].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+
         vertices[2][8] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][15]);
+        edgeList.add(edges[1][16]);
+        edgeList.add(edges[2][17]);
+        vertices[2][8].setEdges(edgeList);
+        edgeList.clear();
+
         //fourth row
         borderingHexes.clear();
         borderingHexes.add(hexes[1][1]);
         vertices[3][1] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][3]);
+        edgeList.add(edges[3][2]);
+        vertices[3][1].setEdges(edgeList);
+        edgeList.clear();
+
         borderingHexes.add(hexes[0][2]);
         borderingHexes.add(hexes[1][3]);
         vertices[3][3] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][5]);
+        edgeList.add(edges[3][6]);
+        edgeList.add(edges[2][7]);
+        vertices[3][3].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[0][4]);
         borderingHexes.add(hexes[1][5]);
+
         vertices[3][5] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][9]);
+        edgeList.add(edges[3][10]);
+        edgeList.add(edges[2][11]);
+        vertices[3][5].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[0][6]);
         borderingHexes.add(hexes[1][7]);
+
         vertices[3][7] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][13]);
+        edgeList.add(edges[3][14]);
+        edgeList.add(edges[2][15]);
+        vertices[3][7].setEdges(edgeList);
+        edgeList.clear();
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+
         vertices[3][9] = new Vertex(borderingHexes);
+        edgeList.add(edges[2][17]);
+        edgeList.add(edges[3][18]);
+        vertices[3][9].setEdges(edgeList);
+        edgeList.clear();
+
         //fifth row
         borderingHexes.clear();
         borderingHexes.add(hexes[2][0]);
@@ -378,71 +468,170 @@ public class Board {
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][2]);
         borderingHexes.add(hexes[1][3]);
+        edgeList.add(edges[4][1]);
+        edgeList.add(edges[4][3]);
+        edgeList.add(edges[3][2]);
+        vertices[4][1].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[4][3] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][4]);
         borderingHexes.add(hexes[1][5]);
+        edgeList.add(edges[4][5]);
+        edgeList.add(edges[3][6]);
+        edgeList.add(edges[4][7]);
+        vertices[4][3].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[4][5] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][6]);
         borderingHexes.add(hexes[1][7]);
+        edgeList.add(edges[4][9]);
+        edgeList.add(edges[3][10]);
+        edgeList.add(edges[4][11]);
+        vertices[4][5].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[4][7] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][8]);
+        edgeList.add(edges[4][13]);
+        edgeList.add(edges[4][15]);
+        edgeList.add(edges[3][14]);
+        vertices[4][7].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[4][9] = new Vertex(borderingHexes);
+        edgeList.add(edges[4][17]);
+        edgeList.add(edges[4][19]);
+        edgeList.add(edges[3][18]);
+        vertices[4][9].setEdges(edgeList);
+        edgeList.clear();
+
         //sixth row
         borderingHexes.clear();
         borderingHexes.add(hexes[2][0]);
         vertices[5][0] = new Vertex(borderingHexes);
         borderingHexes.add(hexes[1][1]);
         borderingHexes.add(hexes[2][2]);
+        edgeList.add(edges[5][0]);
+        edgeList.add(edges[4][1]);
+        vertices[5][0].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[5][2] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[1][3]);
         borderingHexes.add(hexes[2][4]);
+        edgeList.add(edges[4][5]);
+        edgeList.add(edges[4][3]);
+        edgeList.add(edges[5][4]);
+        vertices[5][2].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[5][4] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[1][5]);
         borderingHexes.add(hexes[2][6]);
+        edgeList.add(edges[5][8]);
+        edgeList.add(edges[4][7]);
+        edgeList.add(edges[4][9]);
+        vertices[5][4].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[5][6] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[1][7]);
         borderingHexes.add(hexes[2][8]);
+        edgeList.add(edges[4][11]);
+        edgeList.add(edges[5][12]);
+        edgeList.add(edges[4][13]);
+        vertices[5][6].setEdges(edgeList);
+        edgeList.clear();
+
+
         vertices[5][8] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+        edgeList.add(edges[4][15]);
+        edgeList.add(edges[4][17]);
+        edgeList.add(edges[5][16]);
+        vertices[5][8].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[5][10] = new Vertex(borderingHexes);
+        edgeList.add(edges[4][19]);
+        edgeList.add(edges[5][20]);
+        vertices[5][10].setEdges(edgeList);
+        edgeList.clear();
+
         //seventh row
         borderingHexes.clear();
         borderingHexes.add(hexes[2][0]);
         vertices[6][0] = new Vertex(borderingHexes);
         borderingHexes.add(hexes[3][1]);
         borderingHexes.add(hexes[2][2]);
+        edgeList.add(edges[6][1]);
+        edgeList.add(edges[5][0]);
+        vertices[6][0].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[6][2] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[3][3]);
         borderingHexes.add(hexes[2][4]);
+        edgeList.add(edges[6][3]);
+        edgeList.add(edges[5][4]);
+        edgeList.add(edges[6][5]);
+        vertices[6][2].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[6][4] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[3][5]);
         borderingHexes.add(hexes[2][6]);
+        edgeList.add(edges[6][7]);
+        edgeList.add(edges[5][8]);
+        edgeList.add(edges[6][9]);
+        vertices[6][4].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[6][6] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[3][7]);
         borderingHexes.add(hexes[2][8]);
+        edgeList.add(edges[6][11]);
+        edgeList.add(edges[5][12]);
+        edgeList.add(edges[6][13]);
+        vertices[6][6].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[6][8] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+        edgeList.add(edges[6][15]);
+        edgeList.add(edges[5][16]);
+        edgeList.add(edges[6][17]);
+        vertices[6][8].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[6][10] = new Vertex(borderingHexes);
+        edgeList.add(edges[6][19]);
+        edgeList.add(edges[5][20]);
+        vertices[6][10].setEdges(edgeList);
+        edgeList.clear();
+
         //eighth row
         borderingHexes.clear();
         borderingHexes.add(hexes[2][0]);
@@ -451,41 +640,100 @@ public class Board {
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][2]);
         borderingHexes.add(hexes[3][3]);
+        edgeList.add(edges[6][1]);
+        edgeList.add(edges[7][2]);
+        edgeList.add(edges[6][3]);
+        vertices[7][1].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[7][3] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][4]);
         borderingHexes.add(hexes[3][5]);
+        edgeList.add(edges[6][5]);
+        edgeList.add(edges[7][6]);
+        edgeList.add(edges[6][7]);
+        vertices[7][3].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[7][5] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][6]);
         borderingHexes.add(hexes[3][7]);
+        edgeList.add(edges[6][9]);
+        edgeList.add(edges[7][10]);
+        edgeList.add(edges[6][11]);
+        vertices[7][5].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[7][7] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[2][8]);
+        edgeList.add(edges[6][13]);
+        edgeList.add(edges[7][14]);
+        edgeList.add(edges[6][15]);
+        vertices[7][7].setEdges(edgeList);
+        edgeList.clear();
+
+
         vertices[7][9] = new Vertex(borderingHexes);
+        edgeList.add(edges[6][17]);
+        edgeList.add(edges[7][18]);
+        edgeList.add(edges[6][19]);
+        vertices[7][9].setEdges(edgeList);
+        edgeList.clear();
+
         //ninth row
         borderingHexes.clear();
         borderingHexes.add(hexes[3][1]);
         vertices[8][1] = new Vertex(borderingHexes);
         borderingHexes.add(hexes[4][2]);
         borderingHexes.add(hexes[3][3]);
+        edgeList.add(edges[7][2]);
+        edgeList.add(edges[8][3]);
+        vertices[8][1].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[8][3] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[4][4]);
         borderingHexes.add(hexes[3][5]);
+        edgeList.add(edges[7][6]);
+        edgeList.add(edges[8][5]);
+        edgeList.add(edges[8][7]);
+        vertices[8][3].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[8][5] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[4][6]);
         borderingHexes.add(hexes[3][7]);
+        edgeList.add(edges[7][10]);
+        edgeList.add(edges[8][9]);
+        edgeList.add(edges[8][11]);
+        vertices[8][5].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[8][7] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+        edgeList.add(edges[7][14]);
+        edgeList.add(edges[8][13]);
+        edgeList.add(edges[8][15]);
+        vertices[8][7].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[8][9] = new Vertex(borderingHexes);
+        edgeList.add(edges[8][17]);
+        edgeList.add(edges[7][18]);
+        vertices[8][9].setEdges(edgeList);
+        edgeList.clear();
+
         //tenth row
         borderingHexes.clear();
         borderingHexes.add(hexes[3][1]);
@@ -494,36 +742,96 @@ public class Board {
         borderingHexes.remove(0);
         borderingHexes.add(hexes[3][3]);
         borderingHexes.add(hexes[4][4]);
+        edgeList.add(edges[9][4]);
+        edgeList.add(edges[8][3]);
+        edgeList.add(edges[8][5]);
+        vertices[9][2].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[9][4] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[3][5]);
         borderingHexes.add(hexes[4][6]);
+        edgeList.add(edges[9][8]);
+        edgeList.add(edges[8][7]);
+        edgeList.add(edges[8][9]);
+        vertices[9][2].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[9][6] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.remove(0);
+        edgeList.add(edges[9][12]);
+        edgeList.add(edges[8][11]);
+        edgeList.add(edges[8][13]);
+        vertices[9][6].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[9][8] = new Vertex(borderingHexes);
+        edgeList.add(edges[9][16]);
+        edgeList.add(edges[8][15]);
+        edgeList.add(edges[8][17]);
+        vertices[9][8].setEdges(edgeList);
+        edgeList.clear();
+
         //eleventh row
         borderingHexes.clear();
         borderingHexes.add(hexes[4][2]);
         vertices[10][2] = new Vertex(borderingHexes);
         borderingHexes.add(hexes[4][4]);
+        edgeList.add(edges[10][5]);
+        edgeList.add(edges[9][4]);
+        vertices[10][2].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[10][4] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[4][6]);
+        edgeList.add(edges[9][8]);
+        edgeList.add(edges[10][7]);
+        edgeList.add(edges[10][9]);
+        vertices[10][4].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[10][6] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
+        edgeList.add(edges[10][11]);
+        edgeList.add(edges[9][12]);
+        edgeList.add(edges[10][13]);
+        vertices[10][6].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[10][8] = new Vertex(borderingHexes);
+        edgeList.add(edges[10][15]);
+        edgeList.add(edges[9][16]);
+        vertices[10][8].setEdges(edgeList);
+        edgeList.clear();
+
         //twelfth row
         borderingHexes.clear();
         borderingHexes.add(hexes[4][2]);
         vertices[11][3] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[4][4]);
+        edgeList.add(edges[10][5]);
+        edgeList.add(edges[10][7]);
+        vertices[11][3].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[11][5] = new Vertex(borderingHexes);
         borderingHexes.remove(0);
         borderingHexes.add(hexes[4][6]);
+        edgeList.add(edges[10][9]);
+        edgeList.add(edges[10][11]);
+        vertices[11][5].setEdges(edgeList);
+        edgeList.clear();
+
         vertices[11][7] = new Vertex(borderingHexes);
+        edgeList.add(edges[10][13]);
+        edgeList.add(edges[10][15]);
+        vertices[11][7].setEdges(edgeList);
+        edgeList.clear();
         
     }
 
@@ -543,7 +851,23 @@ public class Board {
 
     public List<Vertex> getVertices(HexLocation location)
     {
-        throw new NotImplementedException();
+        List<Vertex> vertexList = new ArrayList<>();
+        int index = location.row * 2;
+
+        vertexList.add(vertices[index] [location.col + 1]);
+        vertexList.add(vertices[index + 1] [location.col]);
+        vertexList.add(vertices[index + 2] [location.col]);
+        vertexList.add(vertices[index + 3] [location.col + 1]);
+        vertexList.add(vertices[index + 1] [location.col + 2]);
+        vertexList.add(vertices[index + 2] [location.col + 2]);
+
+        return vertexList;
+    }
+
+    public List<Vertex> getVertices(Edge edge)
+    {
+        List<Vertex> vertices = new ArrayList<>();
+        return vertices;
     }
 
     public ResourceType getResource(HexLocation location)

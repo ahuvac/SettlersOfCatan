@@ -10,8 +10,11 @@ public class Player {
     private int score;
     private List<DevelopmentCard> developmentCards;
     protected Wallet wallet;
-    int numRoads;
+    private int consecutiveRoads;
+    private int numSoldiers;
     Color color;
+    private boolean largestArmy;
+    private boolean longestRoad;
 
     public Player(Color color)
     {
@@ -22,12 +25,22 @@ public class Player {
         settlements = 5;
         roads = 15;
         score = 0;
-        numRoads = 0;
+        consecutiveRoads = 0;
+        largestArmy = false;
+        longestRoad = false;
     }
 
     public boolean hasSpareRoads()
     {
         return roads != 0;
+    }
+
+    public void largestArmy(boolean on){
+        largestArmy = on;
+    }
+
+    public void incrementScore(){
+        ++score;
     }
 
     public boolean hasSpareSettlements()
@@ -54,6 +67,9 @@ public class Player {
     {
         wallet.useCard(type);
     }
+    public int getScore(){
+        return this.score;
+    }
 
     public void addCard(ResourceType type, int number) {wallet.addCard(type, number);}
 
@@ -64,6 +80,14 @@ public class Player {
         useCard(ResourceType.ORE);
         developmentCards.add(card);
     }
+
+    public void addSoldier(){
+        numSoldiers++;
+    }
+    public int getSoldiers(){
+        return numSoldiers;
+    }
+
 
     //TODO: Specify location
     public void buildRoad(){
