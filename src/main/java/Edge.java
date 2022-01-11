@@ -23,7 +23,6 @@ public class Edge {
         }
     }
 
-
     public void setVertices(Vertex vertex){
         this.vertices.add(vertex);
     }
