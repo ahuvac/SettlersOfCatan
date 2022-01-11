@@ -91,15 +91,15 @@ public class Player {
     }
 
 
-    //TODO: Specify location
+
     public void buildRoad(){
         useCard(ResourceType.BRICK);
         useCard(ResourceType.LUMBER);
-            numRoads++;
+            consecutiveRoads++;
             roads--;
     }
 
-    //TODO: Specify location
+
     public void buildSettlement(){
         useCard(ResourceType.GRAIN);
         useCard(ResourceType.WOOL);
@@ -119,6 +119,21 @@ public class Player {
         score += 2;
         cities--;
         settlements++;
+    }
+
+    public boolean hasDevelopmentCard(DevelopmentCard card)
+    {
+        return developmentCards.contains(card);
+    }
+
+    public void useDevelopmentCard(DevelopmentCard card)
+    {
+        developmentCards.remove(card);
+    }
+
+    public ResourceType getRandomCard()
+    {
+        return wallet.getRandomCard();
     }
 
 
