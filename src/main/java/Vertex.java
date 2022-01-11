@@ -2,7 +2,12 @@ import java.util.List;
 
 public class Vertex {
     private List<Hex> hexes;
-    //private List<Edge> edges;
+
+    public List<Edge> getEdges() {
+        return edges;
+    }
+
+    private List<Edge> edges;
     private Settlement settlement = null;
     private City city = null;
 

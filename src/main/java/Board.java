@@ -527,26 +527,26 @@ public class Board {
         
     }
 
-    public List<HexLocation> getHexesWithNumber(int number)
+    public List<Location> getHexesWithNumber(int number)
     {
-        ArrayList<HexLocation> hexesWithNumber = new ArrayList<>();
+        ArrayList<Location> hexesWithNumber = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
                 if (hexes[i][j].number == number)
                 {
-                    hexesWithNumber.add(new HexLocation(i, j));
+                    hexesWithNumber.add(new Location(i, j));
                 }
             }
         }
         return hexesWithNumber;
     }
 
-    public List<Vertex> getVertices(HexLocation location)
+    public List<Vertex> getVertices(Location location)
     {
         throw new NotImplementedException();
     }
 
-    public ResourceType getResource(HexLocation location)
+    public ResourceType getResource(Location location)
     {
         return hexes[location.row][location.col].type;
     }
