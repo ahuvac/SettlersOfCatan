@@ -65,4 +65,15 @@ public class Wallet {
         }
     }
 
+    public int getTotalCards()
+    {
+        int sum = 0;
+        for (ResourceType type : ResourceType.values()) {
+            int num = cards.get(type);
+            sum += num;
+            cards.put(type, num);
+        }
+        return sum;
+    }
+
 }

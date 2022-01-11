@@ -266,12 +266,40 @@ public class Game {
     }
 
     public void playRobber(){
-        // TODO add functionality for moving the robber when a seven is rolled
-        // TODO includes:
-        //              - halving anyones' cards over 7
-        //              - moving the robber and blocking that hex
-        //              - roller picks a card from someone
+        for (Player player : players) {
+            if (player.getTotalCards() > 7)
+            {
+                int totalCards = player.getTotalCards();
+                int half = totalCards / 2;
+                for (int i = 0; i < half; i++) {
+                    bank.addResourceCard(player.getRandomCard());
+                }
+            }
+        }
+        // TODO get location to move and player to pick from
+        //moveRobber();
+    }
 
+    public void moveRobber(Location location, Player player){
+        Location hexLocation = board.findRobber();
+        Hex hex = board.hexes[hexLocation.row][hexLocation.col];
+        hex.hasRobber = false;
+        List<Vertex> vertices = board.getVertices(location);
+        boolean canTake = false;
+        for (Vertex vertex : vertices) {
+            if (hasCityOrSettlementSameColor(player.color, vertex))
+            {
+                canTake = true;
+                break;
+            }
+        }
+        if (canTake)
+        {
+            ResourceType cardTaken = player.getRandomCard();
+            if (cardTaken != null)
+                currentPlayer.addCard(cardTaken, 1);
+        }
+        board.hexes[location.row][location.col].hasRobber = true;
     }
 
     public void playYearOfPlenty(ResourceType type1, ResourceType type2)
@@ -324,25 +352,7 @@ public class Game {
     {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT))
         {
-            Location hexLocation = board.findRobber();
-            Hex hex = board.hexes[hexLocation.row][hexLocation.col];
-            hex.hasRobber = false;
-            List<Vertex> vertices = board.getVertices(location);
-            boolean canTake = false;
-            for (Vertex vertex : vertices) {
-                if (hasCityOrSettlementSameColor(player.color, vertex))
-                {
-                    canTake = true;
-                    break;
-                }
-            }
-            if (canTake)
-            {
-                ResourceType cardTaken = player.getRandomCard();
-                if (cardTaken != null)
-                currentPlayer.addCard(cardTaken, 1);
-            }
-            board.hexes[location.row][location.col].hasRobber = true;
+            moveRobber(location, player);
         }
     }
 }

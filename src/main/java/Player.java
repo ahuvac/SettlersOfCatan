@@ -136,5 +136,10 @@ public class Player {
         return wallet.getRandomCard();
     }
 
+    public int getTotalCards()
+    {
+        return wallet.getTotalCards();
+    }
+
 
 }
