@@ -310,7 +310,7 @@ public class Board {
         edges[10][15] = new Edge(borderingHexes);
     }
 
-    //TODO replace methid with the formula
+    //TODO replace method with the formula
     private void placeVertices()
     {
         //first row
@@ -875,4 +875,17 @@ public class Board {
         return hexes[location.row][location.col].type;
     }
 
+    public Location findRobber()
+    {
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (hexes[i][j].hasRobber)
+                {
+                    return new Location(i, j);
+                }
+            }
+
+        }
+        return null;
+    }
 }

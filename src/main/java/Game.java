@@ -53,17 +53,14 @@ public class Game {
         }
     }
 
-
-
     public void switchPlayer(){
         int index = players.indexOf(currentPlayer);
         currentPlayer =  players.get(index + 1);
         rollDiceAndDistributeCards();
     }
 
-    //TODO: check that there is a location to put a road down
-    public boolean buyRoad(Player player, Location location)
 
+    public boolean buyRoad(Player player, Location location)
     {
         if (player.hasCard(ResourceType.BRICK, 1) &&
                 player.hasCard(ResourceType.LUMBER, 1) &&
@@ -218,6 +215,10 @@ public class Game {
         else {
             List<Location> hexes = board.getHexesWithNumber(diceNumber);
             for (Location location : hexes) {
+                if (board.hexes[location.row][location.col].hasRobber)
+                {
+                    continue;
+                }
                 ResourceType resource = board.getResource(location);
                 List<Vertex> vertices = board.getVertices(location);
                 for (Vertex vertex : vertices) {
@@ -265,11 +266,93 @@ public class Game {
     }
 
     public void playRobber(){
-        // TODO add functionality for moving the robber when a seven is rolled
-        // TODO includes:
-        //              - halving anyones' cards over 7
-        //              - moving the robber and blocking that hex
-        //              - roller picks a card from someone
+        for (Player player : players) {
+            if (player.getTotalCards() > 7)
+            {
+                int totalCards = player.getTotalCards();
+                int half = totalCards / 2;
+                for (int i = 0; i < half; i++) {
+                    bank.addResourceCard(player.getRandomCard());
+                }
+            }
+        }
+        // TODO get location to move and player to pick from
+        //moveRobber();
+    }
 
+    public void moveRobber(Location location, Player player){
+        Location hexLocation = board.findRobber();
+        Hex hex = board.hexes[hexLocation.row][hexLocation.col];
+        hex.hasRobber = false;
+        List<Vertex> vertices = board.getVertices(location);
+        boolean canTake = false;
+        for (Vertex vertex : vertices) {
+            if (hasCityOrSettlementSameColor(player.color, vertex))
+            {
+                canTake = true;
+                break;
+            }
+        }
+        if (canTake)
+        {
+            ResourceType cardTaken = player.getRandomCard();
+            if (cardTaken != null)
+                currentPlayer.addCard(cardTaken, 1);
+        }
+        board.hexes[location.row][location.col].hasRobber = true;
+    }
+
+    public void playYearOfPlenty(ResourceType type1, ResourceType type2)
+    {
+
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.YEAR_OF_PLENTY))
+        {
+            currentPlayer.useDevelopmentCard(DevelopmentCard.YEAR_OF_PLENTY);
+            if (bank.hasResourceCard(type1, 1))
+            {
+                bank.getResourceCard(type1);
+                currentPlayer.addCard(type1, 1);
+            }
+            if (bank.hasResourceCard(type2, 1))
+            {
+                bank.getResourceCard(type2);
+                currentPlayer.addCard(type2, 1);
+            }
+        }
+    }
+
+    public void playMonopoly(ResourceType type)
+    {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.MONOPOLY))
+        {
+            for (Player player : players)
+            {
+                if (player != currentPlayer)
+                {
+                    while (player.hasCard(type, 1))
+                    {
+                        player.useCard(type);
+                        currentPlayer.addCard(type, 1);
+                    }
+                }
+            }
+        }
+    }
+
+    public void playRoadBuilding(Location location1, Location location2)
+    {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING))
+        {
+            buyRoad(currentPlayer, location1);
+            buyRoad(currentPlayer, location2);
+        }
+    }
+
+    public void playKnight(Location location, Player player)
+    {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT))
+        {
+            moveRobber(location, player);
+        }
     }
 }
