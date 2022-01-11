@@ -7,153 +7,187 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="SettlersController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
     <padding>
         <Insets bottom="10" left="25" right="25" top="25" />
     </padding>
 
     <!-- First row - Player 1 -->
 
-    <ImageView fx:id="Player1Grain" GridPane.columnIndex="0" GridPane.rowIndex="0">
-      <image>
-         <Image url="@imgs/resource_cards/resources--grain.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player1Lumber" GridPane.columnIndex="1" GridPane.rowIndex="0">
-      <image>
-         <Image url="@imgs/resource_cards/resources--lumber.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player1Wool" GridPane.columnIndex="2" GridPane.rowIndex="0">
-      <image>
-         <Image url="@imgs/resource_cards/resources--wool.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player1Ore" GridPane.columnIndex="3" GridPane.rowIndex="0">
-      <image>
-         <Image url="@imgs/resource_cards/resources--ore.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player1Brick" GridPane.columnIndex="4" GridPane.rowIndex="0">
-      <image>
-         <Image url="@imgs/resource_cards/resources--brick.png" />
-      </image></ImageView>
+    <ImageView fx:id="Player1Grain" onMouseClicked="#Player1GrainCardOnClick" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--grain.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player1Lumber" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--lumber.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player1Wool" onMouseClicked="#Player1WoolCardOnClick" GridPane.columnIndex="2" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--wool.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player1Ore" onMouseClicked="#Player1OreCardOnClick" GridPane.columnIndex="3" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--ore.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player1Brick" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="4" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--brick.png" />
+        </image>
+    </ImageView>
 
-    <Label fx:id="score" text="Score: " GridPane.columnIndex="4" GridPane.columnSpan="3" GridPane.rowIndex="0" />
+    <Label fx:id="score" text="Score: " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
+        <font>
+            <Font size="61.0" />
+        </font>
+    </Label>
 
     <!-- Second Row - first row of board -->
 
-    <ImageView fx:id="hex1" GridPane.columnIndex="2" GridPane.rowIndex="3">
-      <image>
-         <Image url="@imgs/hexes/pasture.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex2" GridPane.columnIndex="4" GridPane.rowIndex="3">
-      <image>
-         <Image url="@imgs/hexes/mountain.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex3" GridPane.columnIndex="6" GridPane.rowIndex="3">
-      <image>
-         <Image url="@imgs/hexes/hill.png" />
-      </image></ImageView>
+    <ImageView fx:id="hex1" GridPane.columnIndex="3" GridPane.rowIndex="3">
+        <image>
+            <Image url="@imgs/hexes/pasture.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex2" GridPane.columnIndex="5" GridPane.rowIndex="3">
+        <image>
+            <Image url="@imgs/hexes/mountain.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex3" GridPane.columnIndex="7" GridPane.rowIndex="3">
+        <image>
+            <Image url="@imgs/hexes/hill.png" />
+        </image>
+    </ImageView>
 
 
     <!-- Third Row - second row of board -->
 
-    <ImageView fx:id="hex4" GridPane.columnIndex="1" GridPane.rowIndex="4">
-      <image>
-         <Image url="@imgs/hexes/field.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex5" GridPane.columnIndex="3" GridPane.rowIndex="4">
-      <image>
-         <Image url="@imgs/hexes/forest.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex6" GridPane.columnIndex="5" GridPane.rowIndex="4">
-      <image>
-         <Image url="@imgs/hexes/mountain.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex7" GridPane.columnIndex="7" GridPane.rowIndex="4">
-      <image>
-         <Image url="@imgs/hexes/pasture.png" />
-      </image></ImageView>
+    <ImageView fx:id="hex4" GridPane.columnIndex="2" GridPane.rowIndex="6">
+        <image>
+            <Image url="@imgs/hexes/field.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex5" GridPane.columnIndex="4" GridPane.rowIndex="5">
+        <image>
+            <Image url="@imgs/hexes/forest.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex6" GridPane.columnIndex="6" GridPane.rowIndex="5">
+        <image>
+            <Image url="@imgs/hexes/mountain.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex7" GridPane.columnIndex="8" GridPane.rowIndex="5">
+        <image>
+            <Image url="@imgs/hexes/pasture.png" />
+        </image>
+    </ImageView>
 
 
     <!-- Fourth Row - third row of board -->
 
-    <ImageView fx:id="hex8" GridPane.columnIndex="0" GridPane.rowIndex="5">
-      <image>
-         <Image url="@imgs/hexes/forest.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex9" GridPane.columnIndex="2" GridPane.rowIndex="5">
-      <image>
-         <Image url="@imgs/hexes/pasture.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex10" GridPane.columnIndex="4" GridPane.rowIndex="5">
-      <image>
-         <Image url="@imgs/hexes/desert.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex11" GridPane.columnIndex="6" GridPane.rowIndex="5">
-      <image>
-         <Image url="@imgs/hexes/pasture.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex12" GridPane.columnIndex="8" GridPane.rowIndex="5">
-      <image>
-         <Image url="@imgs/hexes/hill.png" />
-      </image></ImageView>
+    <ImageView fx:id="hex8" GridPane.columnIndex="1" GridPane.rowIndex="7">
+        <image>
+            <Image url="@imgs/hexes/forest.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex9" GridPane.columnIndex="3" GridPane.rowIndex="7">
+        <image>
+            <Image url="@imgs/hexes/pasture.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex10" GridPane.columnIndex="5" GridPane.rowIndex="7">
+        <image>
+            <Image url="@imgs/hexes/desert.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex11" GridPane.columnIndex="7" GridPane.rowIndex="7">
+        <image>
+            <Image url="@imgs/hexes/pasture.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex12" GridPane.columnIndex="9" GridPane.rowIndex="7">
+        <image>
+            <Image url="@imgs/hexes/hill.png" />
+        </image>
+    </ImageView>
 
     <!-- Fifth Row - fourth row of board -->
 
-    <ImageView fx:id="hex13" GridPane.columnIndex="1" GridPane.rowIndex="6">
-      <image>
-         <Image url="@imgs/hexes/mountain.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex14" GridPane.columnIndex="3" GridPane.rowIndex="6">
-      <image>
-         <Image url="@imgs/hexes/hill.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex15" GridPane.columnIndex="5" GridPane.rowIndex="6">
-      <image>
-         <Image url="@imgs/hexes/forest.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex16" GridPane.columnIndex="7" GridPane.rowIndex="6">
-      <image>
-         <Image url="@imgs/hexes/mountain.png" />
-      </image></ImageView>
+    <ImageView fx:id="hex13" GridPane.columnIndex="2" GridPane.rowIndex="9">
+        <image>
+            <Image url="@imgs/hexes/mountain.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex14" GridPane.columnIndex="4" GridPane.rowIndex="9">
+        <image>
+            <Image url="@imgs/hexes/hill.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex15" GridPane.columnIndex="6" GridPane.rowIndex="9">
+        <image>
+            <Image url="@imgs/hexes/forest.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex16" GridPane.columnIndex="8" GridPane.rowIndex="9">
+        <image>
+            <Image url="@imgs/hexes/mountain.png" />
+        </image>
+    </ImageView>
 
     <!-- Sixth Row - fifth row of board-->
 
 
-    <ImageView fx:id="hex17" GridPane.columnIndex="2" GridPane.rowIndex="7">
-      <image>
-         <Image url="@imgs/hexes/forest.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex18" GridPane.columnIndex="4" GridPane.rowIndex="7">
-      <image>
-         <Image url="@imgs/hexes/field.png" />
-      </image></ImageView>
-    <ImageView fx:id="hex19" GridPane.columnIndex="6" GridPane.rowIndex="7">
-      <image>
-         <Image url="@imgs/hexes/pasture.png" />
-      </image></ImageView>
+    <ImageView fx:id="hex17" GridPane.columnIndex="3" GridPane.rowIndex="11">
+        <image>
+            <Image url="@imgs/hexes/forest.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex18" GridPane.columnIndex="5" GridPane.rowIndex="11">
+        <image>
+            <Image url="@imgs/hexes/field.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="hex19" GridPane.columnIndex="7" GridPane.rowIndex="11">
+        <image>
+            <Image url="@imgs/hexes/pasture.png" />
+        </image>
+    </ImageView>
 
     <!-- Seventh Row - Player 2 -->
 
-    <ImageView fx:id="Player2Grain" GridPane.columnIndex="0" GridPane.rowIndex="8">
-      <image>
-         <Image url="@imgs/resource_cards/resources--grain.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player2Lumber" GridPane.columnIndex="1" GridPane.rowIndex="8">
-      <image>
-         <Image url="@imgs/resource_cards/resources--lumber.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player2Wool" GridPane.columnIndex="2" GridPane.rowIndex="8">
-      <image>
-         <Image url="@imgs/resource_cards/resources--wool.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player2Ore" GridPane.columnIndex="3" GridPane.rowIndex="8">
-      <image>
-         <Image url="@imgs/resource_cards/resources--ore.png" />
-      </image></ImageView>
-    <ImageView fx:id="Player2Brick" GridPane.columnIndex="4" GridPane.rowIndex="8">
-      <image>
-         <Image url="@imgs/resource_cards/resources--brick.png" />
-      </image></ImageView>
+    <ImageView fx:id="Player2Grain" onMouseClicked="#Player2GrainCardOnClick" GridPane.columnIndex="0" GridPane.rowIndex="14">
+        <image>
+            <Image url="@imgs/resource_cards/resources--grain.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player2Lumber" onMouseClicked="#Player2LumberCardOnClick" GridPane.columnIndex="1" GridPane.rowIndex="14">
+        <image>
+            <Image url="@imgs/resource_cards/resources--lumber.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player2Wool" onMouseClicked="#Player2WoolCardOnClick" GridPane.columnIndex="2" GridPane.rowIndex="14">
+        <image>
+            <Image url="@imgs/resource_cards/resources--wool.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player2Ore" onMouseClicked="#Player2OreCardOnClick" GridPane.columnIndex="3" GridPane.rowIndex="14">
+        <image>
+            <Image url="@imgs/resource_cards/resources--ore.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player2Brick" onMouseClicked="#Player2BrickCardOnClick" GridPane.columnIndex="4" GridPane.rowIndex="14">
+        <image>
+            <Image url="@imgs/resource_cards/resources--brick.png" />
+        </image>
+    </ImageView>
 
 
     <fx:define>
@@ -179,29 +213,28 @@
             <fx:reference source="hex19" />
         </ArrayList>
     </fx:define>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-
+    <columnConstraints>
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+        <RowConstraints />
+    </rowConstraints>
 
 
 </GridPane>
