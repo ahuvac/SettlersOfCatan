@@ -1,3 +1,4 @@
+import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -11,12 +12,15 @@ public class Game {
     private Player currentPlayer;
 
 
+
     public Game(List<String> names){
         players = new ArrayList<>();
         for(int i = 0; i < players.size(); i++){
             players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
         }
         dice = new Die[2];
+        dice[0] = new Die();
+        dice[1] = new Die();
         board = new Board();
         bank = new Bank();
         largestArmy = 0;
@@ -50,6 +54,27 @@ public class Game {
         else
         {
             return null;
+        }
+    }
+
+    //TODO finish
+    public void gameBeginning()
+    {
+        List<Player> playerOrder = new ArrayList<>();
+        int[] rolledNumbers = new int[players.size()];
+        for (int i = 0; i < players.size(); i++)
+        {
+            int rolledNumber = 0;
+            for (Die die : dice)
+            {
+                rolledNumber += die.roll();
+            }
+            rolledNumbers[i] = rolledNumber;
+        }
+        int highest = 0;
+        for (int i = 0; i < rolledNumbers.length; i++)
+        {
+
         }
     }
 
