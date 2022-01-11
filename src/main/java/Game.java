@@ -17,7 +17,9 @@ public class Game {
             bank.addResourceCard(ResourceType.WOOL);
             bank.addResourceCard(ResourceType.GRAIN);
             bank.addResourceCard(ResourceType.ORE);
-            return bank.getDevelopmentCard();
+            DevelopmentCard card = bank.getDevelopmentCard();
+            player.buyDevelopmentCard(card);
+            return card;
         }
         else
         {
