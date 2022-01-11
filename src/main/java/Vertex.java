@@ -69,4 +69,8 @@ public class Vertex {
 
     }
 
+    public List<Edge> getEdges(){
+        return this.edges;
+    }
+
 }

@@ -28,5 +28,9 @@ public class Edge {
         this.vertices.add(vertex);
     }
 
+    public List<Vertex> getVertices(){
+        return this.vertices;
+    }
+
 
 }
