@@ -2,11 +2,6 @@ import java.util.List;
 
 public class Vertex {
     private List<Hex> hexes;
-
-    public List<Edge> getEdges() {
-        return edges;
-    }
-
     private List<Edge> edges;
     private Settlement settlement = null;
     private City city = null;
@@ -15,6 +10,7 @@ public class Vertex {
     {
         this.hexes = hexes;
     }
+
 
     public void buildSettlement(Settlement settlement)
     {
@@ -64,6 +60,18 @@ public class Vertex {
         {
             return null;
         }
+    }
+
+    public void setEdges(List<Edge> edgeList){
+        this.edges = edgeList;
+        for(Edge edge : edgeList){
+            edge.setVertices(this);
+        }
+
+    }
+
+    public List<Edge> getEdges(){
+        return this.edges;
     }
 
 }
