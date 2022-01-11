@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Player {
+    private String name;
     private int settlements;
     private int cities;
     private int roads;
@@ -16,7 +17,7 @@ public class Player {
     private boolean largestArmy;
     private boolean longestRoad;
 
-    public Player(Color color)
+    public Player(Color color, String name)
     {
         this.color = color;
         wallet = new Wallet();
@@ -28,6 +29,7 @@ public class Player {
         consecutiveRoads = 0;
         largestArmy = false;
         longestRoad = false;
+        this.name = name;
     }
 
     public boolean hasSpareRoads()

@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Game {
     private List<Player> players;
@@ -6,7 +8,20 @@ public class Game {
     private Board board;
     private Bank bank;
     private int largestArmy;
+    private Player currentPlayer;
 
+
+    public Game(List<String> names){
+        players = new ArrayList<>();
+        for(int i = 0; i < players.size(); i++){
+            players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
+        }
+        dice = new Die[];
+        board = new Board();
+        bank = new Bank();
+        largestArmy = 0;
+        currentPlayer = players.get(0);
+    }
 
     public DevelopmentCard buyDevelopmentCard(Player player)
     {
@@ -39,7 +54,16 @@ public class Game {
     }
 
 
+
+    public void switchPlayer(){
+        int index = players.indexOf(currentPlayer);
+        currentPlayer =  players.get(index + 1);
+        rollDiceAndDistributeCards();
+    }
+
+    //TODO: check that there is a location to put a road down
     public boolean buyRoad(Player player, Location location)
+
     {
         if (player.hasCard(ResourceType.BRICK, 1) &&
                 player.hasCard(ResourceType.LUMBER, 1) &&
