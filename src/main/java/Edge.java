@@ -23,6 +23,13 @@ public class Edge {
         }
     }
 
+
+    public Color getRoadColor()
+    {
+        return road.getColor();
+    }
+
+
     public void setVertices(Vertex vertex){
         this.vertices.add(vertex);
     }
@@ -30,6 +37,7 @@ public class Edge {
     public List<Vertex> getVertices(){
         return this.vertices;
     }
+
 
 
 }
