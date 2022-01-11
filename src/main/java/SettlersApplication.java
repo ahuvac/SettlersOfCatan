@@ -11,7 +11,7 @@ public class SettlersApplication extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/settlers_application.fxml"));
-        Scene scene = new Scene(root, 500, 250);
+        Scene scene = new Scene(root, 1000, 1000);
         stage.setTitle("Settlers of Catan");
         stage.setScene(scene);
         stage.show();

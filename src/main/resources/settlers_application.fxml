@@ -8,31 +8,31 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+<GridPane alignment="center" maxHeight="300" maxWidth="300" prefHeight="300" prefWidth="300" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
 
     <!-- First row - Player 1 -->
 
-    <ImageView fx:id="Player1Grain" onMouseClicked="#Player1GrainCardOnClick" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <ImageView fx:id="Player1Grain" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1GrainCardOnClick" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--grain.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player1Lumber" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="1" GridPane.rowIndex="0">
+    <ImageView fx:id="Player1Lumber" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--lumber.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player1Wool" onMouseClicked="#Player1WoolCardOnClick" GridPane.columnIndex="2" GridPane.rowIndex="0">
+    <ImageView fx:id="Player1Wool" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1WoolCardOnClick" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--wool.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player1Ore" onMouseClicked="#Player1OreCardOnClick" GridPane.columnIndex="3" GridPane.rowIndex="0">
+    <ImageView fx:id="Player1Ore" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1OreCardOnClick" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--ore.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player1Brick" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="4" GridPane.rowIndex="0">
+    <ImageView fx:id="Player1Brick" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--brick.png" />
         </image>
@@ -40,23 +40,23 @@
 
     <Label fx:id="score" text="Score: " GridPane.columnIndex="5" GridPane.columnSpan="3" GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.valignment="BOTTOM">
         <font>
-            <Font size="61.0" />
+            <Font size="15.0" />
         </font>
     </Label>
 
     <!-- Second Row - first row of board -->
 
-    <ImageView fx:id="hex1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <ImageView fx:id="hex1" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex2" GridPane.columnIndex="5" GridPane.rowIndex="3">
+    <ImageView fx:id="hex2" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex3" GridPane.columnIndex="7" GridPane.rowIndex="3">
+    <ImageView fx:id="hex3" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
@@ -65,22 +65,22 @@
 
     <!-- Third Row - second row of board -->
 
-    <ImageView fx:id="hex4" GridPane.columnIndex="2" GridPane.rowIndex="5">
+    <ImageView fx:id="hex4" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
         <image>
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex5" GridPane.columnIndex="4" GridPane.rowIndex="5">
+    <ImageView fx:id="hex5" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex6" GridPane.columnIndex="6" GridPane.rowIndex="5">
+    <ImageView fx:id="hex6" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="5">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex7" GridPane.columnIndex="8" GridPane.rowIndex="5">
+    <ImageView fx:id="hex7" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="5">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
@@ -89,27 +89,27 @@
 
     <!-- Fourth Row - third row of board -->
 
-    <ImageView fx:id="hex8" GridPane.columnIndex="1" GridPane.rowIndex="7">
+    <ImageView fx:id="hex8" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex9" GridPane.columnIndex="3" GridPane.rowIndex="7">
+    <ImageView fx:id="hex9" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="7">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex10" GridPane.columnIndex="5" GridPane.rowIndex="7">
+    <ImageView fx:id="hex10" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="7">
         <image>
             <Image url="@imgs/hexes/desert.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex11" GridPane.columnIndex="7" GridPane.rowIndex="7">
+    <ImageView fx:id="hex11" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="7">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex12" GridPane.columnIndex="9" GridPane.rowIndex="7">
+    <ImageView fx:id="hex12" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="9" GridPane.rowIndex="7">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
@@ -117,22 +117,22 @@
 
     <!-- Fifth Row - fourth row of board -->
 
-    <ImageView fx:id="hex13" GridPane.columnIndex="2" GridPane.rowIndex="9">
+    <ImageView fx:id="hex13" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex14" GridPane.columnIndex="4" GridPane.rowIndex="9">
+    <ImageView fx:id="hex14" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="9">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex15" GridPane.columnIndex="6" GridPane.rowIndex="9">
+    <ImageView fx:id="hex15" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="9">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex16" GridPane.columnIndex="8" GridPane.rowIndex="9">
+    <ImageView fx:id="hex16" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="9">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
@@ -141,17 +141,17 @@
     <!-- Sixth Row - fifth row of board-->
 
 
-    <ImageView fx:id="hex17" GridPane.columnIndex="3" GridPane.rowIndex="11">
+    <ImageView fx:id="hex17" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="11">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex18" GridPane.columnIndex="5" GridPane.rowIndex="11">
+    <ImageView fx:id="hex18" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="11">
         <image>
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="hex19" GridPane.columnIndex="7" GridPane.rowIndex="11">
+    <ImageView fx:id="hex19" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="11">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
@@ -159,91 +159,68 @@
 
     <!-- Seventh Row - Player 2 -->
 
-    <ImageView fx:id="Player2Grain" onMouseClicked="#Player2GrainCardOnClick" GridPane.columnIndex="0" GridPane.rowIndex="14">
+    <ImageView fx:id="Player2Grain" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player2GrainCardOnClick" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="14">
         <image>
             <Image url="@imgs/resource_cards/resources--grain.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player2Lumber" onMouseClicked="#Player2LumberCardOnClick" GridPane.columnIndex="1" GridPane.rowIndex="14">
+    <ImageView fx:id="Player2Lumber" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player2LumberCardOnClick" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="14">
         <image>
             <Image url="@imgs/resource_cards/resources--lumber.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player2Wool" onMouseClicked="#Player2WoolCardOnClick" GridPane.columnIndex="2" GridPane.rowIndex="14">
+    <ImageView fx:id="Player2Wool" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player2WoolCardOnClick" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="14">
         <image>
             <Image url="@imgs/resource_cards/resources--wool.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player2Ore" onMouseClicked="#Player2OreCardOnClick" GridPane.columnIndex="3" GridPane.rowIndex="14">
+    <ImageView fx:id="Player2Ore" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player2OreCardOnClick" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="14">
         <image>
             <Image url="@imgs/resource_cards/resources--ore.png" />
         </image>
     </ImageView>
-    <ImageView fx:id="Player2Brick" onMouseClicked="#Player2BrickCardOnClick" GridPane.columnIndex="4" GridPane.rowIndex="14">
+    <ImageView fx:id="Player2Brick" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player2BrickCardOnClick" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="14">
         <image>
             <Image url="@imgs/resource_cards/resources--brick.png" />
         </image>
     </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" rotate="-130.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" rotate="-130.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" rotate="126.3" GridPane.columnIndex="3" GridPane.rowIndex="4">
+   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" rotate="126.3" GridPane.columnIndex="3" GridPane.rowIndex="4">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1338.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1079.0" layoutY="743.0" pickOnBounds="true" preserveRatio="true" rotate="65.6" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="TOP">
+   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1079.0" layoutY="743.0" pickOnBounds="true" preserveRatio="true" rotate="65.6" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="TOP">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1338.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true" rotate="119.1" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true" rotate="119.1" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
       <image>
          <Image url="@imgs/roads/RoadBlue.png" />
       </image>
    </ImageView>
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1766.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+   <ImageView fitHeight="20.0" fitWidth="25.0" layoutX="1766.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
       <image>
          <Image url="@imgs/settlements/SettlementBlue.png" />
       </image>
    </ImageView>
 
 
-    <fx:define>
-        <ArrayList fx:id="hexes">
-            <fx:reference source="hex1" />
-            <fx:reference source="hex2" />
-            <fx:reference source="hex3" />
-            <fx:reference source="hex4" />
-            <fx:reference source="hex5" />
-            <fx:reference source="hex6" />
-            <fx:reference source="hex7" />
-            <fx:reference source="hex8" />
-            <fx:reference source="hex9" />
-            <fx:reference source="hex10" />
-            <fx:reference source="hex11" />
-            <fx:reference source="hex12" />
-            <fx:reference source="hex13" />
-            <fx:reference source="hex14" />
-            <fx:reference source="hex15" />
-            <fx:reference source="hex16" />
-            <fx:reference source="hex17" />
-            <fx:reference source="hex18" />
-            <fx:reference source="hex19" />
-        </ArrayList>
-    </fx:define>
     <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints />
@@ -254,6 +231,7 @@
         <ColumnConstraints />
         <ColumnConstraints />
         <ColumnConstraints />
+      <ColumnConstraints />
       <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
