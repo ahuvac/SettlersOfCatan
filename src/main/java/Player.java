@@ -16,6 +16,7 @@ public class Player {
     Color color;
     private boolean largestArmy;
     private boolean longestRoad;
+    List<Edge> ownedRoads;
 
     public Player(Color color, String name)
     {
@@ -30,6 +31,7 @@ public class Player {
         largestArmy = false;
         longestRoad = false;
         this.name = name;
+        ownedRoads = new ArrayList<>();
     }
 
     public boolean hasSpareRoads()
@@ -92,11 +94,12 @@ public class Player {
 
 
     //TODO: Specify location
-    public void buildRoad(){
+    public void buildRoad(Edge edge){
         useCard(ResourceType.BRICK);
         useCard(ResourceType.LUMBER);
         consecutiveRoads++;
         roads--;
+        ownedRoads.add(edge);
     }
 
     //TODO: Specify location
@@ -119,6 +122,10 @@ public class Player {
         score += 2;
         cities--;
         settlements++;
+    }
+
+    public List<Edge> getRoads(){
+        return this.ownedRoads;
     }
 
 

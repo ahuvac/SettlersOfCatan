@@ -72,7 +72,7 @@ public class Game {
             if (checkRoadLocation(player, location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
-                player.buildRoad();
+                player.buildRoad(board.edges[location.row][location.col]);
                 return true;
             }
             else

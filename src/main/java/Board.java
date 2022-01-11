@@ -875,4 +875,78 @@ public class Board {
         return hexes[location.row][location.col].type;
     }
 
+
+//    /**
+//     * Finds the length of the longest chain of roads of the given player
+//     * @param player player's roads to be analyzed
+//     * @return int length of the longest chain of roads
+//     */
+//    public int findLongestRoad(Player p) { //TODO test
+//        List<Edge> roadList = p.getRoads();
+//        int maxCount = 1;
+//
+//        while (roadList.size() > 0) {
+//            ArrayList<Edge> playerRoads = new ArrayList<Edge>();
+//            playerRoads.add(roadList.remove(0));
+//
+//            for (int i = 0; i <= playerRoads.size(); i++) {
+//
+//                //ArrayList<Road> adjacentRoads = ;
+//
+//                for (int k = 0; k <= adjacentRoads.size(); k++) {
+//                    int index = roadList.indexOf(adjacentRoads.get(k));
+//                    if (index >= 0) {
+//                        connectedRoads.add(roadList.remove(index));
+//                    }
+//                }
+//            }
+//
+//            if (endpoint == null) {
+//                endpoint = connectedRoads.get(0);
+//                if (endpoint.getLocation().getOrientation() == 0 || endpoint.getLocation().getOrientation() == 1) {
+//                    startside = structures[endpoint.getLocation().getXCoord()][endpoint.getLocation().getYCoord()][0].getLocation();
+//                }
+//                else {
+//                    startside = structures[endpoint.getLocation().getXCoord() + 1][endpoint.getLocation().getYCoord() + 1][1].getLocation();
+//                }
+//            }
+//
+//            Stack<Road> s = new Stack();
+//            Stack<VertexLocation> entrysides = new Stack();
+//            s.push(endpoint);
+//
+//            entrysides.push(startside);
+//            int count = 1;
+//            while (s.empty() == false) {
+//                s.peek().visit();
+//                ArrayList<Road> children = findAdjacentRoadsDFS(s.peek(),entrysides.peek());
+//                for (int i = 0; i < children.size(); i++) {
+//                    if (children.get(i).isVisited()) {
+//                        children.remove(i);
+//                        i--;
+//                    }
+//                }
+//                if (children.size() <= 0) {
+//                    s.pop();
+//                    entrysides.pop();
+//                    if (count >= maxCount)
+//                        maxCount = count;
+//                    count--;
+//                }
+//                else {
+//                    count++;
+//                    entrysides.push(roadConnectsToOther(s.peek(),children.get(0)));
+//                    s.push(children.get(0));
+//                }
+//            }
+//
+//            for (int i = 0; i < connectedRoads.size();i++) {  //Reset boolean visited
+//                connectedRoads.get(i).resetVisited();
+//            }
+//        }
+//
+//        endpoint = null; //Reset endpoint
+//        startside = null;
+//        return maxCount;
+//    }
 }
