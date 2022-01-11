@@ -7,7 +7,7 @@ import java.util.Collections;
 public class Board {
     ;
     Hex[][] hexes = new Hex[5][9];
-    Vertex[][] vertices;
+    Vertex[][] vertices = new Vertex[12][11];
     Edge[][] edges = new Edge[21][10];
 
 
