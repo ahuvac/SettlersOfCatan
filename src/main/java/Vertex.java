@@ -11,6 +11,7 @@ public class Vertex {
         this.hexes = hexes;
     }
 
+
     public void buildSettlement(Settlement settlement)
     {
         if (!hasSettlement() && !hasCity())
