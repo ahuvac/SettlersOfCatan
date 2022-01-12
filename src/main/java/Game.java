@@ -1,3 +1,5 @@
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +15,12 @@ public class Game {
 
 
 
-    public Game(List<String> names){
-        players = new ArrayList<>();
-        for(int i = 0; i < players.size(); i++){
-            players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
-        }
+//    public Game(List<String> names){
+    public Game(){
+//        players = new ArrayList<>();
+//        for(int i = 0; i < players.size(); i++){
+//            players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
+//        }
         dice = new Die[2];
         dice[0] = new Die();
         dice[1] = new Die();
@@ -56,8 +59,7 @@ public class Game {
             return null;
         }
     }
-
-    //TODO finish
+    
     public void gameBeginning()
     {
         List<Player> playerOrder = new ArrayList<>();
@@ -71,11 +73,77 @@ public class Game {
             }
             rolledNumbers[i] = rolledNumber;
         }
+        for (int i = 0; i < playerOrder.size(); i++) {
+            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
+        }
+        for (Player player : playerOrder)
+        {
+            boolean allowed = false;
+            while (!allowed) {
+                Location vertexLocation = chooseSettlementLocation();
+                Location roadLocation = chooseRoadLocation();
+                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+                if(checkSettlementLocation(player.color, vertexLocation, true)) {
+                    allowed = true;
+                    player.decrementSettlements();
+                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+                    edge.buildRoad(new Road(player.color));
+                    player.decrementRoads();
+                }
+            }
+        }
+        for (int i = players.size()-1; i >= 0 ; i--) {
+            Player player = playerOrder.get(i);
+            boolean allowed = false;
+            while (!allowed) {
+                Location vertexLocation = chooseSettlementLocation();
+                Location roadLocation = chooseRoadLocation();
+                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+                if(checkSettlementLocation(player.color, vertexLocation, true)) {
+                    List<Hex> hexes = vertex.getHexes();
+                    for(Hex hex : hexes)
+                    {
+                        if(hex.type != ResourceType.DESERT)
+                        {
+                            player.addCard(hex.type, 1);
+                        }
+                    }
+                    allowed = true;
+                    player.decrementSettlements();
+                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+                    edge.buildRoad(new Road(player.color));
+                    player.decrementRoads();
+                }
+            }
+        }
+    }
+
+    //TODO
+    public Location chooseSettlementLocation()
+    {
+        throw new NotImplementedException();
+    }
+
+    //TODO
+    public Location chooseRoadLocation()
+    {
+        throw new NotImplementedException();
+    }
+
+    private int addToPlayerOrder(int[] rolledNumbers)
+    {
         int highest = 0;
+        int index = 0;
         for (int i = 0; i < rolledNumbers.length; i++)
         {
-
+            if (rolledNumbers[i] > highest)
+            {
+                highest = rolledNumbers[i];
+                index = i;
+            }
         }
+        rolledNumbers[index] = 0;
+        return index;
     }
 
     public void switchPlayer(){
@@ -155,7 +223,7 @@ public class Game {
                 player.hasCard(ResourceType.GRAIN, 1) &&
         player.hasSpareSettlements())
         {
-            if (checkSettlementLocation(player.color, location)) {
+            if (checkSettlementLocation(player.color, location, false)) {
                 bank.addResourceCard(ResourceType.WOOL);
                 bank.addResourceCard(ResourceType.GRAIN);
                 bank.addResourceCard(ResourceType.LUMBER);
@@ -168,7 +236,7 @@ public class Game {
 
     }
 
-    public boolean checkSettlementLocation(Color color, Location location)
+    public boolean checkSettlementLocation(Color color, Location location, boolean firstSettlement)
     {
         Vertex vertex = board.vertices[location.row][location.col];
         if (vertex.hasCity() || vertex.hasSettlement())
@@ -181,7 +249,7 @@ public class Game {
         {
             if (edge.hasRoad() && edge.getRoadColor() == color)
             {
-                connectingRoad = false;
+                connectingRoad = true;
             }
             List<Vertex> borderingVertices = edge.getVertices();
             for (Vertex borderingVertex : borderingVertices)
@@ -193,7 +261,7 @@ public class Game {
             }
 
         }
-        if (connectingRoad)
+        if (connectingRoad || firstSettlement)
         {
             vertex.buildSettlement(new Settlement(color));
             return true;
