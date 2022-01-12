@@ -98,26 +98,25 @@ class EdgeTest {
         assertEquals(Color.BLUE, edge.getRoadColor());
     }
 
+    @Test
+    void getVertices() {
+        //given
+        ArrayList<Hex> hexes = new ArrayList<>();
 
-//    @Test
-//    void getVertices() {
-//        //given
-//        ArrayList<Hex> hexes = new ArrayList<>();
-//
-//        Hex hex1 = new Hex(ResourceType.BRICK);
-//        Hex hex2 = new Hex(ResourceType.WOOL);
-//
-//        hexes.add(hex1);
-//        hexes.add(hex2);
-//
-//        Edge edge = new Edge(hexes);
-//
-//        //when
-//        Vertex vertex = new Vertex(hexes);
-//        edge.setVertices(vertex);
-//
-//
-//        //then
-//        assertNotNull(edge.getVertices());
-//    }
+        Hex hex1 = new Hex(ResourceType.BRICK);
+        Hex hex2 = new Hex(ResourceType.WOOL);
+
+        hexes.add(hex1);
+        hexes.add(hex2);
+
+        Edge edge = new Edge(hexes);
+
+        //when
+        Vertex vertex = new Vertex(hexes);
+        edge.setVertices(vertex);
+
+
+        //then
+        assertNotNull(edge.getVertices());
+    }
 }
