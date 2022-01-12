@@ -143,4 +143,7 @@ public class SettlersController {
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
         game.switchPlayer();
     }
+
+    public void RoadOnClick(MouseEvent mouseEvent) {
+    }
 }
