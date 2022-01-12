@@ -1,6 +1,5 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -50,9 +49,9 @@ public class Game {
             bank.addResourceCard(ResourceType.ORE);
             DevelopmentCard card = bank.getDevelopmentCard();
             player.buyDevelopmentCard(card);
-            if(card.equals(DevelopmentCard.KNIGHT)) player.addSoldier();
-            if(player.getSoldiers() >= 3 && player.getSoldiers() > largestArmy){
-                    largestArmy = player.getSoldiers();
+            if(card.equals(DevelopmentCard.KNIGHT)) player.addKnight();
+            if(player.getKnight() >= 3 && player.getKnight() > largestArmy){
+                    largestArmy = player.getKnight();
                     for(Player p : players) p.largestArmy(false);
                     player.largestArmy(true);
 
@@ -164,7 +163,7 @@ public class Game {
     {
         if (player.hasCard(ResourceType.BRICK, 1) &&
                 player.hasCard(ResourceType.LUMBER, 1) &&
-        player.hasSpareRoads())
+        player.hasMoreRoads())
         {
             if (checkRoadLocation(player, location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
@@ -228,7 +227,7 @@ public class Game {
                 player.hasCard(ResourceType.BRICK, 1) &&
                 player.hasCard(ResourceType.WOOL, 1) &&
                 player.hasCard(ResourceType.GRAIN, 1) &&
-        player.hasSpareSettlements())
+        player.hasMoreSettlements())
         {
             if (checkSettlementLocation(player.color, location, false)) {
                 bank.addResourceCard(ResourceType.WOOL);
@@ -281,7 +280,7 @@ public class Game {
         Vertex vertex = board.vertices[location.row][location.col];
         if (player.hasCard(ResourceType.ORE, 3) &&
                 player.hasCard(ResourceType.GRAIN, 2) &&
-            player.hasSpareCities())
+            player.hasMoreCities())
         {
             if (vertex.hasSettlement() && vertex.getSettlementColor() == player.color)
             {
