@@ -123,6 +123,11 @@ public class SettlersController {
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
     }
 
+
+
     public void RoadOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void vertexOnClick(MouseEvent mouseEvent) {
     }
 }
