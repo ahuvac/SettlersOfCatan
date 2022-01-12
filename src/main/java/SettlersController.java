@@ -144,6 +144,11 @@ public class SettlersController {
         game.switchPlayer();
     }
 
+
+
     public void RoadOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void vertexOnClick(MouseEvent mouseEvent) {
     }
 }
