@@ -88,4 +88,22 @@ public class SettlersController {
 
     public void Player2BrickCardOnClick(MouseEvent mouseEvent) {
     }
+
+    public void BuildRoadOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void BuildSettlementOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void BuildCityOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void BuyDevCardOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void UseDevCardOnClick(MouseEvent mouseEvent) {
+    }
+
+    public void FinishTurnOnClick(MouseEvent mouseEvent) {
+    }
 }
