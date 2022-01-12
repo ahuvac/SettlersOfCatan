@@ -12,6 +12,11 @@ public class Vertex {
     }
 
 
+    public List<Hex> getHexes()
+    {
+        return hexes;
+    }
+
     public void buildSettlement(Settlement settlement)
     {
         if (!hasSettlement() && !hasCity())

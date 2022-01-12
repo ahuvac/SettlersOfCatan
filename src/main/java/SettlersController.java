@@ -1,10 +1,63 @@
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SettlersController {
+    @FXML
+    ImageView hex1;
+    @FXML
+    ImageView hex2;
+    @FXML
+    ImageView hex3;
+    @FXML
+    ImageView hex4;
+    @FXML
+    ImageView hex5;
+    @FXML
+    ImageView hex6;
+    @FXML
+    ImageView hex7;
+    @FXML
+    ImageView hex8;
+    @FXML
+    ImageView hex9;
+    @FXML
+    ImageView hex10;
+    @FXML
+    ImageView hex11;
+    @FXML
+    ImageView hex12;
+    @FXML
+    ImageView hex13;
+    @FXML
+    ImageView hex14;
+    @FXML
+    ImageView hex15;
+    @FXML
+    ImageView hex16;
+    @FXML
+    ImageView hex17;
+    @FXML
+    ImageView hex18;
+    @FXML
+    ImageView hex19;
+    Game game;
+
+    public SettlersController()
+    {
+        game = new Game();
+        initializeBoard();
+    }
+
+    public void initializeBoard()
+    {
+        List<ImageView> hexes = new ArrayList<>();
+        hexes.add(hex1);
+
+    }
 
     public void Player1GrainCardOnClick(MouseEvent mouseEvent) {
     }
