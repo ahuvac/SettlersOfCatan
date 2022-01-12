@@ -17,7 +17,8 @@ public class Player {
     private boolean largestArmy;
     private boolean longestRoad;
 
-    public Player(Color color, String name)
+    //public Player(Color color, String name)
+    public Player(Color color)
     {
         this.color = color;
         wallet = new Wallet();

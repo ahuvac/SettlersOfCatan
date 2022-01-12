@@ -17,7 +17,14 @@ public class Game {
 
 //    public Game(List<String> names){
     public Game(){
-//        players = new ArrayList<>();
+        players = new ArrayList<>();
+        players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)]));
+        Color nextColor = Color.values()[new Random().nextInt(Color.values().length)];
+        while (nextColor == players.get(0).color)
+        {
+            nextColor = Color.values()[new Random().nextInt(Color.values().length)];
+        }
+        players.add(new Player(nextColor));
 //        for(int i = 0; i < players.size(); i++){
 //            players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
 //        }
