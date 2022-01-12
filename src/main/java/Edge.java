@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Edge {
@@ -8,6 +9,7 @@ public class Edge {
     public Edge(List<Hex> hexes)
     {
         this.hexes = hexes;
+        this.vertices = new ArrayList<>();
     }
 
     public boolean hasRoad()
