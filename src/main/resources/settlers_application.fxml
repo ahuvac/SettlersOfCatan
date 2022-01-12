@@ -14,6 +14,11 @@
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" maxHeight="300" maxWidth="300" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+   <Label text="CURRENT PLAYER:" textFill="#806131" GridPane.columnIndex="10" GridPane.columnSpan="2">
+      <font>
+         <Font name="Arial Black" size="13.0" />
+      </font>
+   </Label>
 
 
     <!-- First row - Player 1 -->
@@ -1682,15 +1687,6 @@
       </effect>
    </Circle>
    <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
-      <effect>
-         <DropShadow>
-            <color>
-               <Color opacity="0.43923240900039673" />
-            </color>
-         </DropShadow>
-      </effect>
-   </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="1">
       <effect>
          <DropShadow>
             <color>
