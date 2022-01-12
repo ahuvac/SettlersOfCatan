@@ -159,16 +159,18 @@ public class Game {
     }
 
 
-    public boolean buyRoad(Player player, Location location)
+    public boolean buyRoad(Location location)
     {
-        if (player.hasCard(ResourceType.BRICK, 1) &&
-                player.hasCard(ResourceType.LUMBER, 1) &&
-        player.hasMoreRoads())
+
+        if (currentPlayer.hasCard(ResourceType.BRICK, 1) &&
+                currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
+                currentPlayer.hasSpareRoads())
+
         {
-            if (checkRoadLocation(player, location)) {
+            if (checkRoadLocation(location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
-                player.buildRoad();
+                currentPlayer.buildRoad();
                 return true;
             }
             else
@@ -181,20 +183,20 @@ public class Game {
         }
     }
 
-    public boolean checkRoadLocation(Player player, Location location)
+    public boolean checkRoadLocation(Location location)
     {
         Edge edge = board.edges[location.row][location.col];
         if (!edge.hasRoad()) {
             List<Vertex> vertices = edge.getVertices();
             for (Vertex vertex : vertices) {
-                if (hasCityOrSettlementSameColor(player.color, vertex)) {
-                    edge.buildRoad(new Road(player.color));
+                if (hasCityOrSettlementSameColor(currentPlayer.color, vertex)) {
+                    edge.buildRoad(new Road(currentPlayer.color));
                     return true;
                 } else {
                     List<Edge> edges = vertex.getEdges();
                     for (Edge connectingEdge : edges) {
-                        if (connectingEdge.hasRoad() && connectingEdge.getRoadColor() == player.color) {
-                            edge.buildRoad(new Road(player.color));
+                        if (connectingEdge.hasRoad() && connectingEdge.getRoadColor() == currentPlayer.color) {
+                            edge.buildRoad(new Road(currentPlayer.color));
                             return true;
                         }
                     }
@@ -442,8 +444,18 @@ public class Game {
     {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING))
         {
-            buyRoad(currentPlayer, location1);
-            buyRoad(currentPlayer, location2);
+            if(checkRoadLocation(location1))
+            {
+                Edge edge = board.edges[location1.row][location1.col];
+                edge.buildRoad(new Road(currentPlayer.color));
+                currentPlayer.decrementRoads();
+            }
+            if(checkRoadLocation(location2))
+            {
+                Edge edge = board.edges[location2.row][location2.col];
+                edge.buildRoad(new Road(currentPlayer.color));
+                currentPlayer.decrementRoads();
+            }
         }
     }
 

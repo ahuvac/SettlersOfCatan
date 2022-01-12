@@ -1,5 +1,7 @@
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -56,6 +58,8 @@ public class SettlersController {
     public SettlersController()
     {
         game = new Game();
+        roadLocation = new Location(1,4);
+        cityLocation = null;
         initializeBoard();
     }
 
@@ -102,10 +106,26 @@ public class SettlersController {
         //dialog.initOwner(primaryStage);
         VBox dialogVbox = new VBox(20);
         dialogVbox.getChildren().add(new Text("Please click on the location that you would like to build your road"));
+
+        Button button = new Button("Ok");
+        dialogVbox.getChildren().add(new Button("Ok"));
+        button.setOnAction((e) -> {
+            dialog.close();
+        });
         Scene dialogScene = new Scene(dialogVbox, 300, 200);
         dialog.setScene(dialogScene);
         dialog.show();
-        //game.buyRoad();
+//        while(roadLocation == null)
+//        {
+//
+//        }
+//        boolean bought = game.buyRoad(roadLocation);
+//        if (!bought)
+//        {
+//            roadLocation = null;
+//            BuildRoadOnClick(mouseEvent);
+//        }
+//        roadLocation = null;
     }
 
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
@@ -121,6 +141,7 @@ public class SettlersController {
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
+        game.switchPlayer();
     }
 
 
