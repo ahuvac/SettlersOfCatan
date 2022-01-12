@@ -1,6 +1,11 @@
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +50,8 @@ public class SettlersController {
     @FXML
     ImageView hex19;
     Game game;
+    Location roadLocation;
+    Location cityLocation;
 
     public SettlersController()
     {
@@ -90,6 +97,15 @@ public class SettlersController {
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
+        final Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        //dialog.initOwner(primaryStage);
+        VBox dialogVbox = new VBox(20);
+        dialogVbox.getChildren().add(new Text("Please click on the location that you would like to build your road"));
+        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+        dialog.setScene(dialogScene);
+        dialog.show();
+        //game.buyRoad();
     }
 
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
