@@ -28,7 +28,12 @@
             <Image url="@imgs/resource_cards/resources--grain.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1GrainAmnt" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+    <ImageView fx:id="Player1GrainBack" fitHeight="60.0" fitWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--back.png" />
+        </image>
+    </ImageView>
+   <Label fx:id="Player1GrainAmnt" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
       </font>
@@ -44,7 +49,12 @@
             <Image url="@imgs/resource_cards/resources--lumber.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1LumberAmnt" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+    <ImageView fx:id="Player1Lumberback" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--back.png" />
+        </image>
+    </ImageView>
+   <Label fx:id="Player1LumberAmnt" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
       </font>
@@ -63,7 +73,7 @@
             <Image url="@imgs/resource_cards/resources--wool.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1WoolAmnt" layoutX="109.0" layoutY="32.0" text="8" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+   <Label fx:id="Player1WoolAmnt" layoutX="109.0" layoutY="32.0" text="8" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
       </font>
@@ -79,7 +89,7 @@
             <Image url="@imgs/resource_cards/resources--ore.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1OreAmnt" text="8" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+   <Label fx:id="Player1OreAmnt" text="8" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
       </font>
@@ -95,7 +105,7 @@
             <Image url="@imgs/resource_cards/resources--brick.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1BrickAmnt" text="8" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+   <Label fx:id="Player1BrickAmnt" text="8" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
       </font>
@@ -112,7 +122,7 @@
             <Image url="@imgs/developement_cards/dcs--%202.png" />
         </image>
     </ImageView>
-    <Label fx:id="Player1DevCardAmnt" text="8" textFill="WHITE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.valignment="BOTTOM">
+    <Label fx:id="Player1DevCardAmnt" text="8" textFill="WHITE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -685,8 +695,10 @@
          </DropShadow>
       </effect></Button>
 
-    <!--Roads and Circles-->
-    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true" rotate="-130.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+    <!--Roads-->
+
+    
+    <ImageView fx:id="E2_7" fitHeight="25.0" fitWidth="25.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="-130.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -698,7 +710,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+    <ImageView fx:id="E1_8" fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -710,7 +722,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" rotate="126.3" GridPane.columnIndex="4" GridPane.rowIndex="4">
+    <ImageView fx:id="E2_5" fitHeight="25.0" fitWidth="25.0" layoutX="1791.0" layoutY="1097.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="126.3" GridPane.columnIndex="4" GridPane.rowIndex="4">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -722,7 +734,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="1097.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <ImageView fx:id="E1_4" fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="1097.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -734,7 +746,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1079.0" layoutY="743.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.valignment="TOP">
+    <ImageView fx:id="E0_5" fitHeight="25.0" fitWidth="25.0" layoutX="1079.0" layoutY="743.0" onMouseClicked="#RoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.rowIndex="2" GridPane.valignment="TOP">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -746,7 +758,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+    <ImageView fx:id="E0_7" fitHeight="25.0" fitWidth="25.0" layoutX="1338.0" layoutY="539.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -758,7 +770,7 @@
          </DropShadow>
       </effect>
     </ImageView>
-   <Circle fill="WHITE" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+   <Circle fx:id="V1_2" fill="WHITE" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -767,7 +779,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <ImageView fx:id="E0_9" fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="185.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -779,7 +791,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <ImageView fx:id="E0_11" fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="70.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -791,7 +803,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+   <ImageView fx:id="E1_12" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -803,7 +815,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+   <ImageView fx:id="E2_9" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -815,7 +827,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+   <ImageView fx:id="E2_11" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -827,7 +839,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <ImageView fx:id="E0_13" fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="70.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -839,7 +851,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+   <ImageView fx:id="E0_15" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -851,7 +863,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <ImageView fx:id="E1_16" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -863,7 +875,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+    <ImageView fx:id="E2_13" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -875,7 +887,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+    <ImageView fx:id="E2_15" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -887,7 +899,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+    <ImageView fx:id="E2_3" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -899,7 +911,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <ImageView fx:id="E3_2" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -911,7 +923,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+    <ImageView fx:id="E4_3" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="120.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -923,7 +935,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-    <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
+    <ImageView fx:id="E4_5" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.rowIndex="6">
         <image>
             <Image url="@imgs/roads/RoadWhite.png" />
         </image>
@@ -935,7 +947,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-   <Circle fill="WHITE" layoutX="180.0" layoutY="100.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+   <Circle fx:id="V1_4" fill="WHITE" layoutX="180.0" layoutY="100.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -944,7 +956,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="340.0" layoutY="100.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V2_2" fill="WHITE" layoutX="340.0" layoutY="100.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -953,7 +965,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="180.0" layoutY="180.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+   <Circle fx:id="V3_3" fill="WHITE" layoutX="180.0" layoutY="180.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -962,7 +974,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="260.0" layoutY="205.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V0_3" fill="WHITE" layoutX="260.0" layoutY="205.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -971,7 +983,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="260.0" layoutY="75.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V2_4" fill="WHITE" layoutX="260.0" layoutY="75.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -981,7 +993,7 @@
       </effect>
    </Circle>
 
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="220.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+   <ImageView fx:id="E3_6" fitHeight="25.0" fitWidth="25.0" layoutX="220.0" layoutY="310.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -993,7 +1005,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_7" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1005,7 +1017,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_9" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1017,7 +1029,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="376.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+   <ImageView fx:id="E3_10" fitHeight="25.0" fitWidth="25.0" layoutX="376.0" layoutY="310.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1029,7 +1041,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_11" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1041,7 +1053,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_13" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1053,7 +1065,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+   <ImageView fx:id="E3_14" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1065,7 +1077,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_15" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1077,7 +1089,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="616.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+   <ImageView fx:id="E2_17" fitHeight="25.0" fitWidth="25.0" layoutX="616.0" layoutY="310.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1089,7 +1101,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_17" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1101,7 +1113,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+   <ImageView fx:id="E3_18" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1113,7 +1125,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_1" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1125,7 +1137,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_0" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1137,7 +1149,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_1" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1149,7 +1161,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_3" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1161,7 +1173,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="136.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_4" fitHeight="25.0" fitWidth="25.0" layoutX="136.0" layoutY="425.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1173,7 +1185,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_5" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1185,7 +1197,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_7" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1197,7 +1209,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_8" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1209,7 +1221,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_9" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1221,7 +1233,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_11" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1233,7 +1245,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_12" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1245,7 +1257,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_13" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1257,7 +1269,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E615" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1269,7 +1281,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_16" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1281,7 +1293,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
+   <ImageView fx:id="E4_19" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1293,7 +1305,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+   <ImageView fx:id="E5_20" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1305,7 +1317,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="808.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_17" fitHeight="25.0" fitWidth="25.0" layoutX="808.0" layoutY="368.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1317,7 +1329,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="808.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
+   <ImageView fx:id="E6_19" fitHeight="25.0" fitWidth="25.0" layoutX="808.0" layoutY="368.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="10" GridPane.halignment="RIGHT" GridPane.rowIndex="8">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1329,7 +1341,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+   <ImageView fx:id="E7_2" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1341,7 +1353,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_3" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1353,7 +1365,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_5" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1365,7 +1377,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+   <ImageView fx:id="E7_6" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1377,7 +1389,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_7" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1389,7 +1401,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_9" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1401,7 +1413,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+   <ImageView fx:id="E7_10" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1413,7 +1425,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_11" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1425,7 +1437,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_13" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1437,7 +1449,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+   <ImageView fx:id="E7_14" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1449,7 +1461,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="578.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+   <ImageView fx:id="E7_18" fitHeight="25.0" fitWidth="25.0" layoutX="578.0" layoutY="483.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1461,7 +1473,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="578.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_15" fitHeight="25.0" fitWidth="25.0" layoutX="578.0" layoutY="483.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1473,7 +1485,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
+   <ImageView fx:id="E8_17" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="9" GridPane.halignment="RIGHT" GridPane.rowIndex="10">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1485,7 +1497,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <ImageView fx:id="E9_4" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1497,7 +1509,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_5" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1509,7 +1521,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_7" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1521,7 +1533,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <ImageView fx:id="E9_8" fitHeight="25.0" fitWidth="25.0" layoutX="296.0" layoutY="655.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1533,7 +1545,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_9" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1545,7 +1557,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_11" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1557,7 +1569,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <ImageView fx:id="E9_12" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1569,7 +1581,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_13" fitHeight="25.0" fitWidth="25.0" layoutX="10.0" layoutY="28.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="125.0" GridPane.columnIndex="7" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1581,7 +1593,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <ImageView fx:id="E9_16" fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="655.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1593,7 +1605,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="655.0" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
+   <ImageView fx:id="E10_15" fitHeight="25.0" fitWidth="25.0" layoutX="536.0" layoutY="655.0" onMouseClicked="#RoadOnClickRoadOnClick" pickOnBounds="true" preserveRatio="true" rotate="65.0" GridPane.columnIndex="8" GridPane.halignment="RIGHT" GridPane.rowIndex="12">
       <image>
          <Image url="@imgs/roads/RoadWhite.png" />
       </image>
@@ -1605,7 +1617,7 @@
          </DropShadow>
       </effect>
    </ImageView>
-   <Circle fill="WHITE" layoutX="180.0" layoutY="110.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+   <Circle fx:id="V0_5" fill="WHITE" layoutX="180.0" layoutY="110.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="1">
       <effect>
          <DropShadow>
             <color>
@@ -1614,7 +1626,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+   <Circle fx:id="V0_7" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="1">
       <effect>
          <DropShadow>
             <color>
@@ -1623,7 +1635,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V2_6" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1632,7 +1644,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+   <Circle fx:id="V1_6" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1641,7 +1653,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V2_8" fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1650,7 +1662,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+   <Circle fx:id="V1_8" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1659,7 +1671,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+   <Circle fx:id="V3_1" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1668,7 +1680,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V4_1" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1677,7 +1689,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+   <Circle fx:id="V5_2" fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1686,7 +1698,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V4_3" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1695,7 +1707,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V6_2" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1704,7 +1716,7 @@
          </DropShadow>
       </effect>
    </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
+    <Circle fx:id="V7_1" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1713,7 +1725,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+    <Circle fx:id="V8_1" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
         <effect>
             <DropShadow>
                 <color>
@@ -1722,7 +1734,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+    <Circle fx:id="V5_0" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1731,7 +1743,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+    <Circle fx:id="V6_0" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
         <effect>
             <DropShadow>
                 <color>
@@ -1740,7 +1752,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
+    <Circle fx:id="V7_3" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1749,7 +1761,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+    <Circle fx:id="V8_3" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
         <effect>
             <DropShadow>
                 <color>
@@ -1758,7 +1770,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+    <Circle fx:id="V5_4" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1767,7 +1779,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+    <Circle fx:id="V6_4" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
         <effect>
             <DropShadow>
                 <color>
@@ -1776,7 +1788,7 @@
             </DropShadow>
         </effect>
     </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+    <Circle fx:id="V3_5" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1784,7 +1796,7 @@
                 </color>
             </DropShadow>
         </effect>
-    </Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+    </Circle>  <Circle fx:id="V4_5" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1793,7 +1805,7 @@
         </DropShadow>
     </effect>
 </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+    <Circle fx:id="V3_7" fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1801,7 +1813,7 @@
                 </color>
             </DropShadow>
         </effect>
-    </Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+    </Circle>  <Circle fx:id="V4_7" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1809,7 +1821,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V3_9" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1817,7 +1829,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V4_9" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1826,7 +1838,7 @@
         </DropShadow>
     </effect>
 </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+    <Circle fx:id="V5_6" fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1834,7 +1846,7 @@
                 </color>
             </DropShadow>
         </effect>
-    </Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+    </Circle>  <Circle fx:id="V6_6" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1842,7 +1854,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V5_8" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1850,7 +1862,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V6_8" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1858,7 +1870,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V5_10" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1866,7 +1878,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V6_10" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="11" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1874,7 +1886,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V7_5" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1882,7 +1894,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V8_5" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1890,7 +1902,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V7_7" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1898,7 +1910,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V8_7" fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1907,7 +1919,7 @@
         </DropShadow>
     </effect>
 </Circle>
-    <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
+    <Circle fx:id="V7_9" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
@@ -1915,7 +1927,7 @@
                 </color>
             </DropShadow>
         </effect>
-    </Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
+    </Circle>  <Circle fx:id="V8_9" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1923,7 +1935,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
+</Circle>  <Circle fx:id="V9_2" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
     <effect>
         <DropShadow>
             <color>
@@ -1931,7 +1943,7 @@
             </color>
         </DropShadow>
     </effect>
-</Circle>  <Circle fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
+</Circle>  <Circle fx:id="V10_2" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
     <effect>
         <DropShadow>
             <color>
@@ -1940,7 +1952,7 @@
         </DropShadow>
     </effect>
 </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
+   <Circle fx:id="V9_4" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1949,7 +1961,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V10_4" fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1958,7 +1970,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+   <Circle fx:id="V11_3" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="13">
       <effect>
          <DropShadow>
             <color>
@@ -1967,7 +1979,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+   <Circle fx:id="V11_5" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="13">
       <effect>
          <DropShadow>
             <color>
@@ -1976,7 +1988,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
+   <Circle fx:id="V9_6" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -1985,7 +1997,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V10_6" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
@@ -1994,7 +2006,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="13">
+   <Circle fx:id="V11_7" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="13">
       <effect>
          <DropShadow>
             <color>
@@ -2003,7 +2015,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
+   <Circle fx:id="V9_8" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
       <effect>
          <DropShadow>
             <color>
@@ -2012,7 +2024,7 @@
          </DropShadow>
       </effect>
    </Circle>
-   <Circle fill="WHITE" layoutX="15.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
+   <Circle fx:id="V10_8" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClickvertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="BOTTOM">
       <effect>
          <DropShadow>
             <color>
