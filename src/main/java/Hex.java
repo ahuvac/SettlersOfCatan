@@ -19,6 +19,7 @@ public class Hex {
     }
 
 
+    //TODO Fill this in or delete
     public void connect(){
 
     }

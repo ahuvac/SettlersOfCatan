@@ -69,9 +69,11 @@ public class Wallet {
     {
         int sum = 0;
         for (ResourceType type : ResourceType.values()) {
-            int num = cards.get(type);
-            sum += num;
-            cards.put(type, num);
+            if(cards.containsKey(type)) {
+                int num = cards.get(type);
+                sum += num;
+                cards.put(type, num);
+            }
         }
         return sum;
     }
