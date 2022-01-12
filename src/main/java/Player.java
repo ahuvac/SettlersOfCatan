@@ -32,6 +32,16 @@ public class Player {
         this.name = name;
     }
 
+    public void decrementSettlements()
+    {
+        settlements--;
+    }
+
+    public void decrementRoads()
+    {
+        roads--;
+    }
+
     public boolean hasSpareRoads()
     {
         return roads != 0;
@@ -95,7 +105,7 @@ public class Player {
     public void buildRoad(){
         useCard(ResourceType.BRICK);
         useCard(ResourceType.LUMBER);
-            consecutiveRoads++;
+            //consecutiveRoads++; TODO: add logic here?
             roads--;
     }
 
