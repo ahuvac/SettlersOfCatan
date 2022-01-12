@@ -8,7 +8,7 @@ public class Board {
     ;
     Hex[][] hexes = new Hex[5][9];
     Vertex[][] vertices = new Vertex[12][11];
-    Edge[][] edges = new Edge[21][10];
+    Edge[][] edges = new Edge[11][21];
 
 
     public Board(){
@@ -49,7 +49,7 @@ public class Board {
 
     private void assignNumbers(List<Hex> hexArrayList)
     {
-        int[] numbers = new int[18];
+        int[] numbers = new int[19];
         numbers[0] = 5;
         numbers[1] = 2;
         numbers[2] = 6;
@@ -366,7 +366,7 @@ public class Board {
         borderingHexes.remove(0);
 
         vertices[1][8] = new Vertex(borderingHexes);
-        edgeList.add(edges[1][15]);
+        edgeList.add(edges[0][15]);
         edgeList.add(edges[1][16]);
         vertices[1][8].setEdges(edgeList);
         edgeList.clear();
