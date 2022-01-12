@@ -59,7 +59,7 @@ public class Game {
             return null;
         }
     }
-    
+
     public void gameBeginning()
     {
         List<Player> playerOrder = new ArrayList<>();
