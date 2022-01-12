@@ -2,6 +2,7 @@ import java.util.Random;
 
 public class Die {
 
+    //TODO make test for this class using MOCKITO
     private Random rand;
 
     public Die()
