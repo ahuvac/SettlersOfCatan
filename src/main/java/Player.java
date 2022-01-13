@@ -39,7 +39,7 @@ public class Player {
     }
 
     public boolean hasMoreRoads() {
-        return roads != 0 && roads > 0;
+        return roads >= 0;
     }
 
     public void largestArmy(boolean on) {

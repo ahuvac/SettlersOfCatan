@@ -1,15 +1,9 @@
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Control;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
+import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,13 +49,17 @@ public class SettlersController {
     ImageView hex19;
     Game game;
     Location roadLocation;
-    Location vertexLocation;
+    Location settlementLocation;
+    Location cityLocation;
+    boolean inBuildRoad;
+    boolean inBuildSettlement;
+    boolean inBuildCity;
 
     public SettlersController()
     {
         game = new Game();
-        roadLocation = new Location(1,4);
-        vertexLocation = null;
+        roadLocation = null;
+        settlementLocation = null;
         initializeBoard();
     }
 
@@ -103,37 +101,101 @@ public class SettlersController {
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
-        final Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        //dialog.initOwner(primaryStage);
-        VBox dialogVbox = new VBox(20);
-        dialogVbox.getChildren().add(new Text("Please click on the location that you would like to build your road"));
+        if (mouseEvent.getSource() instanceof Button)
+        {
+            createDialogBox("Select Road","Please click on the location where you would like to build a road");
+            inBuildRoad = true;
+        }
+        else if (mouseEvent.getSource() instanceof ImageView)
+        {
+            if (roadLocation != null) {
+                boolean bought = game.buyRoad(roadLocation);
+                if (bought) { //TODO: fix this, the image path isn't working
+                    ImageView road = (ImageView) mouseEvent.getSource();
+                    if (game.getCurrentPlayer().color == Color.BLUE) {
+                        road.setImage(new Image("/resources/imgs/roads/RoadBlue.png"));
+                    }
+                    else
+                    {
+                        road.setImage(new Image("/resources/imgs/roads/RoadRed.png"));
+                    }
+                }
+                if (!bought) {
+                    //TODO: the full message is not displayed
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
+                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                }
+            }
 
-        Button button = new Button("Ok");
-        dialogVbox.getChildren().add(new Button("Ok"));
-        button.setOnAction((e) -> {
-            dialog.close();
-        });
-        Scene dialogScene = new Scene(dialogVbox, 300, 200);
-        dialog.setScene(dialogScene);
-        dialog.show();
-//        while(roadLocation == null)
-//        {
-//
-//        }
-//        boolean bought = game.buyRoad(roadLocation);
-//        if (!bought)
-//        {
-//            roadLocation = null;
-//            BuildRoadOnClick(mouseEvent);
-//        }
-//        roadLocation = null;
+            inBuildRoad = false;
+        }
+        roadLocation = null;
     }
 
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() instanceof Button)
+        {
+            inBuildSettlement = true;
+            createDialogBox("Select Location","Please click on the location where you would like to build a settlement");
+        }
+        else if (mouseEvent.getSource() instanceof Circle)
+        {
+            if (settlementLocation != null) {
+                boolean bought = game.buySettlement(settlementLocation);
+                if (bought) { //TODO: fix this, the image path isn't working and is not an Imageview
+//                    ImageView vertex = (ImageView) mouseEvent.getSource();
+//                    if (game.getCurrentPlayer().color == Color.BLUE) {
+//                        vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
+//                        //TODO: add onclick for settlement
+//                    }
+//                    else
+//                    {
+//                        vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
+//                        //TODO: add onclick for settlement
+//                    }
+                }
+                if (!bought) {
+                    //TODO: the full message is not displayed
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
+                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                }
+            }
+
+            inBuildSettlement = false;
+        }
+        settlementLocation = null;
     }
 
     public void BuildCityOnClick(MouseEvent mouseEvent) {
+        if (mouseEvent.getSource() instanceof Button)
+        {
+            inBuildCity = true;
+            createDialogBox("Select Location","Please click on the settlement where you would like to build a city");
+        }
+        else if (mouseEvent.getSource() instanceof ImageView)
+        {
+            if (cityLocation != null) {
+                boolean bought = game.buyCity(cityLocation);
+                if (bought) { //TODO: fix this, the image path isn't working
+                    ImageView vertex = (ImageView) mouseEvent.getSource();
+                    if (game.getCurrentPlayer().color == Color.BLUE) {
+                        vertex.setImage(new Image("/resources/imgs/roads/CityBlue.png"));
+                    }
+                    else
+                    {
+                        vertex.setImage(new Image("/resources/imgs/roads/CityRed.png"));
+                    }
+                }
+                if (!bought) {
+                    //TODO: the full message is not displayed
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
+                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                }
+            }
+
+            inBuildCity = false;
+        }
+        cityLocation = null;
     }
 
     public void BuyDevCardOnClick(MouseEvent mouseEvent) {
@@ -150,16 +212,33 @@ public class SettlersController {
 
 
     public void RoadOnClick(MouseEvent mouseEvent) {
-       Control road = (Control) mouseEvent.getSource();
+       ImageView road = (ImageView) mouseEvent.getSource();
        String roadId = road.getId();
        roadLocation = new Location(getRow(roadId), getColumn(roadId));
+       if (inBuildRoad) {
+           BuildRoadOnClick(mouseEvent);
+       }
     }
 
-    public void VertexOnClick(MouseEvent mouseEvent)
+    public void vertexOnClick(MouseEvent mouseEvent)
     {
-        Control vertex = (Control) mouseEvent.getSource();
+        Circle vertex = (Circle) mouseEvent.getSource();
         String vertexId = vertex.getId();
-        vertexLocation = new Location(getRow(vertexId), getColumn(vertexId));
+        settlementLocation = new Location(getRow(vertexId), getColumn(vertexId));
+        if (inBuildSettlement) {
+            BuildSettlementOnClick(mouseEvent);
+        }
+
+    }
+
+    public void settlementOnClick(MouseEvent mouseEvent)
+    {
+        ImageView settlement = (ImageView) mouseEvent.getSource();
+        String vertexId = settlement.getId();
+        cityLocation = new Location(getRow(vertexId), getColumn(vertexId));
+        if (inBuildCity) {
+            BuildCityOnClick(mouseEvent);
+        }
     }
 
     public int getRow(String id)
@@ -176,6 +255,13 @@ public class SettlersController {
         return Integer.parseInt(columnString);
     }
 
-    public void vertexOnClick(MouseEvent mouseEvent) {
+    public void createDialogBox(String title, String message)
+    {
+        Dialog<String> dialog = new Dialog<String>();
+        dialog.setTitle(title);
+        ButtonType type = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+        dialog.setContentText(message);
+        dialog.getDialogPane().getButtonTypes().add(type);
+        dialog.showAndWait();
     }
 }

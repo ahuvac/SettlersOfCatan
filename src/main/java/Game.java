@@ -9,6 +9,11 @@ public class Game {
     private Die[] dice;
     private Board board;
     private Bank bank;
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
     private int largestArmy;
     private Player currentPlayer;
 
@@ -36,11 +41,11 @@ public class Game {
         currentPlayer = players.get(0);
     }
 
-    public DevelopmentCard buyDevelopmentCard(Player player)
+    public DevelopmentCard buyDevelopmentCard()
     {
-        if (player.hasCard(ResourceType.WOOL, 1) &&
-                player.hasCard(ResourceType.GRAIN, 1) &&
-                player.hasCard(ResourceType.ORE, 1) &&
+        if (currentPlayer.hasCard(ResourceType.WOOL, 1) &&
+                currentPlayer.hasCard(ResourceType.GRAIN, 1) &&
+                currentPlayer.hasCard(ResourceType.ORE, 1) &&
                 bank.hasDevelopmentCard())
         {
 
@@ -48,15 +53,15 @@ public class Game {
             bank.addResourceCard(ResourceType.GRAIN);
             bank.addResourceCard(ResourceType.ORE);
             DevelopmentCard card = bank.getDevelopmentCard();
-            player.buyDevelopmentCard(card);
-            if(card.equals(DevelopmentCard.KNIGHT)) player.addKnight();
-            if(player.getKnight() >= 3 && player.getKnight() > largestArmy){
-                    largestArmy = player.getKnight();
+            currentPlayer.buyDevelopmentCard(card);
+            if(card.equals(DevelopmentCard.KNIGHT)) currentPlayer.addKnight();
+            if(currentPlayer.getKnight() >= 3 && currentPlayer.getKnight() > largestArmy){
+                    largestArmy = currentPlayer.getKnight();
                     for(Player p : players) p.largestArmy(false);
-                    player.largestArmy(true);
+                currentPlayer.largestArmy(true);
 
                 }
-            if(card.equals(DevelopmentCard.VICTORY_POINTS)) player.incrementScore();
+            if(card.equals(DevelopmentCard.VICTORY_POINTS)) currentPlayer.incrementScore();
 
             return card;
         }
@@ -164,7 +169,7 @@ public class Game {
 
         if (currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
-                currentPlayer.hasSpareRoads())
+                currentPlayer.hasMoreRoads())
 
         {
             if (checkRoadLocation(location)) {
@@ -223,20 +228,20 @@ public class Game {
     }
 
 
-    public boolean buySettlement(Player player, Location location)
+    public boolean buySettlement(Location location)
     {
-        if (player.hasCard(ResourceType.LUMBER, 1) &&
-                player.hasCard(ResourceType.BRICK, 1) &&
-                player.hasCard(ResourceType.WOOL, 1) &&
-                player.hasCard(ResourceType.GRAIN, 1) &&
-        player.hasMoreSettlements())
+        if (currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
+                currentPlayer.hasCard(ResourceType.BRICK, 1) &&
+                currentPlayer.hasCard(ResourceType.WOOL, 1) &&
+                currentPlayer.hasCard(ResourceType.GRAIN, 1) &&
+                currentPlayer.hasMoreSettlements())
         {
-            if (checkSettlementLocation(player.color, location, false)) {
+            if (checkSettlementLocation(currentPlayer.color, location, false)) {
                 bank.addResourceCard(ResourceType.WOOL);
                 bank.addResourceCard(ResourceType.GRAIN);
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
-                player.buildSettlement();
+                currentPlayer.buildSettlement();
                 return true;
             }
         }
@@ -277,16 +282,16 @@ public class Game {
         return false;
     }
 
-    public boolean buyCity(Player player, Location location)
+    public boolean buyCity(Location location)
     {
         Vertex vertex = board.vertices[location.row][location.col];
-        if (player.hasCard(ResourceType.ORE, 3) &&
-                player.hasCard(ResourceType.GRAIN, 2) &&
-            player.hasMoreCities())
+        if (currentPlayer.hasCard(ResourceType.ORE, 3) &&
+                currentPlayer.hasCard(ResourceType.GRAIN, 2) &&
+                currentPlayer.hasMoreCities())
         {
-            if (vertex.hasSettlement() && vertex.getSettlementColor() == player.color)
+            if (vertex.hasSettlement() && vertex.getSettlementColor() == currentPlayer.color)
             {
-                player.buildCity();
+                currentPlayer.buildCity();
                 bank.addResourceCard(ResourceType.ORE);
                 bank.addResourceCard(ResourceType.ORE);
                 bank.addResourceCard(ResourceType.ORE);
