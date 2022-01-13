@@ -2,6 +2,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Control;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
@@ -53,13 +55,13 @@ public class SettlersController {
     ImageView hex19;
     Game game;
     Location roadLocation;
-    Location cityLocation;
+    Location vertexLocation;
 
     public SettlersController()
     {
         game = new Game();
         roadLocation = new Location(1,4);
-        cityLocation = null;
+        vertexLocation = null;
         initializeBoard();
     }
 
@@ -142,8 +144,33 @@ public class SettlersController {
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
         game.switchPlayer();
+        //TODO: add gui stuff
     }
 
     public void RoadOnClick(MouseEvent mouseEvent) {
+       Control road = (Control) mouseEvent.getSource();
+       String roadId = road.getId();
+       roadLocation = new Location(getRow(roadId), getColumn(roadId));
+    }
+
+    public void VertexOnClick(MouseEvent mouseEvent)
+    {
+        Control vertex = (Control) mouseEvent.getSource();
+        String vertexId = vertex.getId();
+        vertexLocation = new Location(getRow(vertexId), getColumn(vertexId));
+    }
+
+    public int getRow(String id)
+    {
+        int underScore = id.indexOf("_");
+        String rowString = id.substring(1, underScore);
+        return Integer.parseInt(rowString);
+    }
+
+    public int getColumn(String id)
+    {
+        int underScore = id.indexOf("_");
+        String columnString = id.substring(++underScore);
+        return Integer.parseInt(columnString);
     }
 }
