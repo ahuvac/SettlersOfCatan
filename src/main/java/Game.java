@@ -54,14 +54,14 @@ public class Game {
             bank.addResourceCard(ResourceType.ORE);
             DevelopmentCard card = bank.getDevelopmentCard();
             currentPlayer.buyDevelopmentCard(card);
-            if(card.equals(DevelopmentCard.KNIGHT)) currentPlayer.addKnight();
+            if(card.equals(DevelopmentCard.KNIGHT)) {currentPlayer.addKnight();}
             if(currentPlayer.getKnight() >= 3 && currentPlayer.getKnight() > largestArmy){
                     largestArmy = currentPlayer.getKnight();
                     for(Player p : players) p.largestArmy(false);
                 currentPlayer.largestArmy(true);
 
                 }
-            if(card.equals(DevelopmentCard.VICTORY_POINTS)) currentPlayer.incrementScore();
+            if(card.equals(DevelopmentCard.VICTORY_POINTS)) {currentPlayer.incrementScore();}
 
             return card;
         }
