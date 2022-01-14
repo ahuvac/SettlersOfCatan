@@ -47,6 +47,44 @@ public class SettlersController {
     ImageView hex18;
     @FXML
     ImageView hex19;
+    @FXML
+    Label hex1Num;
+    @FXML
+    Label hex2Num;
+    @FXML
+    Label hex3Num;
+    @FXML
+    Label hex4Num;
+    @FXML
+    Label hex5Num;
+    @FXML
+    Label hex6Num;
+    @FXML
+    Label hex7Num;
+    @FXML
+    Label hex8Num;
+    @FXML
+    Label hex9Num;
+    @FXML
+    Label hex10Num;
+    @FXML
+    Label hex11Num;
+    @FXML
+    Label hex12Num;
+    @FXML
+    Label hex13Num;
+    @FXML
+    Label hex14Num;
+    @FXML
+    Label hex15Num;
+    @FXML
+    Label hex16Num;
+    @FXML
+    Label hex17Num;
+    @FXML
+    Label hex18Num;
+    @FXML
+    Label hex19Num;
     Game game;
     Location roadLocation;
     Location settlementLocation;
@@ -85,6 +123,26 @@ public class SettlersController {
         hexes.add(hex17);
         hexes.add(hex18);
         hexes.add(hex19);
+        List<Label> numbers = new ArrayList<>();
+        numbers.add(hex1Num);
+        numbers.add(hex2Num);
+        numbers.add(hex3Num);
+        numbers.add(hex4Num);
+        numbers.add(hex5Num);
+        numbers.add(hex6Num);
+        numbers.add(hex7Num);
+        numbers.add(hex8Num);
+        numbers.add(hex9Num);
+        numbers.add(hex10Num);
+        numbers.add(hex11Num);
+        numbers.add(hex12Num);
+        numbers.add(hex13Num);
+        numbers.add(hex14Num);
+        numbers.add(hex15Num);
+        numbers.add(hex16Num);
+        numbers.add(hex17Num);
+        numbers.add(hex18Num);
+        numbers.add(hex19Num);
         List<Hex> hexList = game.getHexes();
         for (int i = 0; i < hexList.size(); i++) {
             Hex currentHex = hexList.get(i);
@@ -112,6 +170,7 @@ public class SettlersController {
             {
                 hexes.get(i).setImage(new Image("imgs/hexes/forest.png"));
             }
+            numbers.get(i).setText(String.valueOf(currentHex.number));
         }
     }
 
