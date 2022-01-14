@@ -67,7 +67,52 @@ public class SettlersController {
     {
         List<ImageView> hexes = new ArrayList<>();
         hexes.add(hex1);
-
+        hexes.add(hex2);
+        hexes.add(hex3);
+        hexes.add(hex4);
+        hexes.add(hex5);
+        hexes.add(hex6);
+        hexes.add(hex7);
+        hexes.add(hex8);
+        hexes.add(hex9);
+        hexes.add(hex10);
+        hexes.add(hex11);
+        hexes.add(hex12);
+        hexes.add(hex13);
+        hexes.add(hex14);
+        hexes.add(hex15);
+        hexes.add(hex16);
+        hexes.add(hex17);
+        hexes.add(hex18);
+        hexes.add(hex19);
+        List<Hex> hexList = game.getHexes();
+        for (int i = 0; i < hexList.size(); i++) {
+            Hex currentHex = hexList.get(i);
+            if (currentHex.type == ResourceType.DESERT)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/desert.png"));
+            }
+            else if (currentHex.type == ResourceType.BRICK)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/hill.png"));
+            }
+            else if (currentHex.type == ResourceType.ORE)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/mountain.png"));
+            }
+            else if (currentHex.type == ResourceType.WOOL)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/pasture.png"));
+            }
+            else if (currentHex.type == ResourceType.GRAIN)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/field.png"));
+            }
+            else if (currentHex.type == ResourceType.LUMBER)
+            {
+                hexes.get(i).setImage(new Image("imgs/hexes/forest.png"));
+            }
+        }
     }
 
     public void Player1GrainCardOnClick(MouseEvent mouseEvent) {

@@ -129,6 +129,11 @@ public class Game {
         }
     }
 
+    public List<Hex> getHexes()
+    {
+        return board.getHexesAsList();
+    }
+
     //TODO
     public Location chooseSettlementLocation()
     {

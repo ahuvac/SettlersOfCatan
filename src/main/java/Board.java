@@ -20,6 +20,20 @@ public class Board {
         placeVertices();
     }
 
+    public List<Hex> getHexesAsList()
+    {
+        List<Hex> hexList = new ArrayList<Hex>();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (hexes[i][j] != null)
+                {
+                    hexList.add(hexes[i][j]);
+                }
+            }
+        }
+        return hexList;
+    }
+
     private List<Hex> createHexes()
     {
         List<Hex> hexArrayList = new ArrayList<>();
