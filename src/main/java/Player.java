@@ -39,7 +39,7 @@ public class Player {
     }
 
     public boolean hasMoreRoads() {
-        return roads != 0 && roads > 0;
+        return roads > 0;
     }
 
     public void largestArmy(boolean on) {
@@ -100,7 +100,7 @@ public class Player {
             useCard(ResourceType.BRICK);
             useCard(ResourceType.LUMBER);
             //consecutiveRoads++; TODO: add logic here?
-            roads--;
+            --roads;
             return true;
         }
         return false;
@@ -157,5 +157,19 @@ public class Player {
         return wallet.getTotalCards();
     }
 
+    public int getCardAmount(ResourceType type)
+    {
+        return wallet.getCardAmount(type);
+    }
 
+    public int getDevCardAmount()
+    {
+        return developmentCards.size();
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.color.toString();
+    }
 }
