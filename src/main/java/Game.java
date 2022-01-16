@@ -164,7 +164,11 @@ public class Game {
 
     public void switchPlayer(){
         int index = players.indexOf(currentPlayer);
-        currentPlayer =  players.get(index + 1);
+        if (++index == players.size())
+        {
+            index = 0;
+        }
+        currentPlayer =  players.get(index);
         rollDiceAndDistributeCards();
     }
 

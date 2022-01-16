@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -85,6 +86,8 @@ public class SettlersController {
     Label hex18Num;
     @FXML
     Label hex19Num;
+    @FXML
+    Label currentPlayer;
     Game game;
     Location roadLocation;
     Location settlementLocation;
@@ -92,18 +95,19 @@ public class SettlersController {
     boolean inBuildRoad;
     boolean inBuildSettlement;
     boolean inBuildCity;
+    List<ImageView> hexes;
 
     public SettlersController()
     {
+        hexes = new ArrayList<>();
         game = new Game();
         roadLocation = null;
         settlementLocation = null;
-        initializeBoard();
     }
 
-    public void initializeBoard()
+    @FXML
+    public void initialize()
     {
-        List<ImageView> hexes = new ArrayList<>();
         hexes.add(hex1);
         hexes.add(hex2);
         hexes.add(hex3);
@@ -172,6 +176,18 @@ public class SettlersController {
             }
             numbers.get(i).setText(String.valueOf(currentHex.number));
         }
+        currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+        updateCards();
+    }
+
+    public void updateCards()
+    {
+        //TODO
+    }
+
+    public void flipCards()
+    {
+        //TODO
     }
 
     public void Player1GrainCardOnClick(MouseEvent mouseEvent) {
@@ -214,16 +230,17 @@ public class SettlersController {
         {
             if (roadLocation != null) {
                 boolean bought = game.buyRoad(roadLocation);
-                if (bought) { //TODO: fix this, the image path isn't working
+                //if (bought) { //TODO: fix this, the image path isn't working
+                    updateCards();
                     ImageView road = (ImageView) mouseEvent.getSource();
                     if (game.getCurrentPlayer().color == Color.BLUE) {
-                        road.setImage(new Image("/resources/imgs/roads/RoadBlue.png"));
+                        road.setImage(new Image(new File("imgs/roads/RoadBlue.png").toURI().toString()));
                     }
                     else
                     {
-                        road.setImage(new Image("/resources/imgs/roads/RoadRed.png"));
+                        road.setImage(new Image(new File("imgs/roads/RoadRed.png").toURI().toString()));
                     }
-                }
+               // }
                 if (!bought) {
                     //TODO: the full message is not displayed
                     createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
@@ -247,6 +264,7 @@ public class SettlersController {
             if (settlementLocation != null) {
                 boolean bought = game.buySettlement(settlementLocation);
                 if (bought) { //TODO: fix this, the image path isn't working and is not an Imageview
+                    updateCards();
 //                    ImageView vertex = (ImageView) mouseEvent.getSource();
 //                    if (game.getCurrentPlayer().color == Color.BLUE) {
 //                        vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
@@ -281,6 +299,7 @@ public class SettlersController {
             if (cityLocation != null) {
                 boolean bought = game.buyCity(cityLocation);
                 if (bought) { //TODO: fix this, the image path isn't working
+                    updateCards();
                     ImageView vertex = (ImageView) mouseEvent.getSource();
                     if (game.getCurrentPlayer().color == Color.BLUE) {
                         vertex.setImage(new Image("/resources/imgs/roads/CityBlue.png"));
@@ -310,7 +329,8 @@ public class SettlersController {
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
         game.switchPlayer();
-        //TODO: add gui stuff
+        flipCards();
+        currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
     }
 
 

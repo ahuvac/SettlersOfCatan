@@ -854,6 +854,10 @@ public class Board {
         ArrayList<Location> hexesWithNumber = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
+                if(hexes[i][j] == null)
+                {
+                    continue;
+                }
                 if (hexes[i][j].number == number)
                 {
                     hexesWithNumber.add(new Location(i, j));

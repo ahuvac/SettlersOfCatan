@@ -157,5 +157,9 @@ public class Player {
         return wallet.getTotalCards();
     }
 
-
+    @Override
+    public String toString()
+    {
+        return this.color.toString();
+    }
 }
