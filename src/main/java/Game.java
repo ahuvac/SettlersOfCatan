@@ -164,7 +164,7 @@ public class Game {
 
         if (currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
-                currentPlayer.hasSpareRoads())
+                currentPlayer.hasMoreRoads())
 
         {
             if (checkRoadLocation(location)) {

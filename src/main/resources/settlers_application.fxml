@@ -73,6 +73,11 @@
             <Image url="@imgs/resource_cards/resources--wool.png" />
         </image>
     </ImageView>
+<ImageView fx:id="Player1Woolback" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+<image>
+    <Image url="@imgs/resource_cards/resources--back.png" />
+</image>
+</ImageView>
    <Label fx:id="Player1WoolAmnt" layoutX="109.0" layoutY="32.0" text="8" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
@@ -89,6 +94,11 @@
             <Image url="@imgs/resource_cards/resources--ore.png" />
         </image>
     </ImageView>
+    <ImageView fx:id="Player1Oreback" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--back.png" />
+        </image>
+    </ImageView>
    <Label fx:id="Player1OreAmnt" text="8" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
       <font>
          <Font name="Arial Black" size="25.0" />
@@ -103,6 +113,11 @@
     <ImageView fx:id="Player1Brick" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--brick.png" />
+        </image>
+    </ImageView>
+    <ImageView fx:id="Player1Brickback" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+        <image>
+            <Image url="@imgs/resource_cards/resources--back.png" />
         </image>
     </ImageView>
    <Label fx:id="Player1BrickAmnt" text="8" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
@@ -1838,7 +1853,7 @@
         </DropShadow>
     </effect>
 </Circle>
-    <Circle fx:id="V5_6" fill="WHITE" layoutX="25.0" layoutY="40.0" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
+    <Circle fx:id="V5_6" fill="WHITE" layoutX="25.0" layoutY="40.0" onMouseClicked="#vertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="TOP">
         <effect>
             <DropShadow>
                 <color>
