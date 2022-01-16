@@ -78,4 +78,11 @@ public class Wallet {
         return sum;
     }
 
+    public int getCardAmount(ResourceType type)
+    {
+        int amount = cards.get(type);
+        cards.put(type, amount);
+        return amount;
+    }
+
 }

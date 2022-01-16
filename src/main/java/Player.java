@@ -157,6 +157,16 @@ public class Player {
         return wallet.getTotalCards();
     }
 
+    public int getCardAmount(ResourceType type)
+    {
+        return wallet.getCardAmount(type);
+    }
+
+    public int getDevCardAmount()
+    {
+        return developmentCards.size();
+    }
+
     @Override
     public String toString()
     {

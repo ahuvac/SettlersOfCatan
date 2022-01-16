@@ -88,6 +88,18 @@ public class SettlersController {
     Label hex19Num;
     @FXML
     Label currentPlayer;
+    @FXML
+    Label Player2GrainAmnt;
+    @FXML
+    Label Player2WoolAmnt;
+    @FXML
+    Label Player2LumberAmnt;
+    @FXML
+    Label Player2OreAmnt;
+    @FXML
+    Label Player2BrickAmnt;
+    @FXML
+    Label Player2DevCardAmnt;
     Game game;
     Location roadLocation;
     Location settlementLocation;
@@ -182,12 +194,12 @@ public class SettlersController {
 
     public void updateCards()
     {
-        //TODO
-    }
-
-    public void flipCards()
-    {
-        //TODO
+        Player2BrickAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.BRICK)));
+        Player2WoolAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.WOOL)));
+        Player2LumberAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.LUMBER)));
+        Player2GrainAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.GRAIN)));
+        Player2OreAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.ORE)));
+        Player2DevCardAmnt.setText(String.valueOf(game.getCurrentPlayer().getDevCardAmount()));
     }
 
     public void Player1GrainCardOnClick(MouseEvent mouseEvent) {
@@ -230,7 +242,7 @@ public class SettlersController {
         {
             if (roadLocation != null) {
                 boolean bought = game.buyRoad(roadLocation);
-                //if (bought) { //TODO: fix this, the image path isn't working
+                if (bought) { //TODO: fix this, the image path isn't working
                     updateCards();
                     ImageView road = (ImageView) mouseEvent.getSource();
                     if (game.getCurrentPlayer().color == Color.BLUE) {
@@ -240,9 +252,8 @@ public class SettlersController {
                     {
                         road.setImage(new Image(new File("imgs/roads/RoadRed.png").toURI().toString()));
                     }
-               // }
+                }
                 if (!bought) {
-                    //TODO: the full message is not displayed
                     createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
                             "resources, or the location was not legal. Try another move or select 'Finish Turn'");
                 }
@@ -328,8 +339,11 @@ public class SettlersController {
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
+        String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
+                " step away from the screen and the next player should come to the screen.";
+        createDialogBox("Switch Turn", message);
         game.switchPlayer();
-        flipCards();
+        updateCards();
         currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
     }
 
@@ -379,6 +393,7 @@ public class SettlersController {
         return Integer.parseInt(columnString);
     }
 
+    //TODO: Long messages get cut off
     public void createDialogBox(String title, String message)
     {
         Dialog<String> dialog = new Dialog<String>();
