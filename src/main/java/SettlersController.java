@@ -242,20 +242,20 @@ public class SettlersController {
         {
             if (roadLocation != null) {
                 boolean bought = game.buyRoad(roadLocation);
-                if (bought) { //TODO: fix this, the image path isn't working
+                if (bought) {
                     updateCards();
                     ImageView road = (ImageView) mouseEvent.getSource();
                     if (game.getCurrentPlayer().color == Color.BLUE) {
-                        road.setImage(new Image(new File("imgs/roads/RoadBlue.png").toURI().toString()));
+                        road.setImage(new Image("imgs/roads/RoadBlue.png"));
                     }
                     else
                     {
-                        road.setImage(new Image(new File("imgs/roads/RoadRed.png").toURI().toString()));
+                        road.setImage(new Image("imgs/roads/RoadRed.png"));
                     }
                 }
                 if (!bought) {
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
-                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                            "resources, or the location was not legal. Try another move or \nselect 'Finish Turn'");
                 }
             }
 
@@ -274,23 +274,22 @@ public class SettlersController {
         {
             if (settlementLocation != null) {
                 boolean bought = game.buySettlement(settlementLocation);
-                if (bought) { //TODO: fix this, the image path isn't working and is not an Imageview
+                if (bought) {
                     updateCards();
-//                    ImageView vertex = (ImageView) mouseEvent.getSource();
-//                    if (game.getCurrentPlayer().color == Color.BLUE) {
-//                        vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
-//                        //TODO: add onclick for settlement
-//                    }
-//                    else
-//                    {
-//                        vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
-//                        //TODO: add onclick for settlement
-//                    }
+                    ImageView vertex = (ImageView) mouseEvent.getSource();
+                    if (game.getCurrentPlayer().color == Color.BLUE) {
+                        vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
+                        //TODO: add onclick for settlement
+                    }
+                    else
+                    {
+                        vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
+                        //TODO: add onclick for settlement
+                    }
                 }
                 if (!bought) {
-                    //TODO: the full message is not displayed
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
-                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                            "resources, or the location was not legal. Try another move \n or select 'Finish Turn'");
                 }
             }
 
@@ -309,7 +308,7 @@ public class SettlersController {
         {
             if (cityLocation != null) {
                 boolean bought = game.buyCity(cityLocation);
-                if (bought) { //TODO: fix this, the image path isn't working
+                if (bought) {
                     updateCards();
                     ImageView vertex = (ImageView) mouseEvent.getSource();
                     if (game.getCurrentPlayer().color == Color.BLUE) {
@@ -321,9 +320,8 @@ public class SettlersController {
                     }
                 }
                 if (!bought) {
-                    //TODO: the full message is not displayed
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough " +
-                            "resources, or the location was not legal. Try another move or select 'Finish Turn'");
+                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                            "resources, or the location was not legal. Try another move\n or select 'Finish Turn'");
                 }
             }
 
@@ -340,7 +338,7 @@ public class SettlersController {
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
         String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
-                " step away from the screen and the next player should come to the screen.";
+                " step \naway from the screen and the next player should come to \nthe screen.";
         createDialogBox("Switch Turn", message);
         game.switchPlayer();
         updateCards();
@@ -393,7 +391,6 @@ public class SettlersController {
         return Integer.parseInt(columnString);
     }
 
-    //TODO: Long messages get cut off
     public void createDialogBox(String title, String message)
     {
         Dialog<String> dialog = new Dialog<String>();
