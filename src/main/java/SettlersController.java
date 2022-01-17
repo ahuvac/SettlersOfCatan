@@ -165,6 +165,7 @@ public class SettlersController {
             if (currentHex.type == ResourceType.DESERT)
             {
                 hexes.get(i).setImage(new Image("imgs/hexes/desert.png"));
+                //TODO: put robber
             }
             else if (currentHex.type == ResourceType.BRICK)
             {
@@ -186,7 +187,9 @@ public class SettlersController {
             {
                 hexes.get(i).setImage(new Image("imgs/hexes/forest.png"));
             }
-            numbers.get(i).setText(String.valueOf(currentHex.number));
+            if (currentHex.type != ResourceType.DESERT) {
+                numbers.get(i).setText(String.valueOf(currentHex.number));
+            }
         }
         currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
         updateCards();
