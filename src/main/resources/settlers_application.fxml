@@ -152,12 +152,12 @@
 
     <!-- Second Row - first row of board -->
 
-    <ImageView fx:id="hex1" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <ImageView fx:id="h0_2" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3"  onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex1Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -169,12 +169,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex2" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="3">
+    <ImageView fx:id="h0_4" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="3" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex2Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -186,12 +186,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex3" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="3">
+    <ImageView fx:id="h0_6" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="3" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex3Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3">
     <font>
         <Font name="Arial Black" size="25.0" />
     </font>
@@ -207,12 +207,12 @@
 
     <!-- Third Row - second row of board -->
 
-    <ImageView fx:id="hex4" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+    <ImageView fx:id="h1_1" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="5" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex4Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_1Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -224,12 +224,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex5" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+    <ImageView fx:id="h1_3" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="5" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex5Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_3Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -241,12 +241,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex6" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="5">
+    <ImageView fx:id="h1_5" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="5" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex6Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_5Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -258,12 +258,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex7" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="9" GridPane.rowIndex="5">
+    <ImageView fx:id="h1_7" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="9" GridPane.rowIndex="5" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex7Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_7Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -279,12 +279,12 @@
 
     <!-- Fourth Row - third row of board -->
 
-    <ImageView fx:id="hex8" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
+    <ImageView fx:id="h2_0" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="2" GridPane.rowIndex="7" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex8Num" text="2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_0Num" text="2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" >
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -296,12 +296,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex9" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="7">
+    <ImageView fx:id="h2_2" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="7" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex9Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -313,12 +313,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex10" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="7">
+    <ImageView fx:id="h2_4" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="7" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/desert.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex10Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -330,12 +330,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex11" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="7">
+    <ImageView fx:id="h2_6" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="7" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex11Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -347,12 +347,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex12" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="10" GridPane.rowIndex="7">
+    <ImageView fx:id="h2_8" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="10" GridPane.rowIndex="7" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex12Num" text="2" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_8Num" text="2" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -368,12 +368,12 @@
 
     <!-- Fifth Row - fourth row of board -->
 
-    <ImageView fx:id="hex13" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="9">
+    <ImageView fx:id="h3_1" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="3" GridPane.rowIndex="9" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex13Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_1Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -385,12 +385,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex14" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="9">
+    <ImageView fx:id="h3_3" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="5" GridPane.rowIndex="9" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex14Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_3Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -402,12 +402,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex15" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="9">
+    <ImageView fx:id="h3_5" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="7" GridPane.rowIndex="9" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex15Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_5Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -419,12 +419,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex16" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="9" GridPane.rowIndex="9">
+    <ImageView fx:id="h3_7" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="9" GridPane.rowIndex="9" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex16Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_7Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -441,12 +441,12 @@
     <!-- Sixth Row - fifth row of board-->
 
 
-    <ImageView fx:id="hex17" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="11">
+    <ImageView fx:id="h4_2" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="4" GridPane.rowIndex="11" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex17Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -458,12 +458,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex18" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="11">
+    <ImageView fx:id="h4_4" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="6" GridPane.rowIndex="11" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex18Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -475,12 +475,12 @@
             </DropShadow>
         </effect>
     </Label>
-    <ImageView fx:id="hex19" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="11">
+    <ImageView fx:id="h4_6" fitHeight="90.0" fitWidth="80.0" GridPane.columnIndex="8" GridPane.rowIndex="11" onMouseClicked="#hexClick">
         <image>
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="hex19Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -709,7 +709,7 @@
             </color>
          </DropShadow>
       </effect></Button>
-   <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <ImageView fx:id="die1" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/dice/dice/dice-6.png" />
       </image>
@@ -721,6 +721,18 @@
          </DropShadow>
       </effect>
    </ImageView>
+    <ImageView fx:id="die2" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="10" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+        <image>
+            <Image url="@imgs/dice/dice/dice-6.png" />
+        </image>
+        <effect>
+            <DropShadow>
+                <color>
+                    <Color opacity="0.4093816578388214" />
+                </color>
+            </DropShadow>
+        </effect>
+    </ImageView>
 
     <!--Roads-->
 
