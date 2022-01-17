@@ -231,101 +231,135 @@ public class SettlersController {
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() instanceof Button) {
-            createDialogBox("Select Road", "Please click on the location where you would like to build a road");
-            inBuildRoad = true;
-        } else if (mouseEvent.getSource() instanceof ImageView) {
-            if (roadLocation != null) {
-                boolean bought = game.buyRoad(roadLocation);
-                if (bought) {
-                    updateCards();
-                    ImageView road = (ImageView) mouseEvent.getSource();
-                    if (game.getCurrentPlayer().color == Color.BLUE) {
-                        road.setImage(new Image("imgs/roads/RoadBlue.png"));
-                    } else {
-                        road.setImage(new Image("imgs/roads/RoadRed.png"));
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {
+            if (mouseEvent.getSource() instanceof Button) {
+                createDialogBox("Select Road", "Please click on the location where you would like to build a road");
+                inBuildRoad = true;
+            } else if (mouseEvent.getSource() instanceof ImageView) {
+                if (roadLocation != null) {
+                    boolean bought = game.buyRoad(roadLocation);
+                    if (bought) {
+                        updateCards();
+                        ImageView road = (ImageView) mouseEvent.getSource();
+                        if (game.getCurrentPlayer().color == Color.BLUE) {
+                            road.setImage(new Image("imgs/roads/RoadBlue.png"));
+                        } else {
+                            road.setImage(new Image("imgs/roads/RoadRed.png"));
+                        }
+                    }
+                    if (!bought) {
+                        createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                                "resources, or the location was not legal. Try another move or \nselect 'Finish Turn'");
                     }
                 }
-                if (!bought) {
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
-                            "resources, or the location was not legal. Try another move or \nselect 'Finish Turn'");
-                }
-            }
 
-            inBuildRoad = false;
+                inBuildRoad = false;
+            }
+            roadLocation = null;
         }
-        roadLocation = null;
     }
 
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() instanceof Button) {
-            inBuildSettlement = true;
-            createDialogBox("Select Location", "Please click on the location where you would like to build a settlement");
-        } else if (mouseEvent.getSource() instanceof Circle) {
-            if (settlementLocation != null) {
-                boolean bought = game.buySettlement(settlementLocation);
-                if (bought) {
-                    updateCards();
-                    ImageView vertex = (ImageView) mouseEvent.getSource();
-                    if (game.getCurrentPlayer().color == Color.BLUE) {
-                        vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
-                        //TODO: add onclick for settlement
-                    } else {
-                        vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
-                        //TODO: add onclick for settlement
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {
+            if (mouseEvent.getSource() instanceof Button) {
+                inBuildSettlement = true;
+                createDialogBox("Select Location", "Please click on the location where you would like to build a settlement");
+            } else if (mouseEvent.getSource() instanceof Circle) {
+                if (settlementLocation != null) {
+                    boolean bought = game.buySettlement(settlementLocation);
+                    if (bought) {
+                        updateCards();
+                        ImageView vertex = (ImageView) mouseEvent.getSource();
+                        if (game.getCurrentPlayer().color == Color.BLUE) {
+                            vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
+                            //TODO: add onclick for settlement
+                        } else {
+                            vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
+                            //TODO: add onclick for settlement
+                        }
+                    }
+                    if (!bought) {
+                        createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                                "resources, or the location was not legal. Try another move \n or select 'Finish Turn'");
                     }
                 }
-                if (!bought) {
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
-                            "resources, or the location was not legal. Try another move \n or select 'Finish Turn'");
-                }
-            }
 
-            inBuildSettlement = false;
+                inBuildSettlement = false;
+            }
+            settlementLocation = null;
         }
-        settlementLocation = null;
     }
 
     public void BuildCityOnClick(MouseEvent mouseEvent) {
-        if (mouseEvent.getSource() instanceof Button) {
-            inBuildCity = true;
-            createDialogBox("Select Location", "Please click on the settlement where you would like to build a city");
-        } else if (mouseEvent.getSource() instanceof ImageView) {
-            if (cityLocation != null) {
-                boolean bought = game.buyCity(cityLocation);
-                if (bought) {
-                    updateCards();
-                    ImageView vertex = (ImageView) mouseEvent.getSource();
-                    if (game.getCurrentPlayer().color == Color.BLUE) {
-                        vertex.setImage(new Image("/resources/imgs/roads/CityBlue.png"));
-                    } else {
-                        vertex.setImage(new Image("/resources/imgs/roads/CityRed.png"));
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {
+            if (mouseEvent.getSource() instanceof Button) {
+                inBuildCity = true;
+                createDialogBox("Select Location", "Please click on the settlement where you would like to build a city");
+            } else if (mouseEvent.getSource() instanceof ImageView) {
+                if (cityLocation != null) {
+                    boolean bought = game.buyCity(cityLocation);
+                    if (bought) {
+                        updateCards();
+                        ImageView vertex = (ImageView) mouseEvent.getSource();
+                        if (game.getCurrentPlayer().color == Color.BLUE) {
+                            vertex.setImage(new Image("/resources/imgs/roads/CityBlue.png"));
+                        } else {
+                            vertex.setImage(new Image("/resources/imgs/roads/CityRed.png"));
+                        }
+                    }
+                    if (!bought) {
+                        createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
+                                "resources, or the location was not legal. Try another move\n or select 'Finish Turn'");
                     }
                 }
-                if (!bought) {
-                    createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
-                            "resources, or the location was not legal. Try another move\n or select 'Finish Turn'");
-                }
-            }
 
-            inBuildCity = false;
+                inBuildCity = false;
+            }
+            cityLocation = null;
         }
-        cityLocation = null;
     }
 
     public void BuyDevCardOnClick(MouseEvent mouseEvent) {
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {}
     }
 
     public void UseDevCardOnClick(MouseEvent mouseEvent) {
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {}
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
-        String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
-                " step \naway from the screen and the next player should come to \nthe screen.";
-        createDialogBox("Switch Turn", message);
-        game.switchPlayer();
-        updateCards();
-        currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+        if (!game.isRolled())
+        {
+            createDialogBox("Error", "You must roll the dice first");
+        }
+        else {
+            String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
+                    " step \naway from the screen and the next player should come to \nthe screen.";
+            createDialogBox("Switch Turn", message);
+            game.switchPlayer();
+            updateCards();
+            currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+        }
     }
 
 
@@ -379,29 +413,42 @@ public class SettlersController {
     }
 
     public void diceOnClick(MouseEvent mouseEvent) {
-        int[] roll = game.rollDice();
-        for (int i = 0; i < 2; i++) {
-            switch (roll[i]) {
-                case 1:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-1.png"));
-                case 2:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-2.png"));
-                case 3:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-3.png"));
-                case 4:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-4.png"));
-                case 5:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-5.png"));
-                case 6:
-                    dice[i].setImage(new Image("imgs/dice/dice/dice-6.png"));
-            }
+        if (game.isRolled())
+        {
+            createDialogBox("Error", "The dice were already rolled this turn");
         }
-        int rolledNum = roll[0] + roll[1];
-        if (rolledNum != 7) {
-            game.distributeCards(rolledNum);
-        } else {
-            rolledSeven = true;
-            createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
+        else {
+            game.setRolled(true);
+            int[] roll = game.rollDice();
+            for (int i = 0; i < 2; i++) {
+                switch (roll[i]) {
+                    case 1:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-1.png"));
+                        break;
+                    case 2:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-2.png"));
+                        break;
+                    case 3:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-3.png"));
+                        break;
+                    case 4:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-4.png"));
+                        break;
+                    case 5:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-5.png"));
+                        break;
+                    case 6:
+                        dice[i].setImage(new Image("imgs/dice/dice/dice-6.png"));
+                        break;
+                }
+            }
+            int rolledNum = roll[0] + roll[1];
+            if (rolledNum != 7) {
+                game.distributeCards(rolledNum);
+            } else {
+                rolledSeven = true;
+                createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
+            }
         }
     }
 
