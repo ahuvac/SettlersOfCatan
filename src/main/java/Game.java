@@ -46,6 +46,13 @@ public class Game {
         bank = new Bank();
         largestArmy = 0;
         currentPlayer = players.get(0);
+
+        for(Player player: players){
+            giveCards(ResourceType.LUMBER, 4, player);
+            giveCards(ResourceType.BRICK, 4, player);
+            giveCards(ResourceType.WOOL, 2, player);
+            giveCards(ResourceType.GRAIN, 2, player);
+        }
     }
 
     public DevelopmentCard buyDevelopmentCard() {
@@ -81,13 +88,14 @@ public class Game {
     public void gameBeginning() {
         List<Player> playerOrder = new ArrayList<>();
         int[] rolledNumbers = new int[players.size()];
-        for (int i = 0; i < players.size(); i++) {
-            int rolledNumber = 0;
-            for (Die die : dice) {
-                rolledNumber += die.roll();
-            }
-            rolledNumbers[i] = rolledNumber;
-        }
+//        for (int i = 0; i < players.size(); i++) {
+//            int rolledNumber = 0;
+//            for (Die die : dice) {
+//                rolledNumber += die.roll();
+//            }
+//            rolledNumbers[i] = rolledNumber;
+//        }
+        // TODO add roll dice to choose player order
         for (int i = 0; i < playerOrder.size(); i++) {
             playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
         }
@@ -162,7 +170,7 @@ public class Game {
         rolled = false;
     }
 
-    private Player getOtherPlayer(){
+    private Player getOtherPlayer() {
         int index = players.indexOf(currentPlayer);
         if (++index == players.size()) {
             index = 0;
@@ -171,7 +179,6 @@ public class Game {
     }
 
     public boolean buyRoad(Location location) {
-
         if (currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
                 currentPlayer.hasMoreRoads()) {
@@ -221,13 +228,13 @@ public class Game {
     }
 
 
-    public boolean buySettlement(Location location) {
-        if (currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
+    public boolean buySettlement(Location location, boolean preGame) {
+        if (preGame || (currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
                 currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.WOOL, 1) &&
                 currentPlayer.hasCard(ResourceType.GRAIN, 1) &&
-                currentPlayer.hasMoreSettlements()) {
-            if (checkSettlementLocation(currentPlayer.color, location, false)) {
+                currentPlayer.hasMoreSettlements())) {
+            if (checkSettlementLocation(currentPlayer.color, location, preGame)) {
                 bank.addResourceCard(ResourceType.WOOL);
                 bank.addResourceCard(ResourceType.GRAIN);
                 bank.addResourceCard(ResourceType.LUMBER);
@@ -237,7 +244,6 @@ public class Game {
             }
         }
         return false;
-
     }
 
     public boolean checkSettlementLocation(Color color, Location location, boolean firstSettlement) {
@@ -426,5 +432,12 @@ public class Game {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT)) {
             moveRobber(location, player);
         }
+    }
+
+    public void giveCards(ResourceType type, int amount, Player player){
+        for (int i = 0; i < amount ; i++) {
+            bank.getResourceCard(type);
+        }
+        player.addCard(type,amount);
     }
 }
