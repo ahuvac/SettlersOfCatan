@@ -4,6 +4,7 @@ public class Edge {
     private List<Hex> hexes;
     private List<Vertex> vertices;
     private Road road = null;
+    private boolean end = false;
 
     public Edge(List<Hex> hexes)
     {
@@ -38,6 +39,14 @@ public class Edge {
         return this.vertices;
     }
 
+
+    public void makeEnd(){
+        this.end = true;
+    }
+
+    public void resetEnd(){
+        this.end = false;
+    }
 
 
 }

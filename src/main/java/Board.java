@@ -3,15 +3,16 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Collections;
+import java.util.Stack;
 
 public class Board {
-    ;
     Hex[][] hexes = new Hex[5][9];
     Vertex[][] vertices = new Vertex[12][11];
     Edge[][] edges = new Edge[21][10];
+    private Edge endpoint = null;
 
 
-    public Board(){
+    public Board() {
         List<Hex> hexArrayList = createHexes();
         Collections.shuffle(hexArrayList);
         assignNumbers(hexArrayList);
@@ -20,35 +21,33 @@ public class Board {
         placeVertices();
     }
 
-    private List<Hex> createHexes()
-    {
+    private List<Hex> createHexes() {
         List<Hex> hexArrayList = new ArrayList<>();
-        for (int i = 0 ; i < 3; i++){
-        hexArrayList.add( new Hex(ResourceType.ORE));
+        for (int i = 0; i < 3; i++) {
+            hexArrayList.add(new Hex(ResourceType.ORE));
         }
 
-        for (int i = 0 ; i < 3; i++){
-            hexArrayList.add( new Hex(ResourceType.BRICK));
+        for (int i = 0; i < 3; i++) {
+            hexArrayList.add(new Hex(ResourceType.BRICK));
         }
 
-        for (int i = 0 ; i < 4; i++){
-            hexArrayList.add( new Hex(ResourceType.GRAIN));
+        for (int i = 0; i < 4; i++) {
+            hexArrayList.add(new Hex(ResourceType.GRAIN));
         }
 
-        for (int i = 0 ; i < 4; i++){
-            hexArrayList.add( new Hex(ResourceType.LUMBER));
+        for (int i = 0; i < 4; i++) {
+            hexArrayList.add(new Hex(ResourceType.LUMBER));
         }
 
-        for (int i = 0 ; i < 4; i++){
-            hexArrayList.add( new Hex(ResourceType.WOOL));
+        for (int i = 0; i < 4; i++) {
+            hexArrayList.add(new Hex(ResourceType.WOOL));
         }
 
-        hexArrayList.add( new Hex(ResourceType.DESERT));
+        hexArrayList.add(new Hex(ResourceType.DESERT));
         return hexArrayList;
     }
 
-    private void assignNumbers(List<Hex> hexArrayList)
-    {
+    private void assignNumbers(List<Hex> hexArrayList) {
         int[] numbers = new int[18];
         numbers[0] = 5;
         numbers[1] = 2;
@@ -71,8 +70,7 @@ public class Board {
 
         int index = 0;
         for (Hex hex : hexArrayList) {
-            if (hex.type == ResourceType.DESERT)
-            {
+            if (hex.type == ResourceType.DESERT) {
                 continue;
             }
             hex.setNumber(numbers[index]);
@@ -81,8 +79,7 @@ public class Board {
 
     }
 
-    private void placesHexes(List<Hex> hexArrayList)
-    {
+    private void placesHexes(List<Hex> hexArrayList) {
         //first row
         hexes[0][2] = hexArrayList.remove(0);
         hexes[0][4] = hexArrayList.remove(0);
@@ -109,8 +106,7 @@ public class Board {
         hexes[4][6] = hexArrayList.remove(0);
     }
 
-    private void placeEdges()
-    {
+    private void placeEdges() {
         //first row
         List<Hex> borderingHexes = new ArrayList<Hex>();
         borderingHexes.add(hexes[0][2]);
@@ -311,8 +307,7 @@ public class Board {
     }
 
     //TODO replace methid with the formula
-    private void placeVertices()
-    {
+    private void placeVertices() {
         //first row
         List<Hex> borderingHexes = new ArrayList<Hex>();
         List<Edge> edgeList = new ArrayList<>();
@@ -832,16 +827,14 @@ public class Board {
         edgeList.add(edges[10][15]);
         vertices[11][7].setEdges(edgeList);
         edgeList.clear();
-        
+
     }
 
-    public List<Location> getHexesWithNumber(int number)
-    {
+    public List<Location> getHexesWithNumber(int number) {
         ArrayList<Location> hexesWithNumber = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
-                if (hexes[i][j].number == number)
-                {
+                if (hexes[i][j].number == number) {
                     hexesWithNumber.add(new Location(i, j));
                 }
             }
@@ -849,104 +842,130 @@ public class Board {
         return hexesWithNumber;
     }
 
-    public List<Vertex> getVertices(Location location)
-    {
+    public List<Vertex> getVertices(Location location) {
         List<Vertex> vertexList = new ArrayList<>();
         int index = location.row * 2;
 
-        vertexList.add(vertices[index] [location.col + 1]);
-        vertexList.add(vertices[index + 1] [location.col]);
-        vertexList.add(vertices[index + 2] [location.col]);
-        vertexList.add(vertices[index + 3] [location.col + 1]);
-        vertexList.add(vertices[index + 1] [location.col + 2]);
-        vertexList.add(vertices[index + 2] [location.col + 2]);
+        vertexList.add(vertices[index][location.col + 1]);
+        vertexList.add(vertices[index + 1][location.col]);
+        vertexList.add(vertices[index + 2][location.col]);
+        vertexList.add(vertices[index + 3][location.col + 1]);
+        vertexList.add(vertices[index + 1][location.col + 2]);
+        vertexList.add(vertices[index + 2][location.col + 2]);
 
         return vertexList;
     }
 
-    public List<Vertex> getVertices(Edge edge)
-    {
+    public List<Vertex> getVertices(Edge edge) {
         List<Vertex> vertices = new ArrayList<>();
         return vertices;
     }
 
-    public ResourceType getResource(Location location)
-    {
+    public ResourceType getResource(Location location) {
         return hexes[location.row][location.col].type;
     }
 
 
-//    /**
-//     * Finds the length of the longest chain of roads of the given player
-//     * @param player player's roads to be analyzed
-//     * @return int length of the longest chain of roads
-//     */
-//    public int findLongestRoad(Player p) { //TODO test
-//        List<Edge> roadList = p.getRoads();
-//        int maxCount = 1;
-//
-//        while (roadList.size() > 0) {
-//            ArrayList<Edge> playerRoads = new ArrayList<Edge>();
-//            playerRoads.add(roadList.remove(0));
-//
-//            for (int i = 0; i <= playerRoads.size(); i++) {
-//
-//                //ArrayList<Road> adjacentRoads = ;
-//
-//                for (int k = 0; k <= adjacentRoads.size(); k++) {
-//                    int index = roadList.indexOf(adjacentRoads.get(k));
-//                    if (index >= 0) {
-//                        connectedRoads.add(roadList.remove(index));
-//                    }
-//                }
-//            }
-//
-//            if (endpoint == null) {
-//                endpoint = connectedRoads.get(0);
-//                if (endpoint.getLocation().getOrientation() == 0 || endpoint.getLocation().getOrientation() == 1) {
-//                    startside = structures[endpoint.getLocation().getXCoord()][endpoint.getLocation().getYCoord()][0].getLocation();
-//                }
-//                else {
-//                    startside = structures[endpoint.getLocation().getXCoord() + 1][endpoint.getLocation().getYCoord() + 1][1].getLocation();
-//                }
-//            }
-//
-//            Stack<Road> s = new Stack();
-//            Stack<VertexLocation> entrysides = new Stack();
-//            s.push(endpoint);
-//
-//            entrysides.push(startside);
-//            int count = 1;
-//            while (s.empty() == false) {
-//                s.peek().visit();
-//                ArrayList<Road> children = findAdjacentRoadsDFS(s.peek(),entrysides.peek());
-//                for (int i = 0; i < children.size(); i++) {
-//                    if (children.get(i).isVisited()) {
-//                        children.remove(i);
-//                        i--;
-//                    }
-//                }
-//                if (children.size() <= 0) {
-//                    s.pop();
-//                    entrysides.pop();
-//                    if (count >= maxCount)
-//                        maxCount = count;
-//                    count--;
-//                }
-//                else {
-//                    count++;
-//                    entrysides.push(roadConnectsToOther(s.peek(),children.get(0)));
-//                    s.push(children.get(0));
-//                }
-//            }
-//
-//            for (int i = 0; i < connectedRoads.size();i++) {  //Reset boolean visited
-//                connectedRoads.get(i).resetVisited();
-//            }
-//        }
-//
-//        endpoint = null; //Reset endpoint
-//        startside = null;
-//        return maxCount;
-//    }
+    /**
+     * Finds the length of the longest chain of roads of the given player
+     *
+     * @param player player's roads to be analyzed
+     * @return int length of the longest chain of roads
+     */
+    public int findLongestRoad(Player p) { //TODO test
+        List<Edge> roadList = p.getRoads();
+        int maxCount = 1;
+        int length = roadList.size();
+
+        while (roadList.size() > 0) {
+            ArrayList<Edge> connectedRoads = new ArrayList<Edge>();
+            connectedRoads.add(roadList.remove(0));
+
+            for (int i = 0; i <= connectedRoads.size(); i++) {
+                List<Edge> adjacentRoads = findAdjacentRoads(connectedRoads.get(i), p);
+
+                for (int k = 0; k <= adjacentRoads.size(); k++) {
+                    int index = roadList.indexOf(adjacentRoads.get(k));
+                    if (index >= 0) {
+                        connectedRoads.add(roadList.remove(index));
+                    }
+                }
+
+                Stack<Integer> stack = new Stack<Integer>();
+                int dist[] = new int[length];
+
+                boolean visited[] = new boolean[length];
+                for (int j = 0; j < length; j++)
+                    visited[j] = false;
+
+//                // Call the recursive helper function to store Topological
+//                // Sort starting from all vertices one by one
+//                for (int j = 0; j < length; j++)
+//                    if (visited[j] == false)
+//                        topologicalSortUtil(i, visited, stack);
+
+                // Initialize distances to all vertices as infinite and
+                // distance to source as 0
+                for (int j = 0; j < length; j++)
+                    dist[j] = Integer.MIN_VALUE;
+
+                dist[s] = 0;
+
+                // Process vertices in topological order
+                while (stack.isEmpty() == false)
+                {
+
+                    // Get the next vertex from topological order
+                    int u = stack.peek();
+                    stack.pop();
+
+                    // Update distances of all adjacent vertices ;
+                    if (dist[u] != Integer.MIN_VALUE)
+                    {
+                        for (int j = 0; j<adj.get(u).size(); j++)
+                        {
+                            AdjListNode node = adj.get(u).get(j);
+                            if (dist[node.getV()] < dist[u] + 1)
+                                dist[node.getV()] = dist[u] + 1;
+                        }
+                    }
+                }
+
+                // Print the calculated longest distances
+                for (int j = 0; j < length; j++)
+                    if(dist[j] == Integer.MIN_VALUE)
+                        System.out.print("INF ");
+                    else
+                        System.out.print(dist[j] + " ");
+            }
+        }
+
+
+        for(Edge edge: roadList){
+            edge.resetEnd();
+        }
+        return maxCount;
+    }
+
+
+
+
+    private List<Edge> findAdjacentRoads(Edge edge, Player p) {
+        List<Edge> adjacentRoads = new ArrayList<>();
+        List<Vertex> verts = edge.getVertices();
+        for (Vertex vertex : verts) {
+            List<Edge> roads = vertex.getEdges();
+            for (Edge adjRoad : adjacentRoads) {
+                if (adjRoad.hasRoad() && adjRoad.getRoadColor() == p.color) {
+                    adjacentRoads.add(adjRoad);
+                }
+                else if(!adjRoad.hasRoad() || adjRoad.getRoadColor() != p.color){
+                    edge.makeEnd();
+                    // will subtract one off the end of the road for total score
+                }
+
+            }
+        }
+        return adjacentRoads;
+    }
 }
