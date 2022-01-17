@@ -415,4 +415,10 @@ public class SettlersController {
         }
          rolledSeven = false;
     }
+
+    public void setUpBeginning(){
+        //game
+        createDialogBox("Choose location", "Please choose the location for your first settlement.");
+
+    }
 }

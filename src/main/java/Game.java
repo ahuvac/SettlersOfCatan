@@ -72,13 +72,14 @@ public class Game {
     public void gameBeginning() {
         List<Player> playerOrder = new ArrayList<>();
         int[] rolledNumbers = new int[players.size()];
-        for (int i = 0; i < players.size(); i++) {
-            int rolledNumber = 0;
-            for (Die die : dice) {
-                rolledNumber += die.roll();
-            }
-            rolledNumbers[i] = rolledNumber;
-        }
+//        for (int i = 0; i < players.size(); i++) {
+//            int rolledNumber = 0;
+//            for (Die die : dice) {
+//                rolledNumber += die.roll();
+//            }
+//            rolledNumbers[i] = rolledNumber;
+//        }
+        // TODO add roll dice to choose player order
         for (int i = 0; i < playerOrder.size(); i++) {
             playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
         }
