@@ -9,6 +9,15 @@ public class Game {
     private Die[] dice;
     private Board board;
     private Bank bank;
+    private boolean rolled = false;
+
+    public boolean isRolled() {
+        return rolled;
+    }
+
+    public void setRolled(boolean rolled) {
+        this.rolled = rolled;
+    }
 
     public Player getCurrentPlayer() {
         return currentPlayer;
@@ -151,6 +160,7 @@ public class Game {
 
     public void switchPlayer() {
         currentPlayer = getOtherPlayer();
+        rolled = false;
     }
 
     private Player getOtherPlayer(){
