@@ -38,6 +38,10 @@ public class Player {
         roads--;
     }
 
+    public int getRoads() {
+        return roads;
+    }
+
     public boolean hasMoreRoads() {
         return roads > 0;
     }
@@ -172,4 +176,6 @@ public class Player {
     {
         return this.color.toString();
     }
+
+
 }

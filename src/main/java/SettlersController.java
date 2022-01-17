@@ -114,6 +114,7 @@ public class SettlersController {
     ImageView[] dice = new ImageView[2];
     Location hexLocation;
     boolean rolledSeven = false;
+    boolean preGame =  true;
 
     public SettlersController() {
         hexes = new ArrayList<>();
@@ -231,7 +232,7 @@ public class SettlersController {
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
+        if (!game.isRolled() || !preGame)
         {
             createDialogBox("Error", "You must roll the dice first");
         }
@@ -250,6 +251,9 @@ public class SettlersController {
                         } else {
                             road.setImage(new Image("imgs/roads/RoadRed.png"));
                         }
+                        if(preGame){
+                            nextPlayerSetUp();
+                        }
                     }
                     if (!bought) {
                         createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
@@ -263,8 +267,14 @@ public class SettlersController {
         }
     }
 
+    private void nextPlayerSetUp() {
+        // TODO switch between the 2 players
+       // if(game.getCurrentPlayer().getRoads() )
+            game.switchPlayer();
+    }
+
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
+        if (!game.isRolled() || !preGame)
         {
             createDialogBox("Error", "You must roll the dice first");
         }
@@ -274,7 +284,7 @@ public class SettlersController {
                 createDialogBox("Select Location", "Please click on the location where you would like to build a settlement");
             } else if (mouseEvent.getSource() instanceof Circle) {
                 if (settlementLocation != null) {
-                    boolean bought = game.buySettlement(settlementLocation);
+                    boolean bought = game.buySettlement(settlementLocation, preGame);
                     if (bought) {
                         updateCards();
                         ImageView vertex = (ImageView) mouseEvent.getSource();
@@ -284,6 +294,9 @@ public class SettlersController {
                         } else {
                             vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
                             //TODO: add onclick for settlement
+                        }
+                        if(preGame){
+                            createDialogBox("Build road", "Please choose the location for your road.");
                         }
                     }
                     if (!bought) {
@@ -367,7 +380,7 @@ public class SettlersController {
         ImageView road = (ImageView) mouseEvent.getSource();
         String roadId = road.getId();
         roadLocation = new Location(getRow(roadId), getColumn(roadId));
-        if (inBuildRoad) {
+        if (inBuildRoad || preGame) {
             BuildRoadOnClick(mouseEvent);
         }
     }
@@ -376,10 +389,9 @@ public class SettlersController {
         Circle vertex = (Circle) mouseEvent.getSource();
         String vertexId = vertex.getId();
         settlementLocation = new Location(getRow(vertexId), getColumn(vertexId));
-        if (inBuildSettlement) {
+        if (inBuildSettlement || preGame) {
             BuildSettlementOnClick(mouseEvent);
         }
-
     }
 
     public void settlementOnClick(MouseEvent mouseEvent) {
@@ -464,8 +476,7 @@ public class SettlersController {
     }
 
     public void setUpBeginning(){
-        //game
-        createDialogBox("Choose location", "Please choose the location for your first settlement.");
+        createDialogBox("Choose location", "Please choose the location for your settlement.");
 
     }
 }
