@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" maxHeight="300" maxWidth="300" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+<GridPane fx:id="dice" alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController" >
    <Label fx:id="currentPlayer" text="CURRENT PLAYER:" textFill="#806131" GridPane.columnIndex="10" GridPane.columnSpan="2">
       <font>
          <Font name="Arial Black" size="13.0" />
@@ -709,6 +709,18 @@
             </color>
          </DropShadow>
       </effect></Button>
+   <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+      <image>
+         <Image url="@imgs/dice/dice/dice-6.png" />
+      </image>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color opacity="0.4093816578388214" />
+            </color>
+         </DropShadow>
+      </effect>
+   </ImageView>
 
     <!--Roads-->
 

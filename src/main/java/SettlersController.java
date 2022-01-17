@@ -400,4 +400,7 @@ public class SettlersController {
         dialog.getDialogPane().getButtonTypes().add(type);
         dialog.showAndWait();
     }
+
+    public void diceOnClick(MouseEvent mouseEvent) {
+    }
 }
