@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="dice" alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController" >
+<GridPane fx:id="dice" alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
    <Label fx:id="currentPlayer" text="CURRENT PLAYER:" textFill="#806131" GridPane.columnIndex="10" GridPane.columnSpan="2">
       <font>
          <Font name="Arial Black" size="13.0" />
@@ -157,7 +157,7 @@
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="h0_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_2Num" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -174,7 +174,7 @@
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="h0_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_4Num" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -191,7 +191,7 @@
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="h0_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+    <Label fx:id="h0_6Num" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="3">
     <font>
         <Font name="Arial Black" size="25.0" />
     </font>
@@ -212,7 +212,8 @@
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <Label fx:id="h1_1Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+
+    <Label fx:id="h1_1Num" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -229,7 +230,7 @@
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="h1_3Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_3Num" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -246,7 +247,7 @@
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="h1_5Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_5Num" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -263,7 +264,7 @@
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="h1_7Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="h1_7Num" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -284,7 +285,7 @@
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="h2_0Num" text="2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" >
+    <Label fx:id="h2_0Num" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" >
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -301,7 +302,7 @@
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="h2_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_2Num" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -318,7 +319,7 @@
             <Image url="@imgs/hexes/desert.png" />
         </image>
     </ImageView>
-    <Label fx:id="h2_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_4Num" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -335,7 +336,7 @@
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="h2_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_6Num" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -352,7 +353,7 @@
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="h2_8Num" text="2" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="7">
+    <Label fx:id="h2_8Num" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="7">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -373,7 +374,7 @@
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="h3_1Num" text="2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_1Num" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -390,7 +391,7 @@
             <Image url="@imgs/hexes/hill.png" />
         </image>
     </ImageView>
-    <Label fx:id="h3_3Num" text="2" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_3Num" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -407,7 +408,7 @@
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="h3_5Num" text="2" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_5Num" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -424,7 +425,7 @@
             <Image url="@imgs/hexes/mountain.png" />
         </image>
     </ImageView>
-    <Label fx:id="h3_7Num" text="2" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9">
+    <Label fx:id="h3_7Num" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="9">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -446,7 +447,7 @@
             <Image url="@imgs/hexes/forest.png" />
         </image>
     </ImageView>
-    <Label fx:id="h4_2Num" text="2" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_2Num" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -463,7 +464,7 @@
             <Image url="@imgs/hexes/field.png" />
         </image>
     </ImageView>
-    <Label fx:id="h4_4Num" text="2" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_4Num" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -480,7 +481,7 @@
             <Image url="@imgs/hexes/pasture.png" />
         </image>
     </ImageView>
-    <Label fx:id="h4_6Num" text="2" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+    <Label fx:id="h4_6Num" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <font>
             <Font name="Arial Black" size="25.0" />
         </font>
@@ -708,7 +709,25 @@
                <Color red="0.5394737124443054" green="0.5095029473304749" blue="0.5095029473304749" />
             </color>
          </DropShadow>
-      </effect></Button>
+      </effect>
+      <font>
+         <Font name="Arial" size="13.0" />
+      </font></Button>
+   <Button mnemonicParsing="false" onMouseClicked="#diceOnClick" style="-fx-background-color: #46B001;" text="Roll Dice" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12">
+      <padding>
+         <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
+      </padding>
+      <effect>
+         <DropShadow>
+            <color>
+               <Color red="0.5394737124443054" green="0.5095029473304749" blue="0.5095029473304749" />
+            </color>
+         </DropShadow>
+      </effect>
+      <font>
+         <Font name="Arial Bold" size="11.0" />
+      </font>
+   </Button>
    <ImageView fx:id="die1" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
       <image>
          <Image url="@imgs/dice/dice/dice-6.png" />

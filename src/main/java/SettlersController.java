@@ -170,7 +170,9 @@ public class SettlersController {
             Hex currentHex = hexList.get(i);
             if (currentHex.type == ResourceType.DESERT) {
                 hexes.get(i).setImage(new Image("imgs/hexes/desert.png"));
-            } else if (currentHex.type == ResourceType.BRICK) {
+            }
+            else if (currentHex.type == ResourceType.BRICK)
+            {
                 hexes.get(i).setImage(new Image("imgs/hexes/hill.png"));
             } else if (currentHex.type == ResourceType.ORE) {
                 hexes.get(i).setImage(new Image("imgs/hexes/mountain.png"));
@@ -181,7 +183,9 @@ public class SettlersController {
             } else if (currentHex.type == ResourceType.LUMBER) {
                 hexes.get(i).setImage(new Image("imgs/hexes/forest.png"));
             }
-            numbers.get(i).setText(String.valueOf(currentHex.number));
+            if (currentHex.type != ResourceType.DESERT) {
+                numbers.get(i).setText(String.valueOf(currentHex.number));
+            }
         }
         currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
         updateCards();
