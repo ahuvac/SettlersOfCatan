@@ -63,25 +63,25 @@ public class Board {
 
     private void assignNumbers(List<Hex> hexArrayList)
     {
-        int[] numbers = new int[19];
+        int[] numbers = new int[18];
         numbers[0] = 5;
         numbers[1] = 2;
         numbers[2] = 6;
         numbers[3] = 3;
         numbers[4] = 8;
-        numbers[6] = 10;
-        numbers[7] = 9;
-        numbers[8] = 12;
-        numbers[9] = 11;
-        numbers[10] = 4;
-        numbers[11] = 8;
-        numbers[12] = 10;
-        numbers[13] = 9;
-        numbers[14] = 4;
-        numbers[15] = 5;
-        numbers[16] = 6;
-        numbers[17] = 3;
-        numbers[18] = 11;
+        numbers[5] = 10;
+        numbers[6] = 9;
+        numbers[7] = 12;
+        numbers[8] = 11;
+        numbers[9] = 4;
+        numbers[10] = 8;
+        numbers[11] = 10;
+        numbers[12] = 9;
+        numbers[13] = 4;
+        numbers[14] = 5;
+        numbers[15] = 6;
+        numbers[16] = 3;
+        numbers[17] = 11;
 
         int index = 0;
         for (Hex hex : hexArrayList) {

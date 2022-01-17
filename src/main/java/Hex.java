@@ -18,10 +18,4 @@ public class Hex {
         this.number = number;
     }
 
-
-    //TODO Fill this in or delete
-    public void connect(){
-
-    }
-
 }

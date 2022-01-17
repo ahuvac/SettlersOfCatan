@@ -18,14 +18,12 @@ public class Game {
     private Player currentPlayer;
 
 
-
-//    public Game(List<String> names){
-    public Game(){
+    //    public Game(List<String> names){
+    public Game() {
         players = new ArrayList<>();
         players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)]));
         Color nextColor = Color.values()[new Random().nextInt(Color.values().length)];
-        while (nextColor == players.get(0).color)
-        {
+        while (nextColor == players.get(0).color) {
             nextColor = Color.values()[new Random().nextInt(Color.values().length)];
         }
         players.add(new Player(nextColor));
@@ -41,45 +39,42 @@ public class Game {
         currentPlayer = players.get(0);
     }
 
-    public DevelopmentCard buyDevelopmentCard()
-    {
+    public DevelopmentCard buyDevelopmentCard() {
         if (currentPlayer.hasCard(ResourceType.WOOL, 1) &&
                 currentPlayer.hasCard(ResourceType.GRAIN, 1) &&
                 currentPlayer.hasCard(ResourceType.ORE, 1) &&
-                bank.hasDevelopmentCard())
-        {
+                bank.hasDevelopmentCard()) {
 
             bank.addResourceCard(ResourceType.WOOL);
             bank.addResourceCard(ResourceType.GRAIN);
             bank.addResourceCard(ResourceType.ORE);
             DevelopmentCard card = bank.getDevelopmentCard();
             currentPlayer.buyDevelopmentCard(card);
-            if(card.equals(DevelopmentCard.KNIGHT)) {currentPlayer.addKnight();}
-            if(currentPlayer.getKnight() >= 3 && currentPlayer.getKnight() > largestArmy){
-                    largestArmy = currentPlayer.getKnight();
-                    for(Player p : players) p.largestArmy(false);
+            if (card.equals(DevelopmentCard.KNIGHT)) {
+                currentPlayer.addKnight();
+            }
+            if (currentPlayer.getKnight() >= 3 && currentPlayer.getKnight() > largestArmy) {
+                largestArmy = currentPlayer.getKnight();
+                for (Player p : players) p.largestArmy(false);
                 currentPlayer.largestArmy(true);
 
-                }
-            if(card.equals(DevelopmentCard.VICTORY_POINTS)) {currentPlayer.incrementScore();}
+            }
+            if (card.equals(DevelopmentCard.VICTORY_POINTS)) {
+                currentPlayer.incrementScore();
+            }
 
             return card;
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
 
-    public void gameBeginning()
-    {
+    public void gameBeginning() {
         List<Player> playerOrder = new ArrayList<>();
         int[] rolledNumbers = new int[players.size()];
-        for (int i = 0; i < players.size(); i++)
-        {
+        for (int i = 0; i < players.size(); i++) {
             int rolledNumber = 0;
-            for (Die die : dice)
-            {
+            for (Die die : dice) {
                 rolledNumber += die.roll();
             }
             rolledNumbers[i] = rolledNumber;
@@ -87,14 +82,13 @@ public class Game {
         for (int i = 0; i < playerOrder.size(); i++) {
             playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
         }
-        for (Player player : playerOrder)
-        {
+        for (Player player : playerOrder) {
             boolean allowed = false;
             while (!allowed) {
                 Location vertexLocation = chooseSettlementLocation();
                 Location roadLocation = chooseRoadLocation();
                 Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if(checkSettlementLocation(player.color, vertexLocation, true)) {
+                if (checkSettlementLocation(player.color, vertexLocation, true)) {
                     allowed = true;
                     player.decrementSettlements();
                     Edge edge = board.edges[roadLocation.row][roadLocation.col];
@@ -103,19 +97,17 @@ public class Game {
                 }
             }
         }
-        for (int i = players.size()-1; i >= 0 ; i--) {
+        for (int i = players.size() - 1; i >= 0; i--) {
             Player player = playerOrder.get(i);
             boolean allowed = false;
             while (!allowed) {
                 Location vertexLocation = chooseSettlementLocation();
                 Location roadLocation = chooseRoadLocation();
                 Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if(checkSettlementLocation(player.color, vertexLocation, true)) {
+                if (checkSettlementLocation(player.color, vertexLocation, true)) {
                     List<Hex> hexes = vertex.getHexes();
-                    for(Hex hex : hexes)
-                    {
-                        if(hex.type != ResourceType.DESERT)
-                        {
+                    for (Hex hex : hexes) {
+                        if (hex.type != ResourceType.DESERT) {
                             player.addCard(hex.type, 1);
                         }
                     }
@@ -129,31 +121,25 @@ public class Game {
         }
     }
 
-    public List<Hex> getHexes()
-    {
+    public List<Hex> getHexes() {
         return board.getHexesAsList();
     }
 
     //TODO
-    public Location chooseSettlementLocation()
-    {
+    public Location chooseSettlementLocation() {
         throw new NotImplementedException();
     }
 
     //TODO
-    public Location chooseRoadLocation()
-    {
+    public Location chooseRoadLocation() {
         throw new NotImplementedException();
     }
 
-    private int addToPlayerOrder(int[] rolledNumbers)
-    {
+    private int addToPlayerOrder(int[] rolledNumbers) {
         int highest = 0;
         int index = 0;
-        for (int i = 0; i < rolledNumbers.length; i++)
-        {
-            if (rolledNumbers[i] > highest)
-            {
+        for (int i = 0; i < rolledNumbers.length; i++) {
+            if (rolledNumbers[i] > highest) {
                 highest = rolledNumbers[i];
                 index = i;
             }
@@ -162,43 +148,37 @@ public class Game {
         return index;
     }
 
-    public void switchPlayer(){
-        int index = players.indexOf(currentPlayer);
-        if (++index == players.size())
-        {
-            index = 0;
-        }
-        currentPlayer =  players.get(index);
-        rollDiceAndDistributeCards();
+    public void switchPlayer() {
+        currentPlayer = getOtherPlayer();
     }
 
+    private Player getOtherPlayer(){
+        int index = players.indexOf(currentPlayer);
+        if (++index == players.size()) {
+            index = 0;
+        }
+        return players.get(index);
+    }
 
-    public boolean buyRoad(Location location)
-    {
+    public boolean buyRoad(Location location) {
 
         if (currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
-                currentPlayer.hasMoreRoads())
-
-        {
+                currentPlayer.hasMoreRoads()) {
             if (checkRoadLocation(location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
                 currentPlayer.buildRoad();
                 return true;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        else {
+        } else {
             return false;
         }
     }
 
-    public boolean checkRoadLocation(Location location)
-    {
+    public boolean checkRoadLocation(Location location) {
         Edge edge = board.edges[location.row][location.col];
         if (!edge.hasRoad()) {
             List<Vertex> vertices = edge.getVertices();
@@ -220,31 +200,23 @@ public class Game {
         return false;
     }
 
-    public boolean hasCityOrSettlementSameColor(Color color, Vertex vertex)
-    {
-        if (vertex.hasCity() && vertex.getCityColor() == color)
-        {
+    public boolean hasCityOrSettlementSameColor(Color color, Vertex vertex) {
+        if (vertex.hasCity() && vertex.getCityColor() == color) {
             return true;
-        }
-        else if (vertex.hasSettlement() && vertex.getSettlementColor() == color)
-        {
+        } else if (vertex.hasSettlement() && vertex.getSettlementColor() == color) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
 
-    public boolean buySettlement(Location location)
-    {
+    public boolean buySettlement(Location location) {
         if (currentPlayer.hasCard(ResourceType.LUMBER, 1) &&
                 currentPlayer.hasCard(ResourceType.BRICK, 1) &&
                 currentPlayer.hasCard(ResourceType.WOOL, 1) &&
                 currentPlayer.hasCard(ResourceType.GRAIN, 1) &&
-                currentPlayer.hasMoreSettlements())
-        {
+                currentPlayer.hasMoreSettlements()) {
             if (checkSettlementLocation(currentPlayer.color, location, false)) {
                 bank.addResourceCard(ResourceType.WOOL);
                 bank.addResourceCard(ResourceType.GRAIN);
@@ -258,48 +230,38 @@ public class Game {
 
     }
 
-    public boolean checkSettlementLocation(Color color, Location location, boolean firstSettlement)
-    {
+    public boolean checkSettlementLocation(Color color, Location location, boolean firstSettlement) {
         Vertex vertex = board.vertices[location.row][location.col];
-        if (vertex.hasCity() || vertex.hasSettlement())
-        {
+        if (vertex.hasCity() || vertex.hasSettlement()) {
             return false;
         }
         List<Edge> edges = vertex.getEdges();
         boolean connectingRoad = false;
-        for (Edge edge : edges)
-        {
-            if (edge.hasRoad() && edge.getRoadColor() == color)
-            {
+        for (Edge edge : edges) {
+            if (edge.hasRoad() && edge.getRoadColor() == color) {
                 connectingRoad = true;
             }
             List<Vertex> borderingVertices = edge.getVertices();
-            for (Vertex borderingVertex : borderingVertices)
-            {
-                if (borderingVertex.hasSettlement() || borderingVertex.hasCity())
-                {
+            for (Vertex borderingVertex : borderingVertices) {
+                if (borderingVertex.hasSettlement() || borderingVertex.hasCity()) {
                     return false;
                 }
             }
 
         }
-        if (connectingRoad || firstSettlement)
-        {
+        if (connectingRoad || firstSettlement) {
             vertex.buildSettlement(new Settlement(color));
             return true;
         }
         return false;
     }
 
-    public boolean buyCity(Location location)
-    {
+    public boolean buyCity(Location location) {
         Vertex vertex = board.vertices[location.row][location.col];
         if (currentPlayer.hasCard(ResourceType.ORE, 3) &&
                 currentPlayer.hasCard(ResourceType.GRAIN, 2) &&
-                currentPlayer.hasMoreCities())
-        {
-            if (vertex.hasSettlement() && vertex.getSettlementColor() == currentPlayer.color)
-            {
+                currentPlayer.hasMoreCities()) {
+            if (vertex.hasSettlement() && vertex.getSettlementColor() == currentPlayer.color) {
                 currentPlayer.buildCity();
                 bank.addResourceCard(ResourceType.ORE);
                 bank.addResourceCard(ResourceType.ORE);
@@ -313,50 +275,45 @@ public class Game {
         return false;
     }
 
-    public int[] rollDiceAndDistributeCards()
-    {
-        int[] rolledNumbers = new int[2];
-        int diceNumber = 0;
-        for (int i = 0; i < dice.length; i++)
-        {
-            int rolled = dice[i].roll();
-            diceNumber += rolled;
-            rolledNumbers[i] = rolled;
-        }
-
-        if(diceNumber == 7){
-            playRobber();
-        }
-        else {
-            List<Location> hexes = board.getHexesWithNumber(diceNumber);
-            for (Location location : hexes) {
-                if (board.hexes[location.row][location.col].hasRobber)
-                {
-                    continue;
-                }
-                ResourceType resource = board.getResource(location);
-                List<Vertex> vertices = board.getVertices(location);
-                for (Vertex vertex : vertices) {
-                    if (vertex.hasCity()) {
-                        Color cityColor = vertex.getCityColor();
-                        for (Player player : players) {
-                            if (player.color == cityColor) {
-                                player.addCard(resource, 2);
-                                break;
-                            }
-
+    public void distributeCards(int roll) {
+        List<Location> hexes = board.getHexesWithNumber(roll);
+        for (Location location : hexes) {
+            if (board.hexes[location.row][location.col].hasRobber) {
+                continue;
+            }
+            ResourceType resource = board.getResource(location);
+            List<Vertex> vertices = board.getVertices(location);
+            for (Vertex vertex : vertices) {
+                if (vertex.hasCity()) {
+                    Color cityColor = vertex.getCityColor();
+                    for (Player player : players) {
+                        if (player.color == cityColor) {
+                            player.addCard(resource, 2);
+                            break;
                         }
-                    } else if (vertex.hasSettlement()) {
-                        Color settlementColor = vertex.getSettlementColor();
-                        for (Player player : players) {
-                            if (player.color == settlementColor) {
-                                player.addCard(resource, 1);
-                                break;
-                            }
+
+                    }
+                } else if (vertex.hasSettlement()) {
+                    Color settlementColor = vertex.getSettlementColor();
+                    for (Player player : players) {
+                        if (player.color == settlementColor) {
+                            player.addCard(resource, 1);
+                            break;
                         }
                     }
                 }
             }
+
+        }
+    }
+
+    public int[] rollDice() {
+        int[] rolledNumbers = new int[2];
+        int diceNumber = 0;
+        for (int i = 0; i < dice.length; i++) {
+            int rolled = dice[i].roll();
+            diceNumber += rolled;
+            rolledNumbers[i] = rolled;
         }
         return rolledNumbers;
     }
@@ -375,15 +332,13 @@ public class Game {
         }
         if (winner.getScore() >= 10) {
             return winner;
-        }
-        else
+        } else
             return null;
     }
 
-    public void playRobber(){
+    public void playRobber(Location location) {
         for (Player player : players) {
-            if (player.getTotalCards() > 7)
-            {
+            if (player.getTotalCards() > 7) {
                 int totalCards = player.getTotalCards();
                 int half = totalCards / 2;
                 for (int i = 0; i < half; i++) {
@@ -391,25 +346,22 @@ public class Game {
                 }
             }
         }
-        // TODO get location to move and player to pick from
-        //moveRobber();
+        moveRobber(location, getOtherPlayer());
     }
 
-    public void moveRobber(Location location, Player player){
+    public void moveRobber(Location location, Player player) {
         Location hexLocation = board.findRobber();
         Hex hex = board.hexes[hexLocation.row][hexLocation.col];
         hex.hasRobber = false;
         List<Vertex> vertices = board.getVertices(location);
         boolean canTake = false;
         for (Vertex vertex : vertices) {
-            if (hasCityOrSettlementSameColor(player.color, vertex))
-            {
+            if (hasCityOrSettlementSameColor(player.color, vertex)) {
                 canTake = true;
                 break;
             }
         }
-        if (canTake)
-        {
+        if (canTake) {
             ResourceType cardTaken = player.getRandomCard();
             if (cardTaken != null)
                 currentPlayer.addCard(cardTaken, 1);
@@ -417,35 +369,26 @@ public class Game {
         board.hexes[location.row][location.col].hasRobber = true;
     }
 
-    public void playYearOfPlenty(ResourceType type1, ResourceType type2)
-    {
+    public void playYearOfPlenty(ResourceType type1, ResourceType type2) {
 
-        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.YEAR_OF_PLENTY))
-        {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.YEAR_OF_PLENTY)) {
             currentPlayer.useDevelopmentCard(DevelopmentCard.YEAR_OF_PLENTY);
-            if (bank.hasResourceCard(type1, 1))
-            {
+            if (bank.hasResourceCard(type1, 1)) {
                 bank.getResourceCard(type1);
                 currentPlayer.addCard(type1, 1);
             }
-            if (bank.hasResourceCard(type2, 1))
-            {
+            if (bank.hasResourceCard(type2, 1)) {
                 bank.getResourceCard(type2);
                 currentPlayer.addCard(type2, 1);
             }
         }
     }
 
-    public void playMonopoly(ResourceType type)
-    {
-        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.MONOPOLY))
-        {
-            for (Player player : players)
-            {
-                if (player != currentPlayer)
-                {
-                    while (player.hasCard(type, 1))
-                    {
+    public void playMonopoly(ResourceType type) {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.MONOPOLY)) {
+            for (Player player : players) {
+                if (player != currentPlayer) {
+                    while (player.hasCard(type, 1)) {
                         player.useCard(type);
                         currentPlayer.addCard(type, 1);
                     }
@@ -454,18 +397,14 @@ public class Game {
         }
     }
 
-    public void playRoadBuilding(Location location1, Location location2)
-    {
-        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING))
-        {
-            if(checkRoadLocation(location1))
-            {
+    public void playRoadBuilding(Location location1, Location location2) {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING)) {
+            if (checkRoadLocation(location1)) {
                 Edge edge = board.edges[location1.row][location1.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
             }
-            if(checkRoadLocation(location2))
-            {
+            if (checkRoadLocation(location2)) {
                 Edge edge = board.edges[location2.row][location2.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
@@ -473,10 +412,8 @@ public class Game {
         }
     }
 
-    public void playKnight(Location location, Player player)
-    {
-        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT))
-        {
+    public void playKnight(Location location, Player player) {
+        if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT)) {
             moveRobber(location, player);
         }
     }
