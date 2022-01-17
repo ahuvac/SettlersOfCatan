@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
     private List<Player> players;
@@ -9,11 +7,12 @@ public class Game {
     private Bank bank;
     private int largestArmy;
     private Player currentPlayer;
+    Map<Player, Integer> roadLengths = new HashMap<>();
 
 
     public Game(List<String> names){
         players = new ArrayList<>();
-        for(int i = 0; i < players.size(); i++){
+        for(int i = 0; i < 2; i++){
             players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)], names.get(i)));
         }
         dice = new Die[2];
@@ -21,6 +20,8 @@ public class Game {
         bank = new Bank();
         largestArmy = 0;
         currentPlayer = players.get(0);
+        roadLengths.put(players.get(0), 0);
+        roadLengths.put(players.get(1), 0);
     }
 
     public DevelopmentCard buyDevelopmentCard(Player player)

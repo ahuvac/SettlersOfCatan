@@ -10,7 +10,7 @@ public class Board {
     Vertex[][] vertices = new Vertex[12][11];
     Edge[][] edges = new Edge[21][10];
     private Edge endpoint = null;
-
+    Player longestRoad = null;
 
     public Board() {
         List<Hex> hexArrayList = createHexes();
@@ -306,7 +306,7 @@ public class Board {
         edges[10][15] = new Edge(borderingHexes);
     }
 
-    //TODO replace methid with the formula
+    //TODO replace method with the formula
     private void placeVertices() {
         //first row
         List<Hex> borderingHexes = new ArrayList<Hex>();
