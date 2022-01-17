@@ -873,6 +873,8 @@ public class Board {
      * @return int length of the longest chain of roads
      */
     public int findLongestRoad(Player p) { //TODO test
+
+        // start from every end road to every other end road
         List<Edge> roadList = p.getRoads();
         int maxCount = 1;
         int length = roadList.size();
