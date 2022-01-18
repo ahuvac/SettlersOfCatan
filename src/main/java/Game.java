@@ -95,72 +95,63 @@ public class Game {
         }
     }
 
-    public void gameBeginning() {
-        List<Player> playerOrder = new ArrayList<>();
-        int[] rolledNumbers = new int[players.size()];
-//        for (int i = 0; i < players.size(); i++) {
-//            int rolledNumber = 0;
-//            for (Die die : dice) {
-//                rolledNumber += die.roll();
-//            }
-//            rolledNumbers[i] = rolledNumber;
+//    public void gameBeginning() {
+//        List<Player> playerOrder = new ArrayList<>();
+//        int[] rolledNumbers = new int[players.size()];
+////        for (int i = 0; i < players.size(); i++) {
+////            int rolledNumber = 0;
+////            for (Die die : dice) {
+////                rolledNumber += die.roll();
+////            }
+////            rolledNumbers[i] = rolledNumber;
+////        }
+//        // TODO add roll dice to choose player order
+//        for (int i = 0; i < playerOrder.size(); i++) {
+//            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
 //        }
-        // TODO add roll dice to choose player order
-        for (int i = 0; i < playerOrder.size(); i++) {
-            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
-        }
-        for (Player player : playerOrder) {
-            boolean allowed = false;
-            while (!allowed) {
-                Location vertexLocation = chooseSettlementLocation();
-                Location roadLocation = chooseRoadLocation();
-                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-                    allowed = true;
-                    player.decrementSettlements();
-                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-                    edge.buildRoad(new Road(player.color));
-                    player.decrementRoads();
-                }
-            }
-        }
-        for (int i = players.size() - 1; i >= 0; i--) {
-            Player player = playerOrder.get(i);
-            boolean allowed = false;
-            while (!allowed) {
-                Location vertexLocation = chooseSettlementLocation();
-                Location roadLocation = chooseRoadLocation();
-                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-                    List<Hex> hexes = vertex.getHexes();
-                    for (Hex hex : hexes) {
-                        if (hex.type != ResourceType.DESERT) {
-                            player.addCard(hex.type, 1);
-                        }
-                    }
-                    allowed = true;
-                    player.decrementSettlements();
-                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-                    edge.buildRoad(new Road(player.color));
-                    player.decrementRoads();
-                }
-            }
-        }
-    }
+//        for (Player player : playerOrder) {
+//            boolean allowed = false;
+//            while (!allowed) {
+//                Location vertexLocation = chooseSettlementLocation();
+//                Location roadLocation = chooseRoadLocation();
+//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
+//                    allowed = true;
+//                    player.decrementSettlements();
+//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+//                    edge.buildRoad(new Road(player.color));
+//                    player.decrementRoads();
+//                }
+//            }
+//        }
+//        for (int i = players.size() - 1; i >= 0; i--) {
+//            Player player = playerOrder.get(i);
+//            boolean allowed = false;
+//            while (!allowed) {
+//                Location vertexLocation = chooseSettlementLocation();
+//                Location roadLocation = chooseRoadLocation();
+//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
+//                    List<Hex> hexes = vertex.getHexes();
+//                    for (Hex hex : hexes) {
+//                        if (hex.type != ResourceType.DESERT) {
+//                            player.addCard(hex.type, 1);
+//                        }
+//                    }
+//                    allowed = true;
+//                    player.decrementSettlements();
+//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+//                    edge.buildRoad(new Road(player.color));
+//                    player.decrementRoads();
+//                }
+//            }
+//        }
+//    }
 
     public List<Hex> getHexes() {
         return board.getHexesAsList();
     }
 
-    //TODO
-    public Location chooseSettlementLocation() {
-        throw new NotImplementedException();
-    }
-
-    //TODO
-    public Location chooseRoadLocation() {
-        throw new NotImplementedException();
-    }
 
     private int addToPlayerOrder(int[] rolledNumbers) {
         int highest = 0;

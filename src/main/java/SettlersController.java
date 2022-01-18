@@ -342,7 +342,6 @@ public class SettlersController {
     }
 
     private void nextPlayerSetUp() {
-        // TODO switch between the 2 players
         if (game.getOtherPlayer().getRoads() == 15) {
             preGameSwitch = true;
             FinishTurnOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
