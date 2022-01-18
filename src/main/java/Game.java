@@ -53,6 +53,18 @@ public class Game {
         return currentPlayer;
     }
 
+    public boolean connected(Location edgeLocation, Location vertexLocation)
+    {
+        Edge edge = board.edges[edgeLocation.row][edgeLocation.col];
+        Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+        List<Vertex> vertices = edge.getVertices();
+        if (vertices.contains(vertex))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public DevelopmentCard buyDevelopmentCard() {
         if (currentPlayer.hasCard(ResourceType.WOOL, 1) &&
                 currentPlayer.hasCard(ResourceType.GRAIN, 1) &&

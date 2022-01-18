@@ -309,7 +309,15 @@ public class SettlersController {
                 inBuildRoad = true;
             } else if (mouseEvent.getSource() instanceof ImageView) {
                 if (roadLocation != null) {
-                    boolean bought = game.buyRoad(roadLocation);
+                    boolean bought;
+                    if (preGame && !game.connected(roadLocation, settlementLocation))
+                    {
+                        bought = false;
+                    }
+                    else
+                    {
+                        bought = game.buyRoad(roadLocation);
+                    }
                     if (bought) {
                         updateCards();
                         ImageView road = (ImageView) mouseEvent.getSource();
@@ -405,7 +413,9 @@ public class SettlersController {
 
                 inBuildSettlement = false;
             }
-            settlementLocation = null;
+            if (!preGame) {
+                settlementLocation = null;
+            }
         }
     }
 
