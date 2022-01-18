@@ -446,6 +446,7 @@ public class SettlersController {
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
+        gameOver();
         if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
         } else if (!preGame || preGameSwitch) {
@@ -565,5 +566,15 @@ public class SettlersController {
     public void startGameOnClick(MouseEvent mouseEvent) {
         StartPane.setVisible(false);
         setUpBeginning();
+    }
+
+    public void gameOver()
+    {
+        if (game.gameOver())
+        {
+            Player winner = game.getWinner();
+            String message = "The winner is " + winner.toString() + "!";
+            //TODO: make gui visible
+        }
     }
 }
