@@ -258,11 +258,6 @@ public class SettlersController {
         setUpBeginning();
     }
 
-    @FXML
-    public void main()
-    {
-        setUpBeginning();
-    }
 
     public void updateCards() {
         Player2BrickAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.BRICK)));
