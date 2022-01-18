@@ -10,22 +10,8 @@ public class Game {
     private Board board;
     private Bank bank;
     private boolean rolled = false;
-
-    public boolean isRolled() {
-        return rolled;
-    }
-
-    public void setRolled(boolean rolled) {
-        this.rolled = rolled;
-    }
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
-
     private int largestArmy;
     private Player currentPlayer;
-
 
     //    public Game(List<String> names){
     public Game() {
@@ -53,6 +39,18 @@ public class Game {
             giveCards(ResourceType.WOOL, 2, player);
             giveCards(ResourceType.GRAIN, 2, player);
         }
+    }
+
+    public boolean isRolled() {
+        return rolled;
+    }
+
+    public void setRolled(boolean rolled) {
+        this.rolled = rolled;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
     public DevelopmentCard buyDevelopmentCard() {
@@ -170,7 +168,7 @@ public class Game {
         rolled = false;
     }
 
-    private Player getOtherPlayer() {
+    public Player getOtherPlayer() {
         int index = players.indexOf(currentPlayer);
         if (++index == players.size()) {
             index = 0;
