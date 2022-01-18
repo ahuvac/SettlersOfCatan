@@ -15,7 +15,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+
+<GridPane alignment="center" maxHeight="300" maxWidth="300"  prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dae4f2" height="60.0" layoutX="900.0" layoutY="720.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER">
       <effect>
          <DropShadow>
