@@ -441,4 +441,26 @@ public class Game {
         }
         player.addCard(type,amount);
     }
+
+    public boolean gameOver()
+    {
+        if(getWinner() != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public Player getWinner()
+    {
+        for(Player player : players)
+        {
+            if (player.getScore() >= 10)
+            {
+                return player;
+            }
+
+        }
+        return null;
+    }
 }
