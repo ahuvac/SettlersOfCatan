@@ -583,4 +583,7 @@ public class SettlersController {
         createDialogBox("Choose location", "Please choose the location for your settlement.");
 
     }
+
+    public void startGameOnClick(MouseEvent mouseEvent) {
+    }
 }

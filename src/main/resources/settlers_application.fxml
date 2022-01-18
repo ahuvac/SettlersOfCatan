@@ -15,8 +15,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane alignment="center" maxHeight="300" maxWidth="300"  prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+<GridPane alignment="center" maxHeight="300" maxWidth="300" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dae4f2" height="60.0" layoutX="900.0" layoutY="720.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER">
       <effect>
          <DropShadow>
@@ -51,17 +50,6 @@
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </GridPane.margin>
     </ImageView>
-   <Label fx:id="Player1GrainAmnt" text="8" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-      <font>
-         <Font name="Arial Black" size="25.0" />
-      </font>
-      <effect>
-         <DropShadow />
-      </effect>
-      <padding>
-         <Insets right="6.0" />
-      </padding>
-   </Label>
     <ImageView fx:id="Player1Lumber" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1LumberCardOnClick" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--lumber.png" />
@@ -75,20 +63,6 @@
          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
       </GridPane.margin>
     </ImageView>
-   <Label fx:id="Player1LumberAmnt" text="8" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-      <font>
-         <Font name="Arial Black" size="25.0" />
-      </font>
-      <effect>
-         <DropShadow />
-      </effect>
-      <padding>
-         <Insets right="14.0" />
-      </padding>
-      <GridPane.margin>
-         <Insets />
-      </GridPane.margin>
-   </Label>
     <ImageView fx:id="Player1Wool" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1WoolCardOnClick" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--wool.png" />
@@ -99,17 +73,6 @@
     <Image url="@imgs/resource_cards/resources--back.png" />
 </image>
 </ImageView>
-   <Label fx:id="Player1WoolAmnt" layoutX="109.0" layoutY="32.0" text="8" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-      <font>
-         <Font name="Arial Black" size="25.0" />
-      </font>
-      <effect>
-         <DropShadow />
-      </effect>
-      <padding>
-         <Insets right="14.0" />
-      </padding>
-   </Label>
     <ImageView fx:id="Player1Ore" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1OreCardOnClick" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--ore.png" />
@@ -120,17 +83,6 @@
             <Image url="@imgs/resource_cards/resources--back.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1OreAmnt" text="8" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-      <font>
-         <Font name="Arial Black" size="25.0" />
-      </font>
-      <effect>
-         <DropShadow />
-      </effect>
-      <padding>
-         <Insets right="14.0" />
-      </padding>
-   </Label>
     <ImageView fx:id="Player1Brick" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/resource_cards/resources--brick.png" />
@@ -141,34 +93,12 @@
             <Image url="@imgs/resource_cards/resources--back.png" />
         </image>
     </ImageView>
-   <Label fx:id="Player1BrickAmnt" text="8" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-      <font>
-         <Font name="Arial Black" size="25.0" />
-      </font>
-      <effect>
-         <DropShadow />
-      </effect>
-      <padding>
-         <Insets right="14.0" />
-      </padding>
-   </Label>
 
     <ImageView fx:id="Player1DevCard" fitHeight="60.0" fitWidth="50.0" onMouseClicked="#Player1BrickCardOnClick" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="0">
         <image>
             <Image url="@imgs/developement_cards/dcs--%202.png" />
         </image>
     </ImageView>
-    <Label fx:id="Player1DevCardAmnt" text="8" textFill="WHITE" GridPane.columnIndex="6" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="BOTTOM">
-        <font>
-            <Font name="Arial Black" size="25.0" />
-        </font>
-        <effect>
-            <DropShadow />
-        </effect>
-        <padding>
-            <Insets right="14.0" />
-        </padding>
-    </Label>
 
 
     <!-- Second Row - first row of board -->
@@ -2282,6 +2212,31 @@
       </GridPane.margin>
    </ImageView>
    <Region prefHeight="200.0" prefWidth="200.0" />
+   <GridPane fx:id="StartPane" style="-fx-background-color: #1f88ab;" GridPane.columnSpan="14" GridPane.rowSpan="15" visible="true">
+     <columnConstraints>
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+     </columnConstraints>
+     <rowConstraints>
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+     </rowConstraints>
+      <children>
+         <Button mnemonicParsing="false" onMouseClicked="#startGameOnClick" text="START GAME" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+            <font>
+               <Font name="Arial Black" size="17.0" />
+            </font>
+         </Button>
+         <Label text="SOME TEXT...." textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+      </children>
+   </GridPane>
 
 
 
