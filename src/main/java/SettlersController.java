@@ -156,6 +156,8 @@ public class SettlersController {
     Location hexLocation;
     boolean rolledSeven = false;
     boolean preGame =  true;
+    boolean preGameSettlement = true;
+    boolean preGameSwitch = false;
 
     public SettlersController() {
         hexes = new ArrayList<>();
@@ -307,7 +309,7 @@ public class SettlersController {
             createDialogBox("Error", "You must roll the dice first");
         }
         else {
-            if (mouseEvent.getSource() instanceof Button) {
+            if (mouseEvent.getSource() instanceof Button && !preGame) {
                 createDialogBox("Select Road", "Please click on the location where you would like to build a road");
                 inBuildRoad = true;
             } else if (mouseEvent.getSource() instanceof ImageView) {
@@ -340,10 +342,12 @@ public class SettlersController {
     private void nextPlayerSetUp() {
         // TODO switch between the 2 players
         if(game.getOtherPlayer().getRoads() == 15) {
+            preGameSwitch = true;
             FinishTurnOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,0, 0, 0,
                     MouseButton.PRIMARY, 1, true, true, true, true,
                     true, true, true, true, true,
                     true, null));
+            preGameSwitch = false;
             setUpBeginning();
         }
         else if(game.getCurrentPlayer().getRoads() == 14)
@@ -352,6 +356,7 @@ public class SettlersController {
         }
         else if(game.getCurrentPlayer().getRoads() == 13)
         {
+            preGameSwitch = true;
             FinishTurnOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0,0, 0, 0,
                     MouseButton.PRIMARY, 1, true, true, true, true,
                     true, true, true, true, true,
@@ -364,6 +369,7 @@ public class SettlersController {
             {
                 setUpBeginning();
             }
+            preGameSwitch = false;
         }
     }
 
@@ -373,7 +379,7 @@ public class SettlersController {
             createDialogBox("Error", "You must roll the dice first");
         }
         else {
-            if (mouseEvent.getSource() instanceof Button) {
+            if (mouseEvent.getSource() instanceof Button && !preGame) {
                 inBuildSettlement = true;
                 createDialogBox("Select Location", "Please click on the location where you would like to build a settlement");
             } else if (mouseEvent.getSource() instanceof Circle) {
@@ -392,6 +398,7 @@ public class SettlersController {
                             //TODO: add onclick for settlement
                         }
                         if(preGame){
+                            preGameSettlement = false;
                             createDialogBox("Build road", "Please choose the location for your road.");
                         }
                     }
@@ -408,7 +415,7 @@ public class SettlersController {
     }
 
     public void BuildCityOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
+        if (!game.isRolled() && !preGame)
         {
             createDialogBox("Error", "You must roll the dice first");
         }
@@ -441,7 +448,7 @@ public class SettlersController {
     }
 
     public void BuyDevCardOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
+        if (!game.isRolled() && !preGame)
         {
             createDialogBox("Error", "You must roll the dice first");
         }
@@ -449,7 +456,7 @@ public class SettlersController {
     }
 
     public void UseDevCardOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
+        if (!game.isRolled() && !preGame)
         {
             createDialogBox("Error", "You must roll the dice first");
         }
@@ -461,7 +468,7 @@ public class SettlersController {
         {
             createDialogBox("Error", "You must roll the dice first");
         }
-        else{
+        else if(!preGame || preGameSwitch){
             String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
                     " step \naway from the screen and the next player should come to \nthe screen.";
             createDialogBox("Switch Turn", message);
@@ -485,7 +492,7 @@ public class SettlersController {
         Circle vertex = (Circle) mouseEvent.getSource();
         String vertexId = vertex.getId();
         settlementLocation = new Location(getRow(vertexId), getColumn(vertexId));
-        if (inBuildSettlement || preGame) {
+        if (inBuildSettlement || preGameSettlement) {
             BuildSettlementOnClick(mouseEvent);
         }
     }
@@ -553,6 +560,7 @@ public class SettlersController {
             int rolledNum = roll[0] + roll[1];
             if (rolledNum != 7) {
                 game.distributeCards(rolledNum);
+                updateCards();
             } else {
                 rolledSeven = true;
                 createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
@@ -576,6 +584,7 @@ public class SettlersController {
     }
 
     public void setUpBeginning(){
+        preGameSettlement = true;
         createDialogBox("Choose location", "Please choose the location for your settlement.");
 
     }
