@@ -884,6 +884,9 @@
             </color>
          </DropShadow>
       </effect>
+      <GridPane.margin>
+         <Insets right="20.0" />
+      </GridPane.margin>
    </ImageView>
     <ImageView fx:id="die2" fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="11">
         <image>
@@ -897,7 +900,7 @@
             </DropShadow>
         </effect>
     </ImageView>
-   <Button mnemonicParsing="false" onMouseClicked="#diceOnClick" style="-fx-background-color: #46B001;" text="Roll Dice" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="11">
+   <Button mnemonicParsing="false" onMouseClicked="#diceOnClick" style="-fx-background-color: #46B001;" text="Roll Dice" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="11" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="TOP">
       <padding>
          <Insets bottom="2.0" left="4.0" right="4.0" top="2.0" />
       </padding>
@@ -911,6 +914,9 @@
       <font>
          <Font name="Arial Bold" size="11.0" />
       </font>
+      <GridPane.margin>
+         <Insets bottom="10.0" left="10.0" top="-10.0" />
+      </GridPane.margin>
    </Button>
 
     <!--Roads-->
@@ -1843,6 +1849,9 @@
             </color>
          </DropShadow>
       </effect>
+      <GridPane.margin>
+         <Insets top="20.0" />
+      </GridPane.margin>
    </Circle>
    <Circle fx:id="V0_7" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="9" GridPane.halignment="CENTER" GridPane.rowIndex="1">
       <effect>
@@ -2232,6 +2241,9 @@
             </color>
          </DropShadow>
       </effect>
+      <GridPane.margin>
+         <Insets bottom="20.0" />
+      </GridPane.margin>
    </Circle>
    <Circle fx:id="V9_8" fill="WHITE" layoutX="15.0" layoutY="40.0" onMouseClicked="#vertexOnClick" radius="5.0" stroke="TRANSPARENT" strokeType="INSIDE" GridPane.columnIndex="10" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="TOP">
       <effect>
