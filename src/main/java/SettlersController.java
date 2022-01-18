@@ -435,6 +435,16 @@ public class SettlersController {
         if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
         } else if (!preGame) {
+            DevelopmentCard card = game.buyDevelopmentCard();
+            if (card != null)
+            {
+                String message = "You have successfully purchased a development card. \n" + card.toString() + " was added to your cards.";
+                createDialogBox("Development Card", message);
+            }
+            else
+            {
+                createDialogBox("Error", "You do not have enough resources to buy a development card");
+            }
         }
     }
 
