@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
@@ -11,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SettlersController {
+    @FXML
+    GridPane StartPane;
+    @FXML
+    Label startLabel;
     @FXML
     ImageView h0_2;
     @FXML
@@ -255,7 +260,8 @@ public class SettlersController {
         }
         currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
         updateCards();
-        setUpBeginning();
+        String labelText = "ARE YOU READY?\n\nRED VS. BLUE\n\nSTARTING PLAYER IS " + game.getCurrentPlayer().toString();
+        startLabel.setText(labelText);
     }
 
 
@@ -595,5 +601,7 @@ public class SettlersController {
     }
 
     public void startGameOnClick(MouseEvent mouseEvent) {
+        StartPane.setVisible(false);
+        setUpBeginning();
     }
 }
