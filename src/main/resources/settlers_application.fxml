@@ -8,13 +8,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff; -fx-border-color: #DA9E48; -fx-border-width: 20;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
+<GridPane alignment="center" maxHeight="300" maxWidth="300" onMouseClicked="#diceOnClick" prefHeight="300" prefWidth="300" style="-fx-background-color: #def3ff#def3ff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SettlersController">
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dae4f2" height="60.0" layoutX="900.0" layoutY="720.0" stroke="BLACK" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="0.0" width="200.0" GridPane.columnIndex="11" GridPane.columnSpan="2" GridPane.halignment="CENTER">
       <effect>
          <DropShadow>
@@ -743,7 +744,7 @@
          </DropShadow>
       </effect>
       <GridPane.margin>
-         <Insets top="10.0" />
+         <Insets right="30.0" top="10.0" />
       </GridPane.margin>
    </Rectangle>
 
@@ -2279,6 +2280,7 @@
          <Insets left="4.0" />
       </GridPane.margin>
    </ImageView>
+   <Region prefHeight="200.0" prefWidth="200.0" />
 
 
 
