@@ -2225,12 +2225,12 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
-         <Button mnemonicParsing="false" onMouseClicked="#startGameOnClick" text="START GAME" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
+         <Button fx:id="startButton" mnemonicParsing="false" onMouseClicked="#startGameOnClick" text="START GAME" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP">
             <font>
                <Font name="Arial Black" size="17.0" />
             </font>
          </Button>
-         <Label text="SOME TEXT...." textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <Label fx:id="startLabel" text="SOME TEXT...." textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
             <font>
                <Font size="15.0" />
             </font>
