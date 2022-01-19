@@ -2361,7 +2361,7 @@
         </GridPane.margin>
     </ImageView>
     <Region prefHeight="50.0" prefWidth="200.0" />
-    <GridPane fx:id="StartPane" style="-fx-background-color: #1f88ab;" visible="false" GridPane.columnSpan="15" GridPane.rowSpan="16">
+    <GridPane fx:id="StartPane" style="-fx-background-color: #1f88ab;" visible="true" GridPane.columnSpan="15" GridPane.rowSpan="16">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
