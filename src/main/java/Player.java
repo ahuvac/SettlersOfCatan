@@ -149,6 +149,22 @@ public class Player {
         return developmentCards.contains(card);
     }
 
+    public boolean hasDevelopmentCard()
+    {
+        if(developmentCards.size() > 0)
+        {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public List<DevelopmentCard> getDevelopmentCards()
+    {
+        return developmentCards;
+    }
+
     public void useDevelopmentCard(DevelopmentCard card) {
         developmentCards.remove(card);
     }
