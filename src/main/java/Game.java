@@ -414,24 +414,30 @@ public class Game {
         }
     }
 
-    public void playRoadBuilding(Location location1, Location location2) {
+    public boolean playRoadBuilding(Location location1, Location location2) {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING)) {
-            if (checkRoadLocation(location1)) {
+            if (checkRoadLocation(location1) && checkRoadLocation(location2)) {
                 Edge edge = board.edges[location1.row][location1.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
-            }
-            if (checkRoadLocation(location2)) {
-                Edge edge = board.edges[location2.row][location2.col];
+                edge = board.edges[location2.row][location2.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
+                return true;
             }
+            else {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 
-    public void playKnight(Location location, Player player) {
+    public void playKnight(Location location) {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT)) {
-            moveRobber(location, player);
+            moveRobber(location, getOtherPlayer());
         }
     }
 
