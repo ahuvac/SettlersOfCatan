@@ -567,19 +567,4 @@ public class SettlersController {
         StartPane.setVisible(false);
         setUpBeginning();
     }
-
-    public void devCard1OnClick(MouseEvent mouseEvent) {
-    }
-
-    public void devCard2OnClick(MouseEvent mouseEvent) {
-    }
-
-    public void devCard3OnClick(MouseEvent mouseEvent) {
-    }
-
-    public void devCard4OnClick(MouseEvent mouseEvent) {
-    }
-
-    public void devCard5OnClick(MouseEvent mouseEvent) {
-    }
 }
