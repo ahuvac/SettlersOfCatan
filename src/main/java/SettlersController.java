@@ -148,6 +148,18 @@ public class SettlersController {
     ImageView h4_4Robber;
     @FXML
     ImageView h4_6Robber;
+    @FXML
+    GridPane devCardPane;
+    @FXML
+    Label Player2DevCardAmnt1;
+    @FXML
+    Label Player2DevCardAmnt11;
+    @FXML
+    Label Player2DevCardAmnt111;
+    @FXML
+    Label Player2DevCardAmnt1111;
+    @FXML
+    Label Player2DevCardAmnt11111;
     ImageView road1;
     Game game;
     Location roadLocation;
@@ -293,36 +305,45 @@ public class SettlersController {
     public void Player1BrickCardOnClick(MouseEvent mouseEvent) {
     }
 
-    public void Player2GrainCardOnClick(MouseEvent mouseEvent) {
+    public void determineDevCard(ResourceType type)
+    {
         if(inMonopoly)
         {
-            game.playMonopoly(ResourceType.GRAIN);
+            game.playMonopoly(type);
             inMonopoly = false;
         }
         else if(inYearOfPlenty && resourceType != null)
         {
-            game.playYearOfPlenty(resourceType, ResourceType.GRAIN);
+            game.playYearOfPlenty(resourceType, type);
             inYearOfPlenty = false;
             resourceType = null;
         }
         else if(inYearOfPlenty && resourceType == null)
         {
-            resourceType = ResourceType.GRAIN;
+            resourceType = type;
             chooseResourceType();
         }
         updateCards();
     }
 
+    public void Player2GrainCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.GRAIN);
+    }
+
     public void Player2LumberCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.LUMBER);
     }
 
     public void Player2WoolCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.WOOL);
     }
 
     public void Player2OreCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.ORE);
     }
 
     public void Player2BrickCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.BRICK);
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
@@ -471,6 +492,7 @@ public class SettlersController {
                 createDialogBox("Error", "You do not have enough resources to buy a development card");
             }
         }
+        updateCards();
     }
 
     public void UseDevCardOnClick(MouseEvent mouseEvent) {
@@ -480,40 +502,79 @@ public class SettlersController {
             if(game.getCurrentPlayer().hasDevelopmentCard())
             {
                 List<DevelopmentCard> cards = game.getCurrentPlayer().getDevelopmentCards();
-                //TODO let them choose
-                DevelopmentCard card = cards.get(0);
-                switch (card)
+                int yearOfPlenty = 0;
+                int monopoly = 0;
+                int knight = 0;
+                int roadBuilding = 0;
+                int victoryPoint = 0;
+                for(DevelopmentCard card : cards)
                 {
-                    case ROAD_BUILDING:
-                        inRoadBuilding = true;
-                        BuildRoadOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
-                                MouseButton.PRIMARY, 1, true, true, true, true,
-                                true, true, true, true, true,
-                                true, null));
-                        break;
-                    case KNIGHT:
-                        inKnight = true;
-                        createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
-                        break;
-                    case MONOPOLY:
-                        inMonopoly = true;
-                        chooseResourceType();
-                        break;
-                    case YEAR_OF_PLENTY:
-                        inYearOfPlenty = true;
-                        chooseResourceType();
-                        break;
-                    case VICTORY_POINTS:
-                        createDialogBox("Error", "That card is not playayble, but it was added to your score");
-                        break;
+                    switch(card){
+                        case KNIGHT:
+                            knight++;
+                            break;
+                        case MONOPOLY:
+                            monopoly++;
+                            break;
+                        case ROAD_BUILDING:
+                            roadBuilding++;
+                            break;
+                        case YEAR_OF_PLENTY:
+                            yearOfPlenty++;
+                            break;
+                        case VICTORY_POINTS:
+                            victoryPoint++;
+                            break;
+                    }
                 }
-                updateCards();
+                devCardPane.setVisible(true);
+                Player2DevCardAmnt1.setText(String.valueOf(yearOfPlenty));
+                Player2DevCardAmnt11.setText(String.valueOf(knight));
+                Player2DevCardAmnt111.setText(String.valueOf(monopoly));
+                Player2DevCardAmnt1111.setText(String.valueOf(victoryPoint));
+                Player2DevCardAmnt11111.setText(String.valueOf(roadBuilding));
             }
             else
             {
                 createDialogBox("Error", "You do not have any development cards.");
             }
         }
+    }
+
+    public void yearOfPlentyOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inYearOfPlenty = true;
+        chooseResourceType();
+        updateCards();
+    }
+
+    public void knightOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inKnight = true;
+        createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
+        updateCards();
+    }
+
+    public void monopolyOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inMonopoly = true;
+        chooseResourceType();
+        updateCards();
+    }
+
+    public void victoryPointOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        createDialogBox("Error", "That card is not playable, but it was added to your score");
+    }
+
+    public void roadBuildingOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inRoadBuilding = true;
+        BuildRoadOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
+                MouseButton.PRIMARY, 1, true, true, true, true,
+                true, true, true, true, true,
+                true, null));
+
     }
 
     public void chooseResourceType()
@@ -690,4 +751,5 @@ public class SettlersController {
             //TODO: make gui visible
         }
     }
+
 }

@@ -2426,7 +2426,7 @@
                <Font name="Arial Black" size="14.0" />
             </font>
          </Label>
-         <ImageView fx:id="devCard1" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#devCard1OnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <ImageView fx:id="devCard1" fitHeight="125.0" fitWidth="125.0" onMouseClicked="#yearOfPlentyOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
             <image>
                <Image url="@imgs/development_cards/dev_card_1.png" />
             </image>
@@ -2453,7 +2453,7 @@
                <Insets right="14.0" />
             </padding>
          </Label>
-         <ImageView fx:id="devCard11" fitHeight="125.0" fitWidth="125.0" layoutX="335.0" layoutY="403.0" onMouseClicked="#devCard2OnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <ImageView fx:id="devCard11" fitHeight="125.0" fitWidth="125.0" layoutX="335.0" layoutY="403.0" onMouseClicked="#knightOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
             <image>
                <Image url="@imgs/development_cards/dev_card_3.png" />
             </image>
@@ -2479,7 +2479,7 @@
                <Insets right="14.0" />
             </padding>
          </Label>
-         <ImageView fx:id="devCard111" fitHeight="125.0" fitWidth="125.0" layoutX="451.0" layoutY="403.0" onMouseClicked="#devCard3OnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <ImageView fx:id="devCard111" fitHeight="125.0" fitWidth="125.0" layoutX="451.0" layoutY="403.0" onMouseClicked="#monopolyOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
             <image>
                <Image url="@imgs/development_cards/dev_card_7.png" />
             </image>
@@ -2505,7 +2505,7 @@
                <Insets right="14.0" />
             </padding>
          </Label>
-         <ImageView fx:id="devCard1111" fitHeight="125.0" fitWidth="125.0" layoutX="564.0" layoutY="403.0" onMouseClicked="#devCard4OnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <ImageView fx:id="devCard1111" fitHeight="125.0" fitWidth="125.0" layoutX="564.0" layoutY="403.0" onMouseClicked="#victoryPointOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
             <image>
                <Image url="@imgs/development_cards/dev_card_8.png" />
             </image>
@@ -2531,7 +2531,7 @@
                <Insets right="14.0" />
             </padding>
          </Label>
-         <ImageView fx:id="devCard11111" fitHeight="125.0" fitWidth="125.0" layoutX="663.0" layoutY="403.0" onMouseClicked="#devCard5OnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <ImageView fx:id="devCard11111" fitHeight="125.0" fitWidth="125.0" layoutX="663.0" layoutY="403.0" onMouseClicked="#roadBuildingOnClick" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
             <image>
                <Image url="@imgs/development_cards/dev_card_4.png" />
             </image>
