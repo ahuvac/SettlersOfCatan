@@ -643,6 +643,7 @@ public class SettlersController {
             } else {
                 rolledSeven = true;
                 game.halfCards();
+                updateCards();
                 createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
             }
         }
