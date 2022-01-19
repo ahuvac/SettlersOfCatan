@@ -293,36 +293,45 @@ public class SettlersController {
     public void Player1BrickCardOnClick(MouseEvent mouseEvent) {
     }
 
-    public void Player2GrainCardOnClick(MouseEvent mouseEvent) {
+    public void determineDevCard(ResourceType type)
+    {
         if(inMonopoly)
         {
-            game.playMonopoly(ResourceType.GRAIN);
+            game.playMonopoly(type);
             inMonopoly = false;
         }
         else if(inYearOfPlenty && resourceType != null)
         {
-            game.playYearOfPlenty(resourceType, ResourceType.GRAIN);
+            game.playYearOfPlenty(resourceType, type);
             inYearOfPlenty = false;
             resourceType = null;
         }
         else if(inYearOfPlenty && resourceType == null)
         {
-            resourceType = ResourceType.GRAIN;
+            resourceType = type;
             chooseResourceType();
         }
         updateCards();
     }
 
+    public void Player2GrainCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.GRAIN);
+    }
+
     public void Player2LumberCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.LUMBER);
     }
 
     public void Player2WoolCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.WOOL);
     }
 
     public void Player2OreCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.ORE);
     }
 
     public void Player2BrickCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.BRICK);
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
