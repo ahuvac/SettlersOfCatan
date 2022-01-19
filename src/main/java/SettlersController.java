@@ -638,11 +638,11 @@ public class SettlersController {
             }
             int rolledNum = roll[0] + roll[1];
             if (rolledNum != 7) {
-                game.distributeCards(rolledNum); //TODO if has robber don't give cards
+                game.distributeCards(rolledNum);
                 updateCards();
             } else {
                 rolledSeven = true;
-                //TODO half cards if more than 7
+                game.halfCards();
                 createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
             }
         }

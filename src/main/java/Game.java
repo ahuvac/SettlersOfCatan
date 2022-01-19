@@ -469,4 +469,21 @@ public class Game {
         }
         return null;
     }
+
+    public void halfCards()
+    {
+        for (Player player : players)
+        {
+            int totalCards = player.getTotalCards();
+            if (totalCards > 7)
+            {
+                for (int i =0; i < totalCards / 2; i++)
+                {
+                    ResourceType card = player.getRandomCard();
+                    player.useCard(card);
+                    bank.addResourceCard(card);
+                }
+            }
+        }
+    }
 }
