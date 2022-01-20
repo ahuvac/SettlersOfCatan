@@ -160,6 +160,10 @@ public class SettlersController {
     Label Player2DevCardAmnt1111;
     @FXML
     Label Player2DevCardAmnt11111;
+    @FXML
+    GridPane fireworksPane;
+    @FXML
+    Label gameOverLabel;
     ImageView road1;
     Game game;
     Location roadLocation;
@@ -584,16 +588,18 @@ public class SettlersController {
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
-        gameOver();
-        if (!game.isRolled() && !preGame) {
-            createDialogBox("Error", "You must roll the dice first");
-        } else if (!preGame || preGameSwitch) {
-            String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
-                    " step \naway from the screen and the next player should come to \nthe screen.";
-            createDialogBox("Switch Turn", message);
-            game.switchPlayer();
-            updateCards();
-            currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+        boolean gameOver = gameOver();
+        if(!gameOver) {
+            if (!game.isRolled() && !preGame) {
+                createDialogBox("Error", "You must roll the dice first");
+            } else if (!preGame || preGameSwitch) {
+                String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
+                        " step \naway from the screen and the next player should come to \nthe screen.";
+                createDialogBox("Switch Turn", message);
+                game.switchPlayer();
+                updateCards();
+                currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+            }
         }
     }
 
@@ -742,14 +748,19 @@ public class SettlersController {
         setUpBeginning();
     }
 
-    public void gameOver()
+    public boolean gameOver()
     {
         if (game.gameOver())
         {
             Player winner = game.getWinner();
-            String message = "The winner is " + winner.toString() + "!";
-            //TODO: make gui visible
+            String message = "GAME OVER! \nTHE WINNER IS " + winner.toString() + "!";
+            fireworksPane.setVisible(true);
+            gameOverLabel.setText(message);
+            return true;
         }
+        else{
+            return false;
+    }
     }
 
 }
