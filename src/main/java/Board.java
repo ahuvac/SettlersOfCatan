@@ -925,8 +925,7 @@ public class Board {
         List<Edge> adjacentRoads = new ArrayList<>();
         List<Vertex> verts = edge.getVertices();
         for (Vertex vertex : verts) {
-            List<Edge> roads = vertex.getEdges();
-            for (Edge adjRoad : adjacentRoads) {
+            for (Edge adjRoad : vertex.getEdges()) {
                 if (adjRoad.hasRoad() && adjRoad.getRoadColor() == p.color) {
                     adjacentRoads.add(adjRoad);
                 }
