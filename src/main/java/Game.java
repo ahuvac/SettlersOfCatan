@@ -1,8 +1,6 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
     private List<Player> players;
@@ -10,10 +8,13 @@ public class Game {
     private Board board;
     private Bank bank;
     private boolean rolled = false;
+    private Player longestRoad = null;
+    Map<Player, Integer> roadLengths = new HashMap<>();
+    //    public Game(List<String> names){
     private int largestArmy;
     private Player currentPlayer;
 
-    //    public Game(List<String> names){
+
     public Game() {
         players = new ArrayList<>();
         players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)]));
@@ -40,6 +41,7 @@ public class Game {
             giveCards(ResourceType.GRAIN, 2, player);
         }
     }
+
 
     public boolean isRolled() {
         return rolled;
@@ -95,59 +97,6 @@ public class Game {
         }
     }
 
-//    public void gameBeginning() {
-//        List<Player> playerOrder = new ArrayList<>();
-//        int[] rolledNumbers = new int[players.size()];
-////        for (int i = 0; i < players.size(); i++) {
-////            int rolledNumber = 0;
-////            for (Die die : dice) {
-////                rolledNumber += die.roll();
-////            }
-////            rolledNumbers[i] = rolledNumber;
-////        }
-//        // TODO add roll dice to choose player order
-//        for (int i = 0; i < playerOrder.size(); i++) {
-//            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
-//        }
-//        for (Player player : playerOrder) {
-//            boolean allowed = false;
-//            while (!allowed) {
-//                Location vertexLocation = chooseSettlementLocation();
-//                Location roadLocation = chooseRoadLocation();
-//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-//                    allowed = true;
-//                    player.decrementSettlements();
-//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-//                    edge.buildRoad(new Road(player.color));
-//                    player.decrementRoads();
-//                }
-//            }
-//        }
-//        for (int i = players.size() - 1; i >= 0; i--) {
-//            Player player = playerOrder.get(i);
-//            boolean allowed = false;
-//            while (!allowed) {
-//                Location vertexLocation = chooseSettlementLocation();
-//                Location roadLocation = chooseRoadLocation();
-//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-//                    List<Hex> hexes = vertex.getHexes();
-//                    for (Hex hex : hexes) {
-//                        if (hex.type != ResourceType.DESERT) {
-//                            player.addCard(hex.type, 1);
-//                        }
-//                    }
-//                    allowed = true;
-//                    player.decrementSettlements();
-//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-//                    edge.buildRoad(new Road(player.color));
-//                    player.decrementRoads();
-//                }
-//            }
-//        }
-//    }
-
     public List<Hex> getHexes() {
         return board.getHexesAsList();
     }
@@ -186,9 +135,17 @@ public class Game {
             if (checkRoadLocation(location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
-                currentPlayer.buildRoad();
-                return true;
-            } else {
+                Edge edge = board.edges[location.row] [location.col];
+                currentPlayer.buildRoad(edge);
+                int max = Collections.max(roadLengths.values());
+                int path = board.getLongestPath(currentPlayer, edge);
+                if(path >= 5 && path < max) {
+                    roadLengths.put(currentPlayer, path);
+                    longestRoad = currentPlayer;
+                }
+                    return true;
+                }
+            else {
                 return false;
             }
         } else {
