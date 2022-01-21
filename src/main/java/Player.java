@@ -14,6 +14,7 @@ public class Player {
     Color color;
     private boolean largestArmy;
     private boolean longestRoad;
+    private List<Edge> edges;
 
     //public Player(Color color, String name)
     public Player(Color color) {
@@ -28,6 +29,7 @@ public class Player {
         largestArmy = false;
         longestRoad = false;
         this.name = name;
+        edges = new ArrayList<>();
     }
 
     public void decrementSettlements() {
@@ -40,6 +42,10 @@ public class Player {
 
     public int getRoads() {
         return roads;
+    }
+
+    public List<Edge> getEdges() {
+        return edges;
     }
 
     public boolean hasMoreRoads() {
@@ -98,12 +104,11 @@ public class Player {
     }
 
 
-    public boolean buildRoad() {
-        if (wallet.hasCard(ResourceType.BRICK, 1) &&
-                wallet.hasCard(ResourceType.LUMBER, 1)) {
+    public boolean buildRoad(Edge edge) {
+        if (wallet.hasCard(ResourceType.BRICK, 1) && wallet.hasCard(ResourceType.LUMBER, 1)) {
             useCard(ResourceType.BRICK);
             useCard(ResourceType.LUMBER);
-            //consecutiveRoads++; TODO: add logic here?
+            edges.add(edge);
             --roads;
             return true;
         }

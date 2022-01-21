@@ -1,8 +1,6 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Game {
     private List<Player> players;
@@ -10,6 +8,8 @@ public class Game {
     private Board board;
     private Bank bank;
     private boolean rolled = false;
+    private Player longestRoad = null;
+    Map<Player, Integer> roadLengths = new HashMap<>();
 
     public boolean isRolled() {
         return rolled;
@@ -185,9 +185,17 @@ public class Game {
             if (checkRoadLocation(location)) {
                 bank.addResourceCard(ResourceType.LUMBER);
                 bank.addResourceCard(ResourceType.BRICK);
-                currentPlayer.buildRoad();
-                return true;
-            } else {
+                Edge edge = board.edges[location.row] [location.col];
+                currentPlayer.buildRoad(edge);
+                int max = Collections.max(roadLengths.values());
+                int path = board.getLongestPath(currentPlayer, edge);
+                if(path >= 5 && path < max) {
+                    roadLengths.put(currentPlayer, path);
+                    longestRoad = currentPlayer;
+                }
+                    return true;
+                }
+            else {
                 return false;
             }
         } else {

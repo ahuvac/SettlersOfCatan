@@ -1,11 +1,8 @@
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
+import java.util.*;
 
 public class Board {
-    ;
     Hex[][] hexes = new Hex[5][9];
     Vertex[][] vertices = new Vertex[12][11];
     Edge[][] edges = new Edge[11][21];
@@ -906,4 +903,50 @@ public class Board {
         }
         return null;
     }
+
+    public int getLongestPath(Player player, Edge source){
+        int maxLength = Integer.MIN_VALUE;
+            if (source == null)
+                return -1;
+            else
+            {
+                List<Edge> sourceEdges = findAdjacentRoads(source, player);
+                for (int i = 0; i < sourceEdges.size(); i++) {
+                    int depth = getLongestPath(player, sourceEdges.get(0));
+                    if(depth > maxLength){
+                        maxLength = depth + 1;
+                }
+            }
+        }
+        return maxLength;
+    }
+
+    private void replaceDistances(Edge source, Edge adjacentEdge, Map<Edge, Integer> distances, int edgeWeight)
+    {
+        int sourceDistance = distances.get(source);
+        int newDistance = sourceDistance + edgeWeight;
+        if (newDistance < distances.get(adjacentEdge))
+        {
+            distances.put(adjacentEdge, newDistance);
+        }
+    }
+
+    private List<Edge> findAdjacentRoads(Edge edge, Player p) {
+        List<Edge> adjacentRoads = new ArrayList<>();
+        List<Vertex> verts = edge.getVertices();
+        for (Vertex vertex : verts) {
+            List<Edge> roads = vertex.getEdges();
+            for (Edge adjRoad : adjacentRoads) {
+                if (adjRoad.hasRoad() && adjRoad.getRoadColor() == p.color) {
+                    adjacentRoads.add(adjRoad);
+                }
+                else if(!adjRoad.hasRoad() || adjRoad.getRoadColor() != p.color){
+                    // will subtract one off the end of the road for total score
+                }
+
+            }
+        }
+        return adjacentRoads;
+    }
+
 }
