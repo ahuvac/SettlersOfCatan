@@ -2,13 +2,20 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SettlersController {
+    @FXML
+    GridPane StartPane;
+    @FXML
+    Label startLabel;
     @FXML
     ImageView h0_2;
     @FXML
@@ -103,6 +110,61 @@ public class SettlersController {
     ImageView die1;
     @FXML
     ImageView die2;
+    @FXML
+    ImageView h0_2Robber;
+    @FXML
+    ImageView h0_4Robber;
+    @FXML
+    ImageView h0_6Robber;
+    @FXML
+    ImageView h1_1Robber;
+    @FXML
+    ImageView h1_3Robber;
+    @FXML
+    ImageView h1_5Robber;
+    @FXML
+    ImageView h1_7Robber;
+    @FXML
+    ImageView h2_0Robber;
+    @FXML
+    ImageView h2_2Robber;
+    @FXML
+    ImageView h2_4Robber;
+    @FXML
+    ImageView h2_6Robber;
+    @FXML
+    ImageView h2_8Robber;
+    @FXML
+    ImageView h3_1Robber;
+    @FXML
+    ImageView h3_3Robber;
+    @FXML
+    ImageView h3_5Robber;
+    @FXML
+    ImageView h3_7Robber;
+    @FXML
+    ImageView h4_2Robber;
+    @FXML
+    ImageView h4_4Robber;
+    @FXML
+    ImageView h4_6Robber;
+    @FXML
+    GridPane devCardPane;
+    @FXML
+    Label Player2DevCardAmnt1;
+    @FXML
+    Label Player2DevCardAmnt11;
+    @FXML
+    Label Player2DevCardAmnt111;
+    @FXML
+    Label Player2DevCardAmnt1111;
+    @FXML
+    Label Player2DevCardAmnt11111;
+    @FXML
+    GridPane fireworksPane;
+    @FXML
+    Label gameOverLabel;
+    ImageView road1;
     Game game;
     Location roadLocation;
     Location settlementLocation;
@@ -111,10 +173,18 @@ public class SettlersController {
     boolean inBuildSettlement;
     boolean inBuildCity;
     List<ImageView> hexes;
+    List<ImageView> robbers;
     ImageView[] dice = new ImageView[2];
     Location hexLocation;
     boolean rolledSeven = false;
-    boolean preGame =  true;
+    boolean preGame = true;
+    boolean preGameSettlement = true;
+    boolean preGameSwitch = false;
+    ResourceType resourceType = null;
+    boolean inMonopoly = false;
+    boolean inYearOfPlenty = false;
+    boolean inKnight = false;
+    boolean inRoadBuilding = false;
 
     public SettlersController() {
         hexes = new ArrayList<>();
@@ -166,14 +236,34 @@ public class SettlersController {
         numbers.add(h4_2Num);
         numbers.add(h4_4Num);
         numbers.add(h4_6Num);
+        robbers = new ArrayList<>();
+        robbers.add(h0_2Robber);
+        robbers.add(h0_4Robber);
+        robbers.add(h0_6Robber);
+        robbers.add(h1_1Robber);
+        robbers.add(h1_3Robber);
+        robbers.add(h1_5Robber);
+        robbers.add(h1_7Robber);
+        robbers.add(h2_0Robber);
+        robbers.add(h2_2Robber);
+        robbers.add(h2_4Robber);
+        robbers.add(h2_6Robber);
+        robbers.add(h2_8Robber);
+        robbers.add(h3_1Robber);
+        robbers.add(h3_3Robber);
+        robbers.add(h3_5Robber);
+        robbers.add(h3_7Robber);
+        robbers.add(h4_2Robber);
+        robbers.add(h4_4Robber);
+        robbers.add(h4_6Robber);
+
         List<Hex> hexList = game.getHexes();
         for (int i = 0; i < hexList.size(); i++) {
             Hex currentHex = hexList.get(i);
             if (currentHex.type == ResourceType.DESERT) {
                 hexes.get(i).setImage(new Image("imgs/hexes/desert.png"));
-            }
-            else if (currentHex.type == ResourceType.BRICK)
-            {
+                robbers.get(i).setVisible(true);
+            } else if (currentHex.type == ResourceType.BRICK) {
                 hexes.get(i).setImage(new Image("imgs/hexes/hill.png"));
             } else if (currentHex.type == ResourceType.ORE) {
                 hexes.get(i).setImage(new Image("imgs/hexes/mountain.png"));
@@ -190,7 +280,10 @@ public class SettlersController {
         }
         currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
         updateCards();
+        String labelText = "ARE YOU READY?\n\nRED VS. BLUE\n\nSTARTING PLAYER IS " + game.getCurrentPlayer().toString();
+        startLabel.setText(labelText);
     }
+
 
     public void updateCards() {
         Player2BrickAmnt.setText(String.valueOf(game.getCurrentPlayer().getCardAmount(ResourceType.BRICK)));
@@ -216,33 +309,64 @@ public class SettlersController {
     public void Player1BrickCardOnClick(MouseEvent mouseEvent) {
     }
 
+    public void determineDevCard(ResourceType type)
+    {
+        if(inMonopoly)
+        {
+            game.playMonopoly(type);
+            inMonopoly = false;
+        }
+        else if(inYearOfPlenty && resourceType != null)
+        {
+            game.playYearOfPlenty(resourceType, type);
+            inYearOfPlenty = false;
+            resourceType = null;
+        }
+        else if(inYearOfPlenty && resourceType == null)
+        {
+            resourceType = type;
+            chooseResourceType();
+        }
+        updateCards();
+    }
+
     public void Player2GrainCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.GRAIN);
     }
 
     public void Player2LumberCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.LUMBER);
     }
 
     public void Player2WoolCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.WOOL);
     }
 
     public void Player2OreCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.ORE);
     }
 
     public void Player2BrickCardOnClick(MouseEvent mouseEvent) {
+        determineDevCard(ResourceType.BRICK);
     }
 
     public void BuildRoadOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled() || !preGame)
-        {
+        if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
-        }
-        else {
-            if (mouseEvent.getSource() instanceof Button) {
+        } else {
+            if (mouseEvent.getSource() instanceof Button && !preGame) {
                 createDialogBox("Select Road", "Please click on the location where you would like to build a road");
-                inBuildRoad = true;
-            } else if (mouseEvent.getSource() instanceof ImageView) {
+                if (!inRoadBuilding) {
+                    inBuildRoad = true;
+                }
+            } else if (mouseEvent.getSource() instanceof ImageView && !inRoadBuilding) {
                 if (roadLocation != null) {
-                    boolean bought = game.buyRoad(roadLocation);
+                    boolean bought;
+                    if (preGame && !game.connected(roadLocation, settlementLocation)) {
+                        bought = false;
+                    } else {
+                        bought = game.buyRoad(roadLocation);
+                    }
                     if (bought) {
                         updateCards();
                         ImageView road = (ImageView) mouseEvent.getSource();
@@ -251,7 +375,7 @@ public class SettlersController {
                         } else {
                             road.setImage(new Image("imgs/roads/RoadRed.png"));
                         }
-                        if(preGame){
+                        if (preGame) {
                             nextPlayerSetUp();
                         }
                     }
@@ -268,18 +392,36 @@ public class SettlersController {
     }
 
     private void nextPlayerSetUp() {
-        // TODO switch between the 2 players
-       // if(game.getCurrentPlayer().getRoads() )
-            game.switchPlayer();
+        if (game.getOtherPlayer().getRoads() == 15) {
+            preGameSwitch = true;
+            FinishTurnOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
+                    MouseButton.PRIMARY, 1, true, true, true, true,
+                    true, true, true, true, true,
+                    true, null));
+            preGameSwitch = false;
+            setUpBeginning();
+        } else if (game.getCurrentPlayer().getRoads() == 14) {
+            setUpBeginning();
+        } else if (game.getCurrentPlayer().getRoads() == 13) {
+            preGameSwitch = true;
+            FinishTurnOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
+                    MouseButton.PRIMARY, 1, true, true, true, true,
+                    true, true, true, true, true,
+                    true, null));
+            if (game.getCurrentPlayer().getRoads() == 13) {
+                preGame = false;
+            } else {
+                setUpBeginning();
+            }
+            preGameSwitch = false;
+        }
     }
 
     public void BuildSettlementOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled() || !preGame)
-        {
+        if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
-        }
-        else {
-            if (mouseEvent.getSource() instanceof Button) {
+        } else {
+            if (mouseEvent.getSource() instanceof Button && !preGame) {
                 inBuildSettlement = true;
                 createDialogBox("Select Location", "Please click on the location where you would like to build a settlement");
             } else if (mouseEvent.getSource() instanceof Circle) {
@@ -287,15 +429,14 @@ public class SettlersController {
                     boolean bought = game.buySettlement(settlementLocation, preGame);
                     if (bought) {
                         updateCards();
-                        ImageView vertex = (ImageView) mouseEvent.getSource();
+                        Circle vertex = (Circle) mouseEvent.getSource();
                         if (game.getCurrentPlayer().color == Color.BLUE) {
-                            vertex.setImage(new Image("/resources/imgs/roads/SettlementBlue.png"));
-                            //TODO: add onclick for settlement
+                            vertex.setFill(Paint.valueOf("BLUE"));
                         } else {
-                            vertex.setImage(new Image("/resources/imgs/roads/SettlementRed.png"));
-                            //TODO: add onclick for settlement
+                            vertex.setFill(Paint.valueOf("RED"));
                         }
-                        if(preGame){
+                        if (preGame) {
+                            preGameSettlement = false;
                             createDialogBox("Build road", "Please choose the location for your road.");
                         }
                     }
@@ -307,30 +448,26 @@ public class SettlersController {
 
                 inBuildSettlement = false;
             }
-            settlementLocation = null;
+            if (!preGame) {
+                settlementLocation = null;
+            }
         }
     }
 
     public void BuildCityOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
-        {
+        if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
-        }
-        else {
+        } else if (!preGame) {
             if (mouseEvent.getSource() instanceof Button) {
                 inBuildCity = true;
                 createDialogBox("Select Location", "Please click on the settlement where you would like to build a city");
-            } else if (mouseEvent.getSource() instanceof ImageView) {
+            } else if (mouseEvent.getSource() instanceof Circle) {
                 if (cityLocation != null) {
                     boolean bought = game.buyCity(cityLocation);
                     if (bought) {
                         updateCards();
-                        ImageView vertex = (ImageView) mouseEvent.getSource();
-                        if (game.getCurrentPlayer().color == Color.BLUE) {
-                            vertex.setImage(new Image("/resources/imgs/roads/CityBlue.png"));
-                        } else {
-                            vertex.setImage(new Image("/resources/imgs/roads/CityRed.png"));
-                        }
+                        Circle vertex = (Circle) mouseEvent.getSource();
+                        vertex.setRadius(10);
                     }
                     if (!bought) {
                         createDialogBox("Invalid Move", "That move was not valid. Either you do not have enough \n" +
@@ -345,33 +482,124 @@ public class SettlersController {
     }
 
     public void BuyDevCardOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
-        {
+        if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
+        } else if (!preGame) {
+            DevelopmentCard card = game.buyDevelopmentCard();
+            if (card != null)
+            {
+                String message = "You have successfully purchased a development card. \n" + card.toString() + " was added to your cards.";
+                createDialogBox("Development Card", message);
+            }
+            else
+            {
+                createDialogBox("Error", "You do not have enough resources to buy a development card");
+            }
         }
-        else {}
+        updateCards();
     }
 
     public void UseDevCardOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
-        {
+        if (!game.isRolled() && !preGame) {
             createDialogBox("Error", "You must roll the dice first");
+        } else if (!preGame) {
+            if(game.getCurrentPlayer().hasDevelopmentCard())
+            {
+                List<DevelopmentCard> cards = game.getCurrentPlayer().getDevelopmentCards();
+                int yearOfPlenty = 0;
+                int monopoly = 0;
+                int knight = 0;
+                int roadBuilding = 0;
+                int victoryPoint = 0;
+                for(DevelopmentCard card : cards)
+                {
+                    switch(card){
+                        case KNIGHT:
+                            knight++;
+                            break;
+                        case MONOPOLY:
+                            monopoly++;
+                            break;
+                        case ROAD_BUILDING:
+                            roadBuilding++;
+                            break;
+                        case YEAR_OF_PLENTY:
+                            yearOfPlenty++;
+                            break;
+                        case VICTORY_POINTS:
+                            victoryPoint++;
+                            break;
+                    }
+                }
+                devCardPane.setVisible(true);
+                Player2DevCardAmnt1.setText(String.valueOf(yearOfPlenty));
+                Player2DevCardAmnt11.setText(String.valueOf(knight));
+                Player2DevCardAmnt111.setText(String.valueOf(monopoly));
+                Player2DevCardAmnt1111.setText(String.valueOf(victoryPoint));
+                Player2DevCardAmnt11111.setText(String.valueOf(roadBuilding));
+            }
+            else
+            {
+                createDialogBox("Error", "You do not have any development cards.");
+            }
         }
-        else {}
+    }
+
+    public void yearOfPlentyOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inYearOfPlenty = true;
+        chooseResourceType();
+        updateCards();
+    }
+
+    public void knightOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inKnight = true;
+        createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
+        updateCards();
+    }
+
+    public void monopolyOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inMonopoly = true;
+        chooseResourceType();
+        updateCards();
+    }
+
+    public void victoryPointOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        createDialogBox("Error", "That card is not playable, but it was added to your score");
+    }
+
+    public void roadBuildingOnClick(MouseEvent mouseEvent) {
+        devCardPane.setVisible(false);
+        inRoadBuilding = true;
+        BuildRoadOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
+                MouseButton.PRIMARY, 1, true, true, true, true,
+                true, true, true, true, true,
+                true, null));
+
+    }
+
+    public void chooseResourceType()
+    {
+        createDialogBox("Choose Resource Type", "Please select the resource type that you would like by \n" +
+                "clicking on the card of that type");
     }
 
     public void FinishTurnOnClick(MouseEvent mouseEvent) {
-        if (!game.isRolled())
-        {
-            createDialogBox("Error", "You must roll the dice first");
-        }
-        else {
-            String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
-                    " step \naway from the screen and the next player should come to \nthe screen.";
-            createDialogBox("Switch Turn", message);
-            game.switchPlayer();
-            updateCards();
-            currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+        boolean gameOver = gameOver();
+        if(!gameOver) {
+            if (!game.isRolled() && !preGame) {
+                createDialogBox("Error", "You must roll the dice first");
+            } else if (!preGame || preGameSwitch) {
+                String message = "The players are now being switched. " + game.getCurrentPlayer().toString() + " Player should" +
+                        " step \naway from the screen and the next player should come to \nthe screen.";
+                createDialogBox("Switch Turn", message);
+                game.switchPlayer();
+                updateCards();
+                currentPlayer.setText("CURRENT PLAYER: \n" + game.getCurrentPlayer().toString());
+            }
         }
     }
 
@@ -379,26 +607,48 @@ public class SettlersController {
     public void RoadOnClick(MouseEvent mouseEvent) {
         ImageView road = (ImageView) mouseEvent.getSource();
         String roadId = road.getId();
-        roadLocation = new Location(getRow(roadId), getColumn(roadId));
+        Location thisLocation = new Location(getRow(roadId), getColumn(roadId));
         if (inBuildRoad || preGame) {
+            roadLocation = thisLocation;
             BuildRoadOnClick(mouseEvent);
+        }
+        else if (inRoadBuilding)
+        {
+            if (roadLocation == null)
+            {
+                roadLocation = thisLocation;
+                BuildRoadOnClick(new MouseEvent(MouseEvent.MOUSE_CLICKED, 0, 0, 0, 0,
+                        MouseButton.PRIMARY, 1, true, true, true, true,
+                        true, true, true, true, true,
+                        true, null));
+            }
+            else
+            {
+                boolean success = game.playRoadBuilding(roadLocation, thisLocation);
+                if (success)
+                {
+                    if (game.getCurrentPlayer().color == Color.BLUE) {
+                        road.setImage(new Image("imgs/roads/RoadBlue.png"));
+                        road1.setImage(new Image("imgs/roads/RoadBlue.png"));
+                    } else {
+                        road.setImage(new Image("imgs/roads/RoadRed.png"));
+                        road1.setImage(new Image("imgs/roads/RoadRed.png"));
+                    }
+                }
+                inRoadBuilding = false;
+            }
         }
     }
 
     public void vertexOnClick(MouseEvent mouseEvent) {
         Circle vertex = (Circle) mouseEvent.getSource();
         String vertexId = vertex.getId();
-        settlementLocation = new Location(getRow(vertexId), getColumn(vertexId));
-        if (inBuildSettlement || preGame) {
+        if (inBuildSettlement || preGameSettlement) {
+            settlementLocation = new Location(getRow(vertexId), getColumn(vertexId));
             BuildSettlementOnClick(mouseEvent);
         }
-    }
-
-    public void settlementOnClick(MouseEvent mouseEvent) {
-        ImageView settlement = (ImageView) mouseEvent.getSource();
-        String vertexId = settlement.getId();
-        cityLocation = new Location(getRow(vertexId), getColumn(vertexId));
         if (inBuildCity) {
+            cityLocation = new Location(getRow(vertexId), getColumn(vertexId));
             BuildCityOnClick(mouseEvent);
         }
     }
@@ -425,11 +675,9 @@ public class SettlersController {
     }
 
     public void diceOnClick(MouseEvent mouseEvent) {
-        if (game.isRolled())
-        {
+        if (game.isRolled()) {
             createDialogBox("Error", "The dice were already rolled this turn");
-        }
-        else {
+        } else if (!preGame) {
             game.setRolled(true);
             int[] roll = game.rollDice();
             for (int i = 0; i < 2; i++) {
@@ -457,8 +705,11 @@ public class SettlersController {
             int rolledNum = roll[0] + roll[1];
             if (rolledNum != 7) {
                 game.distributeCards(rolledNum);
+                updateCards();
             } else {
                 rolledSeven = true;
+                game.halfCards();
+                updateCards();
                 createDialogBox("Choose Location", "Click on the hex where you want to put the robber");
             }
         }
@@ -468,15 +719,48 @@ public class SettlersController {
         ImageView hex = (ImageView) event.getSource();
         String id = hex.getId();
         hexLocation = new Location(getRow(id), getColumn(id));
-        if(rolledSeven){
-            game.playRobber(hexLocation);
-            // TODO put the robber into that hexLocation on the gui
+        if (rolledSeven || inKnight) {
+            for (ImageView robber : robbers) {
+                robber.setVisible(false);
+            }
+            if (rolledSeven) {
+                game.playRobber(hexLocation);
+            }
+            else if(inKnight)
+            {
+                game.playKnight(hexLocation);
+            }
+            int index = hexes.indexOf(hex);
+            robbers.get(index).setVisible(true);
         }
-         rolledSeven = false;
+        rolledSeven = false;
+        inKnight = false;
     }
 
-    public void setUpBeginning(){
+    public void setUpBeginning() {
+        preGameSettlement = true;
         createDialogBox("Choose location", "Please choose the location for your settlement.");
 
     }
+
+    public void startGameOnClick(MouseEvent mouseEvent) {
+        StartPane.setVisible(false);
+        setUpBeginning();
+    }
+
+    public boolean gameOver()
+    {
+        if (game.gameOver())
+        {
+            Player winner = game.getWinner();
+            String message = "GAME OVER! \nTHE WINNER IS " + winner.toString() + "!";
+            fireworksPane.setVisible(true);
+            gameOverLabel.setText(message);
+            return true;
+        }
+        else{
+            return false;
+    }
+    }
+
 }

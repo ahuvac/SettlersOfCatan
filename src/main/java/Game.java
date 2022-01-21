@@ -8,6 +8,7 @@ public class Game {
     private Board board;
     private Bank bank;
     private boolean rolled = false;
+<<<<<<< HEAD
     private Player longestRoad = null;
     Map<Player, Integer> roadLengths = new HashMap<>();
 
@@ -23,9 +24,10 @@ public class Game {
         return currentPlayer;
     }
 
+=======
+>>>>>>> 25358859aa1bba4d219cfad797c502c39618fc8e
     private int largestArmy;
     private Player currentPlayer;
-
 
     //    public Game(List<String> names){
     public Game() {
@@ -53,6 +55,30 @@ public class Game {
             giveCards(ResourceType.WOOL, 2, player);
             giveCards(ResourceType.GRAIN, 2, player);
         }
+    }
+
+    public boolean isRolled() {
+        return rolled;
+    }
+
+    public void setRolled(boolean rolled) {
+        this.rolled = rolled;
+    }
+
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public boolean connected(Location edgeLocation, Location vertexLocation)
+    {
+        Edge edge = board.edges[edgeLocation.row][edgeLocation.col];
+        Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+        List<Vertex> vertices = edge.getVertices();
+        if (vertices.contains(vertex))
+        {
+            return true;
+        }
+        return false;
     }
 
     public DevelopmentCard buyDevelopmentCard() {
@@ -85,72 +111,63 @@ public class Game {
         }
     }
 
-    public void gameBeginning() {
-        List<Player> playerOrder = new ArrayList<>();
-        int[] rolledNumbers = new int[players.size()];
-//        for (int i = 0; i < players.size(); i++) {
-//            int rolledNumber = 0;
-//            for (Die die : dice) {
-//                rolledNumber += die.roll();
-//            }
-//            rolledNumbers[i] = rolledNumber;
+//    public void gameBeginning() {
+//        List<Player> playerOrder = new ArrayList<>();
+//        int[] rolledNumbers = new int[players.size()];
+////        for (int i = 0; i < players.size(); i++) {
+////            int rolledNumber = 0;
+////            for (Die die : dice) {
+////                rolledNumber += die.roll();
+////            }
+////            rolledNumbers[i] = rolledNumber;
+////        }
+//        // TODO add roll dice to choose player order
+//        for (int i = 0; i < playerOrder.size(); i++) {
+//            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
 //        }
-        // TODO add roll dice to choose player order
-        for (int i = 0; i < playerOrder.size(); i++) {
-            playerOrder.add(players.get(addToPlayerOrder(rolledNumbers)));
-        }
-        for (Player player : playerOrder) {
-            boolean allowed = false;
-            while (!allowed) {
-                Location vertexLocation = chooseSettlementLocation();
-                Location roadLocation = chooseRoadLocation();
-                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-                    allowed = true;
-                    player.decrementSettlements();
-                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-                    edge.buildRoad(new Road(player.color));
-                    player.decrementRoads();
-                }
-            }
-        }
-        for (int i = players.size() - 1; i >= 0; i--) {
-            Player player = playerOrder.get(i);
-            boolean allowed = false;
-            while (!allowed) {
-                Location vertexLocation = chooseSettlementLocation();
-                Location roadLocation = chooseRoadLocation();
-                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
-                if (checkSettlementLocation(player.color, vertexLocation, true)) {
-                    List<Hex> hexes = vertex.getHexes();
-                    for (Hex hex : hexes) {
-                        if (hex.type != ResourceType.DESERT) {
-                            player.addCard(hex.type, 1);
-                        }
-                    }
-                    allowed = true;
-                    player.decrementSettlements();
-                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
-                    edge.buildRoad(new Road(player.color));
-                    player.decrementRoads();
-                }
-            }
-        }
-    }
+//        for (Player player : playerOrder) {
+//            boolean allowed = false;
+//            while (!allowed) {
+//                Location vertexLocation = chooseSettlementLocation();
+//                Location roadLocation = chooseRoadLocation();
+//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
+//                    allowed = true;
+//                    player.decrementSettlements();
+//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+//                    edge.buildRoad(new Road(player.color));
+//                    player.decrementRoads();
+//                }
+//            }
+//        }
+//        for (int i = players.size() - 1; i >= 0; i--) {
+//            Player player = playerOrder.get(i);
+//            boolean allowed = false;
+//            while (!allowed) {
+//                Location vertexLocation = chooseSettlementLocation();
+//                Location roadLocation = chooseRoadLocation();
+//                Vertex vertex = board.vertices[vertexLocation.row][vertexLocation.col];
+//                if (checkSettlementLocation(player.color, vertexLocation, true)) {
+//                    List<Hex> hexes = vertex.getHexes();
+//                    for (Hex hex : hexes) {
+//                        if (hex.type != ResourceType.DESERT) {
+//                            player.addCard(hex.type, 1);
+//                        }
+//                    }
+//                    allowed = true;
+//                    player.decrementSettlements();
+//                    Edge edge = board.edges[roadLocation.row][roadLocation.col];
+//                    edge.buildRoad(new Road(player.color));
+//                    player.decrementRoads();
+//                }
+//            }
+//        }
+//    }
 
     public List<Hex> getHexes() {
         return board.getHexesAsList();
     }
 
-    //TODO
-    public Location chooseSettlementLocation() {
-        throw new NotImplementedException();
-    }
-
-    //TODO
-    public Location chooseRoadLocation() {
-        throw new NotImplementedException();
-    }
 
     private int addToPlayerOrder(int[] rolledNumbers) {
         int highest = 0;
@@ -170,7 +187,7 @@ public class Game {
         rolled = false;
     }
 
-    private Player getOtherPlayer() {
+    public Player getOtherPlayer() {
         int index = players.indexOf(currentPlayer);
         if (++index == players.size()) {
             index = 0;
@@ -421,24 +438,30 @@ public class Game {
         }
     }
 
-    public void playRoadBuilding(Location location1, Location location2) {
+    public boolean playRoadBuilding(Location location1, Location location2) {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.ROAD_BUILDING)) {
-            if (checkRoadLocation(location1)) {
+            if (checkRoadLocation(location1) && checkRoadLocation(location2)) {
                 Edge edge = board.edges[location1.row][location1.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
-            }
-            if (checkRoadLocation(location2)) {
-                Edge edge = board.edges[location2.row][location2.col];
+                edge = board.edges[location2.row][location2.col];
                 edge.buildRoad(new Road(currentPlayer.color));
                 currentPlayer.decrementRoads();
+                return true;
             }
+            else {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
         }
     }
 
-    public void playKnight(Location location, Player player) {
+    public void playKnight(Location location) {
         if (currentPlayer.hasDevelopmentCard(DevelopmentCard.KNIGHT)) {
-            moveRobber(location, player);
+            moveRobber(location, getOtherPlayer());
         }
     }
 
@@ -447,5 +470,44 @@ public class Game {
             bank.getResourceCard(type);
         }
         player.addCard(type,amount);
+    }
+
+    public boolean gameOver()
+    {
+        if(getWinner() != null)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public Player getWinner()
+    {
+        for(Player player : players)
+        {
+            if (player.getScore() >= 10)
+            {
+                return player;
+            }
+
+        }
+        return null;
+    }
+
+    public void halfCards()
+    {
+        for (Player player : players)
+        {
+            int totalCards = player.getTotalCards();
+            if (totalCards > 7)
+            {
+                for (int i =0; i < totalCards / 2; i++)
+                {
+                    ResourceType card = player.getRandomCard();
+                    player.useCard(card);
+                    bank.addResourceCard(card);
+                }
+            }
+        }
     }
 }
