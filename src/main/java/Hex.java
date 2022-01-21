@@ -17,10 +17,4 @@ public class Hex {
     {
         this.number = number;
     }
-
-
-    public void connect(){
-
-    }
-
 }

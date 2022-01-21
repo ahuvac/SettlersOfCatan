@@ -21,7 +21,23 @@ public class Board {
         placeVertices();
     }
 
-    private List<Hex> createHexes() {
+
+    public List<Hex> getHexesAsList()
+    {
+        List<Hex> hexList = new ArrayList<Hex>();
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 9; j++) {
+                if (hexes[i][j] != null)
+                {
+                    hexList.add(hexes[i][j]);
+                }
+            }
+        }
+        return hexList;
+    }
+
+    private List<Hex> createHexes()
+    {
         List<Hex> hexArrayList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             hexArrayList.add(new Hex(ResourceType.ORE));
@@ -47,26 +63,27 @@ public class Board {
         return hexArrayList;
     }
 
-    private void assignNumbers(List<Hex> hexArrayList) {
+    private void assignNumbers(List<Hex> hexArrayList)
+    {
         int[] numbers = new int[18];
         numbers[0] = 5;
         numbers[1] = 2;
         numbers[2] = 6;
         numbers[3] = 3;
         numbers[4] = 8;
-        numbers[6] = 10;
-        numbers[7] = 9;
-        numbers[8] = 12;
-        numbers[9] = 11;
-        numbers[10] = 4;
-        numbers[11] = 8;
-        numbers[12] = 10;
-        numbers[13] = 9;
-        numbers[14] = 4;
-        numbers[15] = 5;
-        numbers[16] = 6;
-        numbers[17] = 3;
-        numbers[18] = 11;
+        numbers[5] = 10;
+        numbers[6] = 9;
+        numbers[7] = 12;
+        numbers[8] = 11;
+        numbers[9] = 4;
+        numbers[10] = 8;
+        numbers[11] = 10;
+        numbers[12] = 9;
+        numbers[13] = 4;
+        numbers[14] = 5;
+        numbers[15] = 6;
+        numbers[16] = 3;
+        numbers[17] = 11;
 
         int index = 0;
         for (Hex hex : hexArrayList) {
@@ -834,7 +851,16 @@ public class Board {
         ArrayList<Location> hexesWithNumber = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 9; j++) {
+<<<<<<< HEAD
                 if (hexes[i][j].number == number) {
+=======
+                if(hexes[i][j] == null)
+                {
+                    continue;
+                }
+                if (hexes[i][j].number == number)
+                {
+>>>>>>> 4678a1bcd084aaccfa543f0be9c492be043929aa
                     hexesWithNumber.add(new Location(i, j));
                 }
             }
@@ -970,4 +996,39 @@ public class Board {
         }
         return adjacentRoads;
     }
+
+    public int getLongestPath(Player player, Edge source){
+        int maxLength = Integer.MIN_VALUE;
+            if (source == null)
+                return -1;
+            else
+            {
+                List<Edge> sourceEdges = findAdjacentRoads(source, player);
+                for (int i = 0; i < sourceEdges.size(); i++) {
+                    int depth = getLongestPath(player, sourceEdges.get(0));
+                    if(depth > maxLength){
+                        maxLength = depth + 1;
+                }
+            }
+        }
+        return maxLength;
+    }
+
+    private List<Edge> findAdjacentRoads(Edge edge, Player p) {
+        List<Edge> adjacentRoads = new ArrayList<>();
+        List<Vertex> verts = edge.getVertices();
+        for (Vertex vertex : verts) {
+            for (Edge adjRoad : vertex.getEdges()) {
+                if (adjRoad.hasRoad() && adjRoad.getRoadColor() == p.color) {
+                    adjacentRoads.add(adjRoad);
+                }
+                else if(!adjRoad.hasRoad() || adjRoad.getRoadColor() != p.color){
+                    // will subtract one off the end of the road for total score
+                }
+
+            }
+        }
+        return adjacentRoads;
+    }
+
 }

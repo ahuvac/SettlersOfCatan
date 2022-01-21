@@ -38,4 +38,42 @@ public class Wallet {
         cards.put(card, amount+=number);
     }
 
+<<<<<<< HEAD
+=======
+    public ResourceType getRandomCard()
+    {
+        if (isEmpty())
+        {
+            return null;
+        }
+        while (true) {
+            ResourceType type = ResourceType.values()[new Random().nextInt(ResourceType.values().length)];
+            if (type != ResourceType.DESERT && hasCard(type, 1)) {
+                useCard(type);
+                return type;
+            }
+        }
+    }
+
+    public int getTotalCards()
+    {
+        int sum = 0;
+        for (ResourceType type : ResourceType.values()) {
+            if(cards.containsKey(type)) {
+                int num = cards.get(type);
+                sum += num;
+                cards.put(type, num);
+            }
+        }
+        return sum;
+    }
+
+    public int getCardAmount(ResourceType type)
+    {
+        int amount = cards.get(type);
+        cards.put(type, amount);
+        return amount;
+    }
+
+>>>>>>> 4678a1bcd084aaccfa543f0be9c492be043929aa
 }

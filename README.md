@@ -1,12 +1,10 @@
-# SettlersOfCatan
+# Settlers Of Catan
 
-What we need:
+A two-person version of Settlers of Catan
 
-Board:
-* Hexes
-* Ports
-* Resource Type (Enum)
-* Developement Cards
-* Settlements
-* Roads
-* Citys
+Start Screen:
+![Application Image](screenshots/StartScreen.JPG)
+
+Game:
+
+![Application Image](screenshots/Game.JPG)
