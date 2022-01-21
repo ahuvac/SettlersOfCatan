@@ -8,28 +8,13 @@ public class Game {
     private Board board;
     private Bank bank;
     private boolean rolled = false;
-<<<<<<< HEAD
     private Player longestRoad = null;
     Map<Player, Integer> roadLengths = new HashMap<>();
-
-    public boolean isRolled() {
-        return rolled;
-    }
-
-    public void setRolled(boolean rolled) {
-        this.rolled = rolled;
-    }
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
-    }
-
-=======
->>>>>>> 25358859aa1bba4d219cfad797c502c39618fc8e
+    //    public Game(List<String> names){
     private int largestArmy;
     private Player currentPlayer;
 
-    //    public Game(List<String> names){
+
     public Game() {
         players = new ArrayList<>();
         players.add(new Player(Color.values()[new Random().nextInt(Color.values().length)]));
@@ -56,6 +41,7 @@ public class Game {
             giveCards(ResourceType.GRAIN, 2, player);
         }
     }
+
 
     public boolean isRolled() {
         return rolled;
