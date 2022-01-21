@@ -921,16 +921,6 @@ public class Board {
         return maxLength;
     }
 
-    private void replaceDistances(Edge source, Edge adjacentEdge, Map<Edge, Integer> distances, int edgeWeight)
-    {
-        int sourceDistance = distances.get(source);
-        int newDistance = sourceDistance + edgeWeight;
-        if (newDistance < distances.get(adjacentEdge))
-        {
-            distances.put(adjacentEdge, newDistance);
-        }
-    }
-
     private List<Edge> findAdjacentRoads(Edge edge, Player p) {
         List<Edge> adjacentRoads = new ArrayList<>();
         List<Vertex> verts = edge.getVertices();
