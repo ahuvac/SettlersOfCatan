@@ -2,14 +2,14 @@
 
 A two-person version of Settlers of Catan
 
-###Start Screen:
+### Start Screen:
 ![Application Image](screenshots/StartScreen.JPG)
 
-###Game:
+### Game:
 
 ![Application Image](screenshots/Game.JPG)
 
-###Backend Information:
+### Backend Information:
 The board is represented by three 2D arrays:
 * Hexes
   
