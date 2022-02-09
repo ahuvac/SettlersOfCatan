@@ -137,7 +137,9 @@ public class Game {
                 bank.addResourceCard(ResourceType.BRICK);
                 Edge edge = board.edges[location.row] [location.col];
                 currentPlayer.buildRoad(edge);
-                int max = Collections.max(roadLengths.values());
+                int max = roadLengths.isEmpty()
+                        ? 0
+                        : Collections.max(roadLengths.values());
                 int path = board.getLongestPath(currentPlayer, edge);
                 if(path >= 5 && path < max) {
                     roadLengths.put(currentPlayer, path);
