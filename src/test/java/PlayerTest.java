@@ -1,6 +1,9 @@
 import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
@@ -67,13 +70,15 @@ class PlayerTest {
 
         //given
         Player player = new Player(Color.BLUE);
+        List<Hex> hexes = new ArrayList<>();
+        hexes.add(new Hex(ResourceType.DESERT));
 
         //when
         player.addCard(ResourceType.BRICK, 15);
         player.addCard(ResourceType.LUMBER, 15);
 
         for (int i = 0; i < 8; i++) {
-            player.buildRoad();
+            player.buildRoad(new Edge(hexes));
         }
 
         //then
@@ -86,13 +91,15 @@ class PlayerTest {
 
         //given
         Player player = new Player(Color.BLUE);
+        List<Hex> hexes = new ArrayList<>();
+        hexes.add(new Hex(ResourceType.DESERT));
 
         //when
         player.addCard(ResourceType.BRICK, 15);
         player.addCard(ResourceType.LUMBER, 15);
 
         for (int i = 0; i < 16; i++) {
-            player.buildRoad();
+            player.buildRoad(new Edge(hexes));
         }
 
         //then
@@ -365,13 +372,15 @@ class PlayerTest {
 
         //given
         Player player = new Player(Color.BLUE);
+        List<Hex> hexes = new ArrayList<>();
+        hexes.add(new Hex(ResourceType.DESERT));
 
         //when
         player.addCard(ResourceType.BRICK, 2);
         player.addCard(ResourceType.LUMBER, 2);
 
         //then
-        assertTrue( player.buildRoad());
+        assertTrue( player.buildRoad(new Edge(hexes)));
         assertEquals(2, player.getTotalCards());
     }
 
@@ -379,13 +388,15 @@ class PlayerTest {
     void buildRoadFalse(){
         //given
         Player player = new Player(Color.BLUE);
+        List<Hex> hexes = new ArrayList<>();
+        hexes.add(new Hex(ResourceType.DESERT));
 
         //when
         player.addCard(ResourceType.BRICK, 0);
         player.addCard(ResourceType.LUMBER, 2);
 
         //then
-        assertFalse(player.buildRoad());
+        assertFalse(player.buildRoad(new Edge(hexes)));
     }
 
     @Test
